@@ -148,7 +148,6 @@ CommandHook(
                     double duration = (double)(dTime.value*1000/dTime.scale)*1000;
                     document.AddMember("duration", duration, document.GetAllocator());
                 }
-//     -------------------------------------------------------------videoTrack,audioTrack信息-------------------------------------------------------------------
                 rapidjson::Value videoTrackArray(rapidjson::kArrayType);
                 rapidjson::Value videoClipArray(rapidjson::kArrayType);
                 rapidjson::Value audioTrackArray(rapidjson::kArrayType);
@@ -163,6 +162,7 @@ CommandHook(
                     AEGP_LayerFlags layerflags;
                     ERR(suites.LayerSuite5()->AEGP_GetLayerFlags(layerH,&layerflags));
                     
+//     -------------------------------------------------------------timelineFXS信息-------------------------------------------------------------------
                     if(layerflags & AEGP_LayerFlag_ADJUSTMENT_LAYER){
                        A_long effect_num;
                        ERR(suites.EffectSuite4()->AEGP_GetLayerNumEffects(layerH,&effect_num));
@@ -214,6 +214,8 @@ CommandHook(
                            }
                        }
                     }else{
+//     -------------------------------------------------------------clip信息-------------------------------------------------------------------
+
                        rapidjson::Value clip(rapidjson::kObjectType);
                        //name信息
                        A_char name[100]={"\0"};
@@ -246,6 +248,7 @@ CommandHook(
                        AEGP_ItemFlags flags;
                        ERR(suites.ItemSuite5()->AEGP_GetItemFlags(sourceItem,&flags));
                        if(flags & AEGP_ItemFlag_HAS_VIDEO){//图片
+                           //     -------------------------------------------------------------video信息-------------------------------------------------------------------
                            //videoType
                            clip.AddMember("videoType", 1, document.GetAllocator());
                            //获取宽高信息
@@ -279,14 +282,28 @@ CommandHook(
                                    //特效类型
                                    A_char category[AEGP_MAX_EFFECT_NAME_SIZE]={'\0'};
                                    ERR(suites.EffectSuite4()->AEGP_GetEffectCategory(installed_keyP,category));
-                                   if(category[0] =='\xb9' && category[1]=='\xfd' && category[2]== '\xb6' && category[3]=='\xc9'){
-                                      //转场
+                                   string sCategory(category);
+                                   if(sCategory =="WBTransition"){
+                                      //     -------------------------------------------------------------特效转场-------------------------------------------------------------------
                                       rapidjson::Value transform(rapidjson::kObjectType);
                                       transform.AddMember("fxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
                                       transform.AddMember("videoTransitionType",2, document.GetAllocator());
+                                      //duration信息
+                                      AEGP_StreamRefH  param_streamH = NULL;
+                                      ERR(suites.StreamSuite5()->AEGP_GetNewEffectStreamByIndex(S_my_id,effectPH,1,&param_streamH));
+                                      A_long num_keyFrame;
+                                      ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(param_streamH,&num_keyFrame));
+                                      A_Time startTime = { 0,1 };
+                                       A_Time endTime = { 0,1 };
+                                      if(num_keyFrame == 2){
+                                          ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,0,AEGP_LTimeMode_CompTime,&startTime));
+                                          ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,1,AEGP_LTimeMode_CompTime,&endTime));
+                                          double duration = (double)((endTime.value-startTime.value)*1000/startTime.scale)*1000;
+                                          transform.AddMember("duration", duration, document.GetAllocator());
+                                      }
                                       TransformArray.PushBack(transform, document.GetAllocator());
                                    }else{
-                                       //滤镜
+                                        //     -------------------------------------------------------------特效滤镜-------------------------------------------------------------------
                                        if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
                                            rapidjson::Value fx(rapidjson::kObjectType);
                                            fx.AddMember("videoFxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
@@ -305,10 +322,8 @@ CommandHook(
                                                 //参数value
                                                 AEGP_StreamValue2 value;
                                                 A_Time timeT = { 0,1 };
-                                                ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(
-                                            S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&value));
-                                                properties.AddMember(rapidjson::Value(paramName,
-                                            document.GetAllocator()).Move(),value.val.one_d,document.GetAllocator());
+                                                ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&value));
+                                                properties.AddMember(rapidjson::Value(paramName,document.GetAllocator()).Move(),value.val.one_d,document.GetAllocator());
                                             }
                                            fx.AddMember("properties",properties, document.GetAllocator());
                                            fxArray.PushBack(fx, document.GetAllocator());
