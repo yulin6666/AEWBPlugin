@@ -13,11 +13,11 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"aaaa"
+			"WBInauguration"
 		},
 		/* [3] */
 		Category {
-			"Sample Plug-ins"
+			"WBTransition"
 		},
 #ifdef AE_OS_WIN
 	#ifdef AE_PROC_INTELx64
@@ -56,7 +56,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [11] */
 		AE_Effect_Match_Name {
-			"ADBE wanhuatong"
+			"ADBE inauguration"
 		},
 		/* [12] */
 		AE_Reserved_Info {

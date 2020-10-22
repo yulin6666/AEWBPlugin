@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F09453852531B755008F86ED"
-               BuildableName = "shayebushi.plugin"
-               BlueprintName = "shayebushi"
+               BlueprintIdentifier = "F072398025412C8200ED690F"
+               BuildableName = "WBinauguration.plugin"
+               BlueprintName = "WBinauguration"
                ReferencedContainer = "container:GLator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -55,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F09453852531B755008F86ED"
-            BuildableName = "shayebushi.plugin"
-            BlueprintName = "shayebushi"
+            BlueprintIdentifier = "F072398025412C8200ED690F"
+            BuildableName = "WBinauguration.plugin"
+            BlueprintName = "WBinauguration"
             ReferencedContainer = "container:GLator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

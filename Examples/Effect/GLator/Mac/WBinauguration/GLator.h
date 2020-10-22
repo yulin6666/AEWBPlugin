@@ -87,7 +87,7 @@ typedef float				fpshort;
 enum {
 	GLATOR_INPUT = 0,
 	GLATOR_SLIDER,
-	bbbceshi
+	
 };
 
 enum {

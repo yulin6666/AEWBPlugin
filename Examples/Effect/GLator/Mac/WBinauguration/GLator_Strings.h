@@ -24,7 +24,6 @@
 typedef enum {
 	StrID_NONE, 
 	StrID_Name,
-    StrID_Name1,
 	StrID_Description,
 	StrID_Color_Param_Name,
 	StrID_Checkbox_Param_Name,	

@@ -9,5 +9,5 @@ void main( void )
 {
     out_pos = ModelviewProjection * Position;
     gl_Position = out_pos;
-	out_uvs = UVs;
+    out_uvs = UVs;
 }

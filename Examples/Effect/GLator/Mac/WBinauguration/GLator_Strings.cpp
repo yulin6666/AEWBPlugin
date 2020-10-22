@@ -19,21 +19,34 @@
 /*                                                                 */
 /*******************************************************************/
 
-#pragma once
+#include "GLator.h"
 
-typedef enum {
-	StrID_NONE, 
-	StrID_Name,
-    StrID_Name1,
-	StrID_Description,
-	StrID_Color_Param_Name,
-	StrID_Checkbox_Param_Name,	
-	StrID_Checkbox_Description,
-	StrID_DependString1,
-	StrID_DependString2,
-	StrID_Err_LoadSuite,
-	StrID_Err_FreeSuite,
-	StrID_3D_Param_Name,
-	StrID_3D_Param_Description,
-	StrID_NUMTYPES
-} StrIDType;
+
+typedef struct {
+	unsigned long	index;
+	char			str[256];
+} TableString;
+
+
+TableString		g_strs[StrID_NUMTYPES] = {
+	StrID_NONE,						"",
+	StrID_Name,						"progress",
+	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
+	StrID_Color_Param_Name,			"Color",
+	StrID_Checkbox_Param_Name,		"Use Downsample Factors",
+	StrID_Checkbox_Description,		"Correct at all resolutions",
+	StrID_DependString1,			"All Dependencies requested.",
+	StrID_DependString2,			"Missing Dependencies requested.",
+	StrID_Err_LoadSuite,			"Error loading suite.",
+	StrID_Err_FreeSuite,			"Error releasing suite.",
+	StrID_3D_Param_Name,			"Use lights and cameras",
+	StrID_3D_Param_Description,		""
+};
+
+
+char	*GetStringPtr(int strNum)
+{
+	return g_strs[strNum].str;
+}
+
+	
