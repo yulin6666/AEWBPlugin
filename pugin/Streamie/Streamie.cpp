@@ -268,7 +268,6 @@ CommandHook(
                            A_long effect_num;
                            ERR(suites.EffectSuite4()->AEGP_GetLayerNumEffects(layerH,&effect_num));
                            rapidjson::Value fxArray(rapidjson::kArrayType);
-                           rapidjson::Value TransformArray(rapidjson::kArrayType);
                            for(int i = 0;i<effect_num;i++){
                                    AEGP_EffectRefH effectPH = NULL;
                                    ERR(suites.EffectSuite4()->AEGP_GetLayerEffectByIndex(S_my_id,layerH,i,&effectPH));
@@ -301,7 +300,8 @@ CommandHook(
                                           double duration = (double)((endTime.value-startTime.value)*1000/startTime.scale)*1000;
                                           transform.AddMember("duration", duration, document.GetAllocator());
                                       }
-                                      TransformArray.PushBack(transform, document.GetAllocator());
+                                      clip.AddMember("transitionFx", transform, document.GetAllocator());
+
                                    }else{
                                         //     -------------------------------------------------------------特效滤镜-------------------------------------------------------------------
                                        if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
@@ -332,8 +332,6 @@ CommandHook(
                                }
                           if(fxArray.Size() > 0)
                             clip.AddMember("fxs", fxArray, document.GetAllocator());
-                          if(TransformArray.Size()>0)
-                            clip.AddMember("transitionFxs", TransformArray, document.GetAllocator());
                           videoClipArray.PushBack(clip, document.GetAllocator());
                        }else if(flags & AEGP_ItemFlag_HAS_AUDIO){//音频
                            //videoType
