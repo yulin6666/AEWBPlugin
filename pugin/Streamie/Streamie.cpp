@@ -243,8 +243,9 @@ CommandHook(
                        //获取trimout信息
                        double trimOut = trimIn +duration;
                        clip.AddMember("trimOut", trimOut, document.GetAllocator());
-                       AEGP_ItemH sourceItem;
+                       AEGP_ItemH sourceItem = NULL;
                        ERR(suites.LayerSuite5()->AEGP_GetLayerSourceItem(layerH,&sourceItem));
+                       if(sourceItem){
                        AEGP_ItemFlags flags;
                        ERR(suites.ItemSuite5()->AEGP_GetItemFlags(sourceItem,&flags));
                        if(flags & AEGP_ItemFlag_HAS_VIDEO){//图片
@@ -264,6 +265,113 @@ CommandHook(
                            imagePAR.AddMember("den", pixelRatio.den, document.GetAllocator());
                            imagePAR.AddMember("num", pixelRatio.num, document.GetAllocator());
                            clip.AddMember("imagePAR", imagePAR, document.GetAllocator());
+                           //transform信息
+                           rapidjson::Value transformInfo(rapidjson::kObjectType);
+                           
+                           rapidjson::Value anchor(rapidjson::kObjectType);
+                           rapidjson::Value anchorKeyFrameArray(rapidjson::kArrayType);
+                           AEGP_StreamRefH anchorS = NULL;
+                           ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_ANCHORPOINT,&anchorS));
+                           A_long num_anchorkeyFrame;
+                           ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(anchorS,&num_anchorkeyFrame));
+                           for(int i=0;i<num_anchorkeyFrame;i++){
+                               rapidjson::Value anchorKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(anchorS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               anchorKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,anchorS,i,&value));
+                               anchorKeyFrame.AddMember("pointX", value.val.two_d.x, document.GetAllocator());
+                               anchorKeyFrame.AddMember("pointY", value.val.two_d.y, document.GetAllocator());
+                               anchorKeyFrameArray.PushBack(anchorKeyFrame, document.GetAllocator());
+                           }
+                           anchor.AddMember("keyFrame", anchorKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("anchor", anchor, document.GetAllocator());
+                           
+                           rapidjson::Value position(rapidjson::kObjectType);
+                           rapidjson::Value positionKeyFrameArray(rapidjson::kArrayType);
+                           AEGP_StreamRefH positionS = NULL;
+                           ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_POSITION,&positionS));
+                           A_long num_positionKeyFrame;
+                           ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(positionS,&num_positionKeyFrame));
+                           for(int i=0;i<num_positionKeyFrame;i++){
+                               rapidjson::Value positionKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(positionS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               positionKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,positionS,i,&value));
+                               positionKeyFrame.AddMember("pointX", value.val.two_d.x, document.GetAllocator());
+                               positionKeyFrame.AddMember("pointY", value.val.two_d.y, document.GetAllocator());
+                               positionKeyFrameArray.PushBack(positionKeyFrame, document.GetAllocator());
+                           }
+                           position.AddMember("keyFrame", positionKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("position", position, document.GetAllocator());
+                           
+                           rapidjson::Value scale(rapidjson::kObjectType);
+                           rapidjson::Value scaleKeyFrameArray(rapidjson::kArrayType);
+                           AEGP_StreamRefH scaleS = NULL;
+                           ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_SCALE,&scaleS));
+                           A_long num_scaleKeyFrame;
+                           ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(scaleS,&num_scaleKeyFrame));
+                           for(int i=0;i<num_scaleKeyFrame;i++){
+                               rapidjson::Value scaleKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(scaleS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               scaleKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,i,&value));
+                               scaleKeyFrame.AddMember("pointX", value.val.two_d.x, document.GetAllocator());
+                               scaleKeyFrame.AddMember("pointY", value.val.two_d.y, document.GetAllocator());
+                               scaleKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
+                           }
+                           scale.AddMember("keyFrame", scaleKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("scale", scale, document.GetAllocator());
+                           
+                           rapidjson::Value rotate(rapidjson::kObjectType);
+                           rapidjson::Value rotateKeyFrameArray(rapidjson::kArrayType);
+                           AEGP_StreamRefH rotateS = NULL;
+                           ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_ROTATION,&rotateS));
+                           A_long num_rotateKeyFrame;
+                           ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(rotateS,&num_rotateKeyFrame));
+                           for(int i=0;i<num_rotateKeyFrame;i++){
+                               rapidjson::Value rotateKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(rotateS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               rotateKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,rotateS,i,&value));
+                               rotateKeyFrame.AddMember("angle", value.val.two_d.x, document.GetAllocator());
+                               rotateKeyFrameArray.PushBack(rotateKeyFrame, document.GetAllocator());
+                           }
+                           rotate.AddMember("keyFrame", rotateKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("rotate", rotate, document.GetAllocator());
+                           
+                           rapidjson::Value alpha(rapidjson::kObjectType);
+                           rapidjson::Value alphaKeyFrameArray(rapidjson::kArrayType);
+                           AEGP_StreamRefH opacityS = NULL;
+                           ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_OPACITY,&opacityS));
+                           A_long num_opacityKeyFrame;
+                           ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(opacityS,&num_opacityKeyFrame));
+                           for(int i=0;i<num_opacityKeyFrame;i++){
+                               rapidjson::Value alphaKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(opacityS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               alphaKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,opacityS,i,&value));
+                               alphaKeyFrame.AddMember("percent", value.val.one_d, document.GetAllocator());
+                               alphaKeyFrameArray.PushBack(alphaKeyFrame, document.GetAllocator());
+                           }
+                           alpha.AddMember("keyFrame", alphaKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("alpha", alpha, document.GetAllocator());
+                           
+                           clip.AddMember("transformInfo", transformInfo, document.GetAllocator());
                            //特效信息
                            A_long effect_num;
                            ERR(suites.EffectSuite4()->AEGP_GetLayerNumEffects(layerH,&effect_num));
@@ -337,6 +445,7 @@ CommandHook(
                            //videoType
                            clip.AddMember("videoType", 0, document.GetAllocator());
                            audioClipArray.PushBack(clip, document.GetAllocator());
+                       }
                        }
                     }
                 }
