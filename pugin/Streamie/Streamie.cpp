@@ -141,7 +141,6 @@ CommandHook(
                     videoFps.AddMember("den", 1, document.GetAllocator());
                     videoFps.AddMember("num", fps, document.GetAllocator());
                     document.AddMember("videoFps", videoFps, document.GetAllocator());
-
                     //获取duration信息
                     A_Time dTime = { 0,1 };
                     ERR(suites.ItemSuite5()->AEGP_GetItemDuration(rootItemPH,&dTime));
@@ -272,6 +271,13 @@ CommandHook(
                            rapidjson::Value anchorKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH anchorS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_ANCHORPOINT,&anchorS));
+                           rapidjson::Value anchorDeFault(rapidjson::kObjectType);
+                           AEGP_StreamValue2 defaultValue;
+                           A_Time timeT = { 0,1 };
+                           ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,anchorS,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&defaultValue));
+                           anchorDeFault.AddMember("pointX", defaultValue.val.two_d.x, document.GetAllocator());
+                           anchorDeFault.AddMember("pointY", defaultValue.val.two_d.y, document.GetAllocator());
+                           anchor.AddMember("defaultValue", anchorDeFault, document.GetAllocator());
                            A_long num_anchorkeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(anchorS,&num_anchorkeyFrame));
                            for(int i=0;i<num_anchorkeyFrame;i++){
@@ -293,6 +299,13 @@ CommandHook(
                            rapidjson::Value positionKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH positionS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_POSITION,&positionS));
+                           rapidjson::Value positionDeFault(rapidjson::kObjectType);
+                           AEGP_StreamValue2 pdefaultValue;
+                           A_Time ptimeT = { 0,1 };
+                           ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,positionS,AEGP_LTimeMode_LayerTime,&ptimeT,TRUE,&pdefaultValue));
+                           positionDeFault.AddMember("pointX", pdefaultValue.val.two_d.x, document.GetAllocator());
+                           positionDeFault.AddMember("pointY", pdefaultValue.val.two_d.y, document.GetAllocator());
+                           position.AddMember("defaultValue", positionDeFault, document.GetAllocator());
                            A_long num_positionKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(positionS,&num_positionKeyFrame));
                            for(int i=0;i<num_positionKeyFrame;i++){
@@ -314,6 +327,13 @@ CommandHook(
                            rapidjson::Value scaleKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH scaleS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_SCALE,&scaleS));
+                           rapidjson::Value scaleDeFault(rapidjson::kObjectType);
+                           AEGP_StreamValue2 sdefaultValue;
+                           A_Time stimeT = { 0,1 };
+                           ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,scaleS,AEGP_LTimeMode_LayerTime,&stimeT,TRUE,&sdefaultValue));
+                           scaleDeFault.AddMember("pointX", sdefaultValue.val.two_d.x, document.GetAllocator());
+                           scaleDeFault.AddMember("pointY", sdefaultValue.val.two_d.y, document.GetAllocator());
+                           scale.AddMember("defaultValue", scaleDeFault, document.GetAllocator());
                            A_long num_scaleKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(scaleS,&num_scaleKeyFrame));
                            for(int i=0;i<num_scaleKeyFrame;i++){
@@ -335,6 +355,12 @@ CommandHook(
                            rapidjson::Value rotateKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH rotateS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_ROTATION,&rotateS));
+                           rapidjson::Value rotateDeFault(rapidjson::kObjectType);
+                           AEGP_StreamValue2 rdefaultValue;
+                           A_Time rtimeT = { 0,1 };
+                           ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,rotateS,AEGP_LTimeMode_LayerTime,&rtimeT,TRUE,&rdefaultValue));
+                           rotateDeFault.AddMember("angle", rdefaultValue.val.one_d, document.GetAllocator());
+                           rotate.AddMember("defaultValue", rotateDeFault, document.GetAllocator());
                            A_long num_rotateKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(rotateS,&num_rotateKeyFrame));
                            for(int i=0;i<num_rotateKeyFrame;i++){
@@ -355,6 +381,12 @@ CommandHook(
                            rapidjson::Value alphaKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH opacityS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_OPACITY,&opacityS));
+                           rapidjson::Value alphaDeFault(rapidjson::kObjectType);
+                           AEGP_StreamValue2 adefaultValue;
+                           A_Time atimeT = { 0,1 };
+                           ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,opacityS,AEGP_LTimeMode_LayerTime,&atimeT,TRUE,&adefaultValue));
+                           alphaDeFault.AddMember("percent", adefaultValue.val.one_d, document.GetAllocator());
+                           alpha.AddMember("defaultValue", alphaDeFault, document.GetAllocator());
                            A_long num_opacityKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(opacityS,&num_opacityKeyFrame));
                            for(int i=0;i<num_opacityKeyFrame;i++){
