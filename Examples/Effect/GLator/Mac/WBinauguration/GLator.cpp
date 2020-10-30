@@ -348,7 +348,6 @@ namespace {
         glUniform1f(location, sliderVal);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
         glUniform1f(location, multiplier16bit);
-
         // Identify the texture to use and bind it to texture unit 0
         AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
