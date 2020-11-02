@@ -407,7 +407,7 @@
 						DevelopmentTeam = 25N8K67YQF;
 					};
 					F07F2002254A6938000C30C6 = {
-						DevelopmentTeam = 25N8K67YQF;
+						DevelopmentTeam = 3Y4TJ733T7;
 					};
 					F0D4AB9F25319D62005D80FB = {
 						DevelopmentTeam = 3Y4TJ733T7;
@@ -645,7 +645,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 25N8K67YQF;
+				DEVELOPMENT_TEAM = 3Y4TJ733T7;
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (

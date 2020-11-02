@@ -303,8 +303,8 @@ CommandHook(
                            AEGP_StreamValue2 pdefaultValue;
                            A_Time ptimeT = { 0,1 };
                            ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,positionS,AEGP_LTimeMode_LayerTime,&ptimeT,TRUE,&pdefaultValue));
-                           positionDeFault.AddMember("pointX", pdefaultValue.val.two_d.x, document.GetAllocator());
-                           positionDeFault.AddMember("pointY", pdefaultValue.val.two_d.y, document.GetAllocator());
+                           positionDeFault.AddMember("translateX", pdefaultValue.val.two_d.x, document.GetAllocator());
+                           positionDeFault.AddMember("translateY", pdefaultValue.val.two_d.y, document.GetAllocator());
                            position.AddMember("defaultValue", positionDeFault, document.GetAllocator());
                            A_long num_positionKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(positionS,&num_positionKeyFrame));
@@ -316,12 +316,12 @@ CommandHook(
                                positionKeyFrame.AddMember("time",time, document.GetAllocator());
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,positionS,i,&value));
-                               positionKeyFrame.AddMember("pointX", value.val.two_d.x, document.GetAllocator());
-                               positionKeyFrame.AddMember("pointY", value.val.two_d.y, document.GetAllocator());
+                               positionKeyFrame.AddMember("translateX", value.val.two_d.x, document.GetAllocator());
+                               positionKeyFrame.AddMember("translateY", value.val.two_d.y, document.GetAllocator());
                                positionKeyFrameArray.PushBack(positionKeyFrame, document.GetAllocator());
                            }
                            position.AddMember("keyFrame", positionKeyFrameArray, document.GetAllocator());
-                           transformInfo.AddMember("position", position, document.GetAllocator());
+                           transformInfo.AddMember("translate", position, document.GetAllocator());
                            
                            rapidjson::Value scale(rapidjson::kObjectType);
                            rapidjson::Value scaleKeyFrameArray(rapidjson::kArrayType);
@@ -331,8 +331,8 @@ CommandHook(
                            AEGP_StreamValue2 sdefaultValue;
                            A_Time stimeT = { 0,1 };
                            ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,scaleS,AEGP_LTimeMode_LayerTime,&stimeT,TRUE,&sdefaultValue));
-                           scaleDeFault.AddMember("pointX", sdefaultValue.val.two_d.x, document.GetAllocator());
-                           scaleDeFault.AddMember("pointY", sdefaultValue.val.two_d.y, document.GetAllocator());
+                           scaleDeFault.AddMember("scaleX", sdefaultValue.val.two_d.x, document.GetAllocator());
+                           scaleDeFault.AddMember("scaleY", sdefaultValue.val.two_d.y, document.GetAllocator());
                            scale.AddMember("defaultValue", scaleDeFault, document.GetAllocator());
                            A_long num_scaleKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(scaleS,&num_scaleKeyFrame));
@@ -344,8 +344,8 @@ CommandHook(
                                scaleKeyFrame.AddMember("time",time, document.GetAllocator());
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,i,&value));
-                               scaleKeyFrame.AddMember("pointX", value.val.two_d.x, document.GetAllocator());
-                               scaleKeyFrame.AddMember("pointY", value.val.two_d.y, document.GetAllocator());
+                               scaleKeyFrame.AddMember("scaleX", value.val.two_d.x, document.GetAllocator());
+                               scaleKeyFrame.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
                                scaleKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
                            }
                            scale.AddMember("keyFrame", scaleKeyFrameArray, document.GetAllocator());
