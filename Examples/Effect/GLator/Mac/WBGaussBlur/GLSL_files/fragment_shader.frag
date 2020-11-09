@@ -1,8 +1,8 @@
 #version 330
 uniform sampler2D videoTexture;
-uniform float sliderVal;
+uniform float property_float_0; // slider
 uniform float multiplier16bit;
-uniform int direction;
+uniform int property_int_0; // direction
 in vec4 out_pos;
 in vec2 out_uvs;
 out vec4 colourOut;
@@ -16,18 +16,18 @@ float Gaussian (float sigma, float x)
 void main( void )
 {
     vec2 UV = out_uvs.xy;
-    int   c_samplesX     = int(128 * sliderVal) + 1;
-    int   c_samplesY     = int(128 * sliderVal) + 1;
+    int   c_samplesX     = int(128 * property_float_0) + 1;
+    int   c_samplesY     = int(128 * property_float_0) + 1;
     float c_textureSize  = 512.0;
     int   c_halfSamplesX = c_samplesX / 2;
     int   c_halfSamplesY = c_samplesY / 2;
     float c_pixelSize    = (1.0 / c_textureSize);
-    float c_sigmaX       = 20.0 * sliderVal;
-    float c_sigmaY       = 20.0 * sliderVal;
+    float c_sigmaX       = 20.0 * property_float_0;
+    float c_sigmaY       = 20.0 * property_float_0;
     
-    if (direction == 2){ //水平
+    if (property_int_0 == 2){ //水平
         c_sigmaY = 0.01;
-    }else if (direction == 3){//竖直
+    }else if (property_int_0 == 3){//竖直
         c_sigmaX = 0.01;
     }
     float total = 0.0;
@@ -46,7 +46,7 @@ void main( void )
         }
     }
     colourOut = ret / total;
-    if (sliderVal == 0.0){
+    if (property_float_0 == 0.0){
         colourOut = texture(videoTexture,UV);
     }
 }

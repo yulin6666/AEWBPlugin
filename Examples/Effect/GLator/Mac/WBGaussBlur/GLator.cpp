@@ -345,11 +345,11 @@ namespace {
 		// program uniforms
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
-		location = glGetUniformLocation(renderContext->mProgramObjSu, "sliderVal");
+		location = glGetUniformLocation(renderContext->mProgramObjSu, "property_float_0");
 		glUniform1f(location, sliderVal);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "direction");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "property_int_0");
         glUniform1i(location, direction);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
@@ -655,7 +655,7 @@ SmartRender(
         sliderVal = slider_param.u.fd.value / 100.0f;
         direction = direction_param.u.pd.value;
 	}
-
+    printf("%s", typeid(sliderVal).name());
     
 	ERR((extra->cb->checkout_layer_pixels(in_data->effect_ref, GLATOR_INPUT, &input_worldP)));
 
