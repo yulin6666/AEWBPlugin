@@ -1,7 +1,7 @@
 #version 330
 uniform sampler2D videoTexture;
-uniform float sliderVal;
-uniform float direction;
+uniform float property_float_0;
+uniform float property_float_1;
 uniform float multiplier16bit;
 in vec4 out_pos;
 in vec2 out_uvs;
@@ -15,13 +15,13 @@ void main( void )
     
     vec4 Color = vec4(0.0);
     
-    float Intensity = 0.2 * sliderVal;
+    float Intensity = 0.2 * property_float_0;
         
     vec2  Direction = vec2(1.0,0.0); //方向向量  此方向为水平
     
-    float X = cos(angel)*Direction.x - sin(angel)*Direction.y;
+    float X = cos(property_float_1)*Direction.x - sin(property_float_1)*Direction.y;
     
-    float Y = sin(angel)*Direction.x +cos(angel)*Direction.y;
+    float Y = sin(property_float_1)*Direction.x +cos(property_float_1)*Direction.y;
     
     Direction = vec2(X,Y);
     
