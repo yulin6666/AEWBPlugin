@@ -23,11 +23,11 @@ void main( void )
         vec2 dir = center - uv;
         vec2 blurVector = dir * 0.02;
         vec4 accumulateColor = vec4(0.0);
-        for (int i = 0; i < strength; i++) {
+        for (int i = 0; i < int(strength); i++) {
             accumulateColor += texture(videoTexture, uv);
             uv.xy += blurVector.xy;
         }
-        vec4 result = accumulateColor/strength;
+        vec4 result = accumulateColor/int(strength);
         colourOut = result;
     }else{
         int samples = int(100 * sliderVal);
