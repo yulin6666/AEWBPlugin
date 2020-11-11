@@ -16,14 +16,14 @@ float Gaussian (float sigma, float x)
 void main( void )
 {
     vec2 UV = out_uvs.xy;
-    int   c_samplesX     = int(128 * property_float_0) + 1;
-    int   c_samplesY     = int(128 * property_float_0) + 1;
+    int   c_samplesX     = int(25 * property_float_0) + 3;
+    int   c_samplesY     = int(25 * property_float_0) + 3;
     float c_textureSize  = 512.0;
     int   c_halfSamplesX = c_samplesX / 2;
     int   c_halfSamplesY = c_samplesY / 2;
-    float c_pixelSize    = (1.0 / c_textureSize);
-    float c_sigmaX       = 20.0 * property_float_0;
-    float c_sigmaY       = 20.0 * property_float_0;
+    float c_pixelSize    = (1.0 / c_textureSize) * (1.0 + 2.0 * property_float_0);
+    float c_sigmaX       = 20.0 ;
+    float c_sigmaY       = 20.0 ;
     
     if (property_int_0 == 2){ //水平
         c_sigmaY = 0.01;
@@ -36,13 +36,13 @@ void main( void )
     for (int iy = 0; iy < c_samplesY; ++iy)
     {
         float fy = Gaussian (c_sigmaY, float(iy) - float(c_halfSamplesY));
-        float offsety = float(iy-c_halfSamplesY) * c_pixelSize * 2.;
+        float offsety = float(iy-c_halfSamplesY) * c_pixelSize;
         for (int ix = 0; ix < c_samplesX; ++ix)
         {
             float fx = Gaussian (c_sigmaX, float(ix) - float(c_halfSamplesX));
-            float offsetx = float(ix-c_halfSamplesX) * c_pixelSize * 2.;
-            total += fx * fy * 50.;
-            ret += texture(videoTexture, UV + vec2(offsetx, offsety)) * fx*fy * 50.;
+            float offsetx = float(ix-c_halfSamplesX) * c_pixelSize;
+            total += fx * fy;
+            ret += texture(videoTexture, UV + vec2(offsetx, offsety)) * fx*fy ;
         }
     }
     colourOut = ret / total;
