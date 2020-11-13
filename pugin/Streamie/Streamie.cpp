@@ -147,14 +147,15 @@ CommandHook(
                     double duration = (double)(dTime.value*1000/dTime.scale)*1000;
                     document.AddMember("duration", duration, document.GetAllocator());
                 }
+
                 rapidjson::Value videoTrackArray(rapidjson::kArrayType);
-                rapidjson::Value videoClipArray(rapidjson::kArrayType);
                 rapidjson::Value audioTrackArray(rapidjson::kArrayType);
-                rapidjson::Value audioClipArray(rapidjson::kArrayType);
                 rapidjson::Value timeLineFxs(rapidjson::kArrayType);
 
                 //处理层信息
                 for(int i= 0;i<LayerNum;i++){
+                    rapidjson::Value videoClipArray(rapidjson::kArrayType);
+                    rapidjson::Value audioClipArray(rapidjson::kArrayType);
                     AEGP_LayerH layerH;
                     ERR(suites.LayerSuite5()->AEGP_GetCompLayerByIndex(compPH,i,&layerH));
                     
@@ -216,6 +217,7 @@ CommandHook(
 //     -------------------------------------------------------------clip信息-------------------------------------------------------------------
 
                        rapidjson::Value clip(rapidjson::kObjectType);
+
                        //name信息
                        A_char name[100]={"\0"};
                        ERR(suites.LayerSuite5()->AEGP_GetLayerName(layerH,NULL,name));
@@ -480,22 +482,24 @@ CommandHook(
                        }
                        }
                     }
+                
+                    if(videoClipArray.Size()>0){
+                        rapidjson::Value videoTrack(rapidjson::kObjectType);
+                        videoTrack.AddMember("clips", videoClipArray, document.GetAllocator());
+                        videoTrackArray.PushBack(videoTrack, document.GetAllocator());
+                    }
+                    if(audioClipArray.Size()>0){
+                        rapidjson::Value audioTrack(rapidjson::kObjectType);
+                        audioTrack.AddMember("clips", audioClipArray, document.GetAllocator());
+                        audioTrackArray.PushBack(audioTrack, document.GetAllocator());
+                    }
+                    
                 }
                 
-                if(videoClipArray.Size() > 0){
-                    rapidjson::Value videoTrack(rapidjson::kObjectType);
-                    videoTrack.AddMember("clips", videoClipArray, document.GetAllocator());
-                    videoTrackArray.PushBack(videoTrack, document.GetAllocator());
+                if(videoTrackArray.Size()> 0)
                     document.AddMember("videoTracks", videoTrackArray, document.GetAllocator());
-                }
-               
-                if(audioClipArray.Size()>0){
-                    rapidjson::Value audioTrack(rapidjson::kObjectType);
-                    audioTrack.AddMember("clips", audioClipArray, document.GetAllocator());
-                    audioTrackArray.PushBack(audioTrack, document.GetAllocator());
+                if(audioTrackArray.Size()>0)
                     document.AddMember("audioTracks", audioTrackArray, document.GetAllocator());
-                }
-                
                 if(timeLineFxs.Size()>0){
                     document.AddMember("timelineVideoFxs", timeLineFxs, document.GetAllocator());
                 }
