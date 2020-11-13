@@ -13,7 +13,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"WBMosaic"
+			"WB马赛克"
 		},
 		/* [3] */
 		Category {

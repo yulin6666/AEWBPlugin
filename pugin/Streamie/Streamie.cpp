@@ -448,8 +448,9 @@ CommandHook(
                                         //     -------------------------------------------------------------特效滤镜-------------------------------------------------------------------
                                        if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
                                            rapidjson::Value fx(rapidjson::kObjectType);
-                                           fx.AddMember("videoFxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
-                                           fx.AddMember("timelineVideoFxType",2, document.GetAllocator());
+                                           fx.AddMember("fxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
+                                           fx.AddMember("videoFxType",2, document.GetAllocator());
+                                           fx.AddMember("filterIntensity",1.0, document.GetAllocator());
                                            //效果参数
                                            rapidjson::Value properties(rapidjson::kObjectType);
                                             A_long num_param;
@@ -472,8 +473,18 @@ CommandHook(
                                        }
                                    }
                                }
+
+                           //添加默认变换fx
+                            rapidjson::Value transformFx(rapidjson::kObjectType);
+                            transformFx.AddMember("fxPath","WBAETransform", document.GetAllocator());
+                            transformFx.AddMember("videoFxType",2, document.GetAllocator());
+                            transformFx.AddMember("filterIntensity",1.0, document.GetAllocator());
+                            rapidjson::Value properties(rapidjson::kObjectType);
+                            transformFx.AddMember("properties",properties, document.GetAllocator());
+                            fxArray.PushBack(transformFx, document.GetAllocator());
                           if(fxArray.Size() > 0)
                             clip.AddMember("fxs", fxArray, document.GetAllocator());
+                          
                           videoClipArray.PushBack(clip, document.GetAllocator());
                        }else if(flags & AEGP_ItemFlag_HAS_AUDIO){//音频
                            //videoType
