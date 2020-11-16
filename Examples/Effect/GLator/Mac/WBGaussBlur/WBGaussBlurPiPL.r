@@ -13,7 +13,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"WBGaussBlur"
+			"WB高 斯模糊"
 		},
 		/* [3] */
 		Category {

@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/WBGaussBlur.plugin-Info.plist</key>
 		<data>
-		en92IvuWRMP1dWNq9mskfEdsqVQ=
+		7mS9moUMyQZ9/haNJLsZAPtOvCg=
 		</data>
 		<key>Resources/WBGaussBlur.rsrc</key>
 		<data>
-		oMNfwR4VJBl7o/cwZDMtR5x40ao=
+		d/fH6I+TDW/RxNp+OzMBmmOTVNY=
 		</data>
 		<key>Resources/fragment_shader.frag</key>
 		<data>
@@ -31,14 +31,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+viMjZDMDFSeYql2S0rWqJMMlG8twwZwmUqw6MnUK80=
+			gYo3eMcB1zhtLs/W/PmH5dov8lmriYHOFCoYqecN7wc=
 			</data>
 		</dict>
 		<key>Resources/WBGaussBlur.rsrc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6FlzfLBiG0qBMI+wOTyuzju6cuOwnjROEH/lmp0vjzM=
+			4P/e54bh+Z9Y1OIy1xPW2RYwMlIL3BH43fwwoS9Ak3I=
 			</data>
 		</dict>
 		<key>Resources/fragment_shader.frag</key>
