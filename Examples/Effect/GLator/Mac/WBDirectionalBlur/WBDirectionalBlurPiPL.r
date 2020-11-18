@@ -13,7 +13,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"WBDirectionalBlur"
+            "WB方 向模糊"
 		},
 		/* [3] */
 		Category {
