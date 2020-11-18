@@ -324,8 +324,7 @@ namespace {
                   A_long widthL, A_long heightL,
                   gl::GLuint        inputFrameTexture,
                   PF_FpLong            hVal,
-                  float                multiplier16bit,
-                  PF_FpLong            vVal
+                  float                multiplier16bit
                   )
 	{
 		// - make sure we blend correctly inside the framebuffer
@@ -350,8 +349,12 @@ namespace {
 		glUniform1f(location, multiplier16bit);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "propery_float_0");
         glUniform1f(location, hVal);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "propery_float_1");
-        glUniform1f(location, vVal);
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "texelWidth");
+        float a =(float)(1.0/widthL);
+        glUniform1f(location,a);
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "texelHeight");
+        float b =(float)(1.0/heightL);
+        glUniform1f(location, b);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -625,8 +628,7 @@ SmartRender(
 						*output_worldP = NULL;
 	PF_WorldSuite2		*wsP = NULL;
 	PF_PixelFormat		format = PF_PixelFormat_INVALID;
-	PF_FpLong			hVal = 0;
-    PF_FpLong        vVal = 0;
+	PF_FpLong			intensity = 0;
 
 	AEGP_SuiteHandler suites(in_data->pica_basicP);
 
@@ -639,18 +641,8 @@ SmartRender(
         in_data->time_scale,
         &h_param));
     
-    PF_ParamDef v_param;
-    AEFX_CLR_STRUCT(v_param);
-    ERR(PF_CHECKOUT_PARAM(in_data,
-                          GLATOR_V_SLIDER,
-        in_data->current_time,
-        in_data->time_step,
-        in_data->time_scale,
-        &v_param));
-    
 	if (!err){
-        hVal = h_param.u.fd.value;
-        vVal = v_param.u.fd.value;
+        intensity = h_param.u.fd.value;
 	}
 
 	ERR((extra->cb->checkout_layer_pixels(in_data->effect_ref, GLATOR_INPUT, &input_worldP)));
@@ -710,7 +702,7 @@ SmartRender(
 			// - simply blend the texture inside the frame buffer
 			// - TODO: hack your own shader there
 //			RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit);
-            RenderGL(renderContext, widthL, heightL, inputFrameTexture, hVal, multiplier16bit,vVal);
+            RenderGL(renderContext, widthL, heightL, inputFrameTexture, intensity, multiplier16bit);
 
 			// - we toggle PBO textures (we use the PBO we just created as an input)
 			AESDK_OpenGL_MakeReadyToRender(*renderContext.get(), inputFrameTexture);

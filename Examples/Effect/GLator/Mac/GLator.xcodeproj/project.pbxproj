@@ -23,6 +23,22 @@
 		5E4BF9E4255012E500467A87 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BF9DC255012E500467A87 /* GLator_Strings.cpp */; };
 		5E4BF9E62550155B00467A87 /* WBMosaic.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E4BF9E52550155B00467A87 /* WBMosaic.plugin-Info.plist */; };
 		5E4BF9E82550158700467A87 /* WBMosaicPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = 5E4BF9E72550158700467A87 /* WBMosaicPiPL.r */; };
+		5E60CFB9256379A4002B7C6A /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		5E60CFBA256379A4002B7C6A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		5E60CFBB256379A4002B7C6A /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		5E60CFBC256379A4002B7C6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		5E60CFEE2563A6B2002B7C6A /* WBRelief.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E60CFE22563A6B2002B7C6A /* WBRelief.plugin-Info.plist */; };
+		5E60CFEF2563A6B2002B7C6A /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E60CFE42563A6B2002B7C6A /* GL_base.cpp */; };
+		5E60CFF02563A6B2002B7C6A /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E60CFE52563A6B2002B7C6A /* GLator.cpp */; };
+		5E60CFF12563A6B2002B7C6A /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5E60CFE82563A6B2002B7C6A /* vertex_shader.vert */; };
+		5E60CFF22563A6B2002B7C6A /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5E60CFE92563A6B2002B7C6A /* fragment_shader2.frag */; };
+		5E60CFF32563A6B2002B7C6A /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5E60CFEA2563A6B2002B7C6A /* fragment_shader.frag */; };
+		5E60CFF42563A6B2002B7C6A /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E60CFEC2563A6B2002B7C6A /* GLator_Strings.cpp */; };
+		5E60CFF52563A6B2002B7C6A /* WBReliefPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = 5E60CFED2563A6B2002B7C6A /* WBReliefPiPL.r */; };
+		5E60D00B2563B2BE002B7C6A /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		5E60D00C2563B2BE002B7C6A /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		5E60D00D2563B2BE002B7C6A /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		5E60D00E2563B2BE002B7C6A /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
 		F061EE6B254C18750029F769 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
 		F061EE6C254C18750029F769 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
 		F061EE6D254C18750029F769 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
@@ -127,14 +143,23 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5E4BF9C82550126C00467A87 /* CopyFiles */ = {
-            isa = PBXCopyFilesBuildPhase;
-            buildActionMask = 2147483647;
-            dstPath = "";
-            dstSubfolderSpec = 7;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E60CFBF256379A4002B7C6A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE71254C18750029F769 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +222,21 @@
 		5E4BF9DC255012E500467A87 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		5E4BF9E52550155B00467A87 /* WBMosaic.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBMosaic.plugin-Info.plist"; sourceTree = "<group>"; };
 		5E4BF9E72550158700467A87 /* WBMosaicPiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBMosaicPiPL.r; sourceTree = "<group>"; };
+		5E60CF8025629731002B7C6A /* WBMosaic copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBMosaic copy-Info.plist"; path = "/Users/yulin9/Documents/project/ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBMosaic copy-Info.plist"; sourceTree = "<absolute>"; };
+		5E60CFC2256379A4002B7C6A /* WBRelief.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBRelief.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E60CFC3256379A5002B7C6A /* WBGaussBlur copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBGaussBlur copy-Info.plist"; path = "/Users/yulin9/Documents/project/ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBGaussBlur copy-Info.plist"; sourceTree = "<absolute>"; };
+		5E60CFE12563A6B2002B7C6A /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
+		5E60CFE22563A6B2002B7C6A /* WBRelief.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBRelief.plugin-Info.plist"; sourceTree = "<group>"; };
+		5E60CFE32563A6B2002B7C6A /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
+		5E60CFE42563A6B2002B7C6A /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
+		5E60CFE52563A6B2002B7C6A /* GLator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator.cpp; sourceTree = "<group>"; };
+		5E60CFE62563A6B2002B7C6A /* GLator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator.h; sourceTree = "<group>"; };
+		5E60CFE82563A6B2002B7C6A /* vertex_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex_shader.vert; sourceTree = "<group>"; };
+		5E60CFE92563A6B2002B7C6A /* fragment_shader2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader2.frag; sourceTree = "<group>"; };
+		5E60CFEA2563A6B2002B7C6A /* fragment_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader.frag; sourceTree = "<group>"; };
+		5E60CFEB2563A6B2002B7C6A /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
+		5E60CFEC2563A6B2002B7C6A /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
+		5E60CFED2563A6B2002B7C6A /* WBReliefPiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBReliefPiPL.r; sourceTree = "<group>"; };
 		7E76EEE31F70885900536F9D /* AE_Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AE_Effect.h; path = ../../../Headers/AE_Effect.h; sourceTree = "<group>"; };
 		7E76EEE41F70885900536F9D /* AE_PluginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AE_PluginData.h; path = ../../../Headers/AE_PluginData.h; sourceTree = "<group>"; };
 		7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -291,9 +331,20 @@
 				5E4BF9C32550126C00467A87 /* OpenGL.framework in Frameworks */,
 				5E4BF9C42550126C00467A87 /* AGL.framework in Frameworks */,
 				5E4BF9C52550126C00467A87 /* Cocoa.framework in Frameworks */,
-                     );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E60CFB8256379A4002B7C6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E60CFB9256379A4002B7C6A /* libglbinding.a in Frameworks */,
+				5E60CFBA256379A4002B7C6A /* OpenGL.framework in Frameworks */,
+				5E60CFBB256379A4002B7C6A /* AGL.framework in Frameworks */,
+				5E60CFBC256379A4002B7C6A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE6A254C18750029F769 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,9 +430,37 @@
 			path = GLSL_files;
 			sourceTree = "<group>";
 		};
+		5E60CFE02563A6B2002B7C6A /* WBRelief */ = {
+			isa = PBXGroup;
+			children = (
+				5E60CFE12563A6B2002B7C6A /* vmath.hpp */,
+				5E60CFE22563A6B2002B7C6A /* WBRelief.plugin-Info.plist */,
+				5E60CFE32563A6B2002B7C6A /* GL_base.h */,
+				5E60CFE42563A6B2002B7C6A /* GL_base.cpp */,
+				5E60CFE52563A6B2002B7C6A /* GLator.cpp */,
+				5E60CFE62563A6B2002B7C6A /* GLator.h */,
+				5E60CFE72563A6B2002B7C6A /* GLSL_files */,
+				5E60CFEB2563A6B2002B7C6A /* GLator_Strings.h */,
+				5E60CFEC2563A6B2002B7C6A /* GLator_Strings.cpp */,
+				5E60CFED2563A6B2002B7C6A /* WBReliefPiPL.r */,
+			);
+			path = WBRelief;
+			sourceTree = "<group>";
+		};
+		5E60CFE72563A6B2002B7C6A /* GLSL_files */ = {
+			isa = PBXGroup;
+			children = (
+				5E60CFE82563A6B2002B7C6A /* vertex_shader.vert */,
+				5E60CFE92563A6B2002B7C6A /* fragment_shader2.frag */,
+				5E60CFEA2563A6B2002B7C6A /* fragment_shader.frag */,
+			);
+			path = GLSL_files;
+			sourceTree = "<group>";
+		};
 		C4E6187C095A3C800012CA3F = {
 			isa = PBXGroup;
 			children = (
+				5E60CFE02563A6B2002B7C6A /* WBRelief */,
 				5E4BF9CF255012E500467A87 /* WBMosaic */,
 				F061EEE1255138490029F769 /* WBGaussBlur */,
 				F061EE87254C26360029F769 /* WBDirectionalBlur */,
@@ -398,6 +477,8 @@
 				5E4BF9CC2550126D00467A87 /* WBMosaic.plist */,
 				F061EE76254C18750029F769 /* WBRadialBlur copy-Info.plist */,
 				F061EECC255130B40029F769 /* WBDirectionalBlur copy-Info.plist */,
+				5E60CF8025629731002B7C6A /* WBMosaic copy-Info.plist */,
+				5E60CFC3256379A5002B7C6A /* WBGaussBlur copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -410,6 +491,7 @@
 				5E4BF9CB2550126C00467A87 /* WBMosaic.plugin */,
 				F061EE74254C18750029F769 /* WBDirectionalBlur.plugin */,
 				F061EECA255130B40029F769 /* WBGaussBlur.plugin */,
+				5E60CFC2256379A4002B7C6A /* WBRelief.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -587,16 +669,35 @@
 				5E4BF9C12550126C00467A87 /* Frameworks */,
 				5E4BF9C62550126C00467A87 /* Rez */,
 				5E4BF9C82550126C00467A87 /* CopyFiles */,
-                );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = WBMosaic;
-            productName = Skeleton.plugin;
-            productReference = 5E4BF9CB2550126C00467A87 /* WBMosaic.plugin */;
-            productType = "com.apple.product-type.bundle";
-        };
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBMosaic;
+			productName = Skeleton.plugin;
+			productReference = 5E4BF9CB2550126C00467A87 /* WBMosaic.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		5E60CFAA256379A4002B7C6A /* WBRelief */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E60CFC0256379A4002B7C6A /* Build configuration list for PBXNativeTarget "WBRelief" */;
+			buildPhases = (
+				5E60CFAB256379A4002B7C6A /* Resources */,
+				5E60CFB0256379A4002B7C6A /* Sources */,
+				5E60CFB8256379A4002B7C6A /* Frameworks */,
+				5E60CFBD256379A4002B7C6A /* Rez */,
+				5E60CFBF256379A4002B7C6A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBRelief;
+			productName = Skeleton.plugin;
+			productReference = 5E60CFC2256379A4002B7C6A /* WBRelief.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F061EE5C254C18750029F769 /* WBDirectionalBlur */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F061EE72254C18750029F769 /* Build configuration list for PBXNativeTarget "WBDirectionalBlur" */;
@@ -702,7 +803,10 @@
 				TargetAttributes = {
 					5E4BF9B32550126C00467A87 = {
 						DevelopmentTeam = 3Y4TJ733T7;
-                    };
+					};
+					5E60CFAA256379A4002B7C6A = {
+						DevelopmentTeam = Z6436LX9A5;
+					};
 					F061EE5C254C18750029F769 = {
 						DevelopmentTeam = 25N8K67YQF;
 					};
@@ -747,6 +851,7 @@
 				5E4BF9B32550126C00467A87 /* WBMosaic */,
 				F061EE5C254C18750029F769 /* WBDirectionalBlur */,
 				F061EEB2255130B40029F769 /* WBGaussBlur */,
+				5E60CFAA256379A4002B7C6A /* WBRelief */,
 			);
 		};
 /* End PBXProject section */
@@ -770,9 +875,20 @@
 				5E4BF9E3255012E500467A87 /* fragment_shader.frag in Resources */,
 				5E4BF9E1255012E500467A87 /* vertex_shader.vert in Resources */,
 				5E4BF9E62550155B00467A87 /* WBMosaic.plugin-Info.plist in Resources */,
-                );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E60CFAB256379A4002B7C6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E60CFF32563A6B2002B7C6A /* fragment_shader.frag in Resources */,
+				5E60CFF22563A6B2002B7C6A /* fragment_shader2.frag in Resources */,
+				5E60CFEE2563A6B2002B7C6A /* WBRelief.plugin-Info.plist in Resources */,
+				5E60CFF12563A6B2002B7C6A /* vertex_shader.vert in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE5D254C18750029F769 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -836,9 +952,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4BF9E82550158700467A87 /* WBMosaicPiPL.r in Rez */,
-                );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E60CFBD256379A4002B7C6A /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E60CFF52563A6B2002B7C6A /* WBReliefPiPL.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE6F254C18750029F769 /* Rez */ = {
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
@@ -893,9 +1017,23 @@
 				5E4BF9BE2550126C00467A87 /* MissingSuiteError.cpp in Sources */,
 				5E4BF9BF2550126C00467A87 /* AEFX_SuiteHelper.c in Sources */,
 				5E4BF9C02550126C00467A87 /* Smart_Utils.cpp in Sources */,
-                );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E60CFB0256379A4002B7C6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E60D00B2563B2BE002B7C6A /* AEGP_SuiteHandler.cpp in Sources */,
+				5E60D00C2563B2BE002B7C6A /* MissingSuiteError.cpp in Sources */,
+				5E60D00D2563B2BE002B7C6A /* AEFX_SuiteHelper.c in Sources */,
+				5E60D00E2563B2BE002B7C6A /* Smart_Utils.cpp in Sources */,
+				5E60CFF42563A6B2002B7C6A /* GLator_Strings.cpp in Sources */,
+				5E60CFF02563A6B2002B7C6A /* GLator.cpp in Sources */,
+				5E60CFEF2563A6B2002B7C6A /* GL_base.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE62254C18750029F769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1004,6 +1142,36 @@
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBRadialBlur;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		5E60CFC1256379A4002B7C6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z6436LX9A5;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = WBRelief.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBGaussBlur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ZERO_LINK = NO;
 			};
@@ -1204,6 +1372,14 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E4BF9CA2550126C00467A87 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5E60CFC0256379A4002B7C6A /* Build configuration list for PBXNativeTarget "WBRelief" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E60CFC1256379A4002B7C6A /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
