@@ -43,6 +43,7 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <stdio.h>
 using namespace std;
 static AEGP_PluginID	S_my_id				= 0;
 
@@ -187,9 +188,13 @@ CommandHook(
                                ERR(suites.EffectSuite4()->AEGP_GetInstalledKeyFromLayerEffect(effectPH,&installed_keyP));
                                A_char nameAC[AEGP_MAX_EFFECT_NAME_SIZE]  = {'\0'};
                                ERR(suites.EffectSuite4()->AEGP_GetEffectName(installed_keyP,nameAC));
+                               A_char nameMatchAC[AEGP_MAX_EFFECT_NAME_SIZE]  = {'\0'};
+                               ERR(suites.EffectSuite4()->AEGP_GetEffectMatchName(installed_keyP,nameMatchAC));
                                if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
                                    //滤镜名
-                                   timeLineFx.AddMember("videoFxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
+                                   A_char packageName[AEGP_MAX_EFFECT_NAME_SIZE]="\0";
+                                   strncpy(packageName,nameMatchAC+5,AEGP_MAX_EFFECT_NAME_SIZE-5);
+                                   timeLineFx.AddMember("videoFxPath",rapidjson::Value(packageName, document.GetAllocator()).Move(), document.GetAllocator());
                                    //滤镜类型
                                    timeLineFx.AddMember("timelineVideoFxType",2, document.GetAllocator());
                                    A_long num_param;
@@ -219,7 +224,7 @@ CommandHook(
                        rapidjson::Value clip(rapidjson::kObjectType);
 
                        //name信息
-                       A_char name[100]={"\0"};
+                       A_char name[900]={"\0"};
                        ERR(suites.LayerSuite5()->AEGP_GetLayerName(layerH,NULL,name));
                        std::string sourceName(name);
                        clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
@@ -420,6 +425,8 @@ CommandHook(
                                    //效果name
                                    A_char nameAC[AEGP_MAX_EFFECT_NAME_SIZE]  = {'\0'};
                                    ERR(suites.EffectSuite4()->AEGP_GetEffectName(installed_keyP,nameAC));
+                                   A_char nameMatchAC[AEGP_MAX_EFFECT_NAME_SIZE]  = {'\0'};
+                                   ERR(suites.EffectSuite4()->AEGP_GetEffectMatchName(installed_keyP,nameMatchAC));
                                    //特效类型
                                    A_char category[AEGP_MAX_EFFECT_NAME_SIZE]={'\0'};
                                    ERR(suites.EffectSuite4()->AEGP_GetEffectCategory(installed_keyP,category));
@@ -446,9 +453,11 @@ CommandHook(
 
                                    }else{
                                         //     -------------------------------------------------------------特效滤镜-------------------------------------------------------------------
-                                       if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
+                                       if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果Ï
+                                           A_char packageName[AEGP_MAX_EFFECT_NAME_SIZE]="\0";
+                                           strncpy(packageName,nameMatchAC+5,AEGP_MAX_EFFECT_NAME_SIZE-5);
                                            rapidjson::Value fx(rapidjson::kObjectType);
-                                           fx.AddMember("fxPath",rapidjson::Value(nameAC, document.GetAllocator()).Move(), document.GetAllocator());
+                                           fx.AddMember("fxPath",rapidjson::Value(packageName, document.GetAllocator()).Move(), document.GetAllocator());
                                            fx.AddMember("videoFxType",2, document.GetAllocator());
                                            fx.AddMember("filterIntensity",1.0, document.GetAllocator());
                                            //效果参数

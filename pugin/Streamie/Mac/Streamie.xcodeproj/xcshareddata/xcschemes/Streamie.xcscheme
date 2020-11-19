@@ -42,6 +42,11 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.adobe.AfterEffects"
+         RemotePath = "/Applications/Adobe After Effects 2020/Adobe After Effects 2020.app">
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Debug"
