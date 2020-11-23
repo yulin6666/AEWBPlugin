@@ -534,7 +534,7 @@ CommandHook(
                                                 }
                                                 properties.AddMember(rapidjson::Value(paramName,document.GetAllocator()).Move(),property,document.GetAllocator());
                                             }
-                                           fx.AddMember("properties",properties, document.GetAllocator());
+                                           fx.AddMember("fxProperties",properties, document.GetAllocator());
                                            fxArray.PushBack(fx, document.GetAllocator());
                                        }
                                    }
