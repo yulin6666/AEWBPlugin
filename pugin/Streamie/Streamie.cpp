@@ -108,6 +108,7 @@ CommandHook(
                 rapidjson::Document document;
                 std::string str1 = "{}"; // 这个是必须的，且不能为""，否则Parse出错
                 document.Parse(str1.c_str());
+                double totalDuration;
 
 //     -------------------------------------------------------------videoResolution，videoFps，duration信息-------------------------------------------------------------------
                 //获取整个comp时间轴
@@ -145,8 +146,8 @@ CommandHook(
                     //获取duration信息
                     A_Time dTime = { 0,1 };
                     ERR(suites.ItemSuite5()->AEGP_GetItemDuration(rootItemPH,&dTime));
-                    double duration = (double)(dTime.value*1000/dTime.scale)*1000;
-                    document.AddMember("duration", duration, document.GetAllocator());
+                    totalDuration = (double)(dTime.value*1000/dTime.scale)*1000;
+                    document.AddMember("duration", totalDuration, document.GetAllocator());
                 }
 
                 rapidjson::Value videoTrackArray(rapidjson::kArrayType);
@@ -230,24 +231,37 @@ CommandHook(
                        clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
                        //获取时间轴的inpoint
                        A_Time dTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_LayerTime,&dTime));
                        double duration = (double)(dTime.value*1000/dTime.scale)*1000;
                        A_Time iTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_CompTime,&iTime));
-                       double inPoint = (double)(iTime.value*1000/iTime.scale)*1000;
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_LayerTime,&iTime));
+                        double inPoint;
+                        if(iTime.value < 0){
+                            inPoint = 0;
+                        }else{
+                            inPoint = (double)(iTime.value*1000/iTime.scale)*1000;
+                        }
                        clip.AddMember("inPoint", inPoint, document.GetAllocator());
                        //获得时间轴的outPoint
                        float outPoint = inPoint + duration;
+                        if(outPoint > totalDuration){
+                            outPoint = totalDuration;
+                        }
                        clip.AddMember("outPoint", outPoint, document.GetAllocator());
                        //speed = 1
                        clip.AddMember("speed", 1, document.GetAllocator());
                        //获取trimin信息
                        A_Time triTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_LayerTime,&triTime));
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_CompTime,&triTime));
                        double trimIn = triTime.value/triTime.scale;
                        clip.AddMember("trimIn", trimIn, document.GetAllocator());
                        //获取trimout信息
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
+                       duration = (double)(dTime.value*1000/dTime.scale)*1000;
                        double trimOut = trimIn +duration;
+                        if(trimOut >totalDuration){
+                            trimOut = totalDuration;
+                        }
                        clip.AddMember("trimOut", trimOut, document.GetAllocator());
                        AEGP_ItemH sourceItem = NULL;
                        ERR(suites.LayerSuite5()->AEGP_GetLayerSourceItem(layerH,&sourceItem));
