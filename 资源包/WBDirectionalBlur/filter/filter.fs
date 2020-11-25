@@ -16,9 +16,9 @@ void main()
         
     vec2  Direction = vec2(1.0,0.0); //方向向量  此方向为水平
     
-    float X = cos(property_float_1 / 65536.0)*Direction.x - sin(property_float_1 / 65536.0)*Direction.y;
+    float X = cos(property_float_1)*Direction.x - sin(property_float_1 / 65536.0)*Direction.y;
     
-    float Y = sin(property_float_1 / 65536.0)*Direction.x +cos(property_float_1 / 65536.0)*Direction.y;
+    float Y = sin(property_float_1)*Direction.x +cos(property_float_1 / 65536.0)*Direction.y;
     
     Direction = vec2(X,Y);
     

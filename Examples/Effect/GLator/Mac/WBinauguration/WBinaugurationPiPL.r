@@ -13,11 +13,11 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"WBInauguration"
+			"WB开场"
 		},
 		/* [3] */
 		Category {
-			"WBTransition"
+			"WBEffects"
 		},
 #ifdef AE_OS_WIN
 	#ifdef AE_PROC_INTELx64

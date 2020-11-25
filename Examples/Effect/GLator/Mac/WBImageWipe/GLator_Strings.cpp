@@ -31,7 +31,7 @@ typedef struct {
 TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
 	StrID_Name,						"count",
-    StrID_Type,                     "Property",
+    StrID_Type,                     "property",
     StrID_Popup_Choices,            "Red|"
                                     "Green|"
                                     "Blue|"
@@ -40,7 +40,7 @@ TableString		g_strs[StrID_NUMTYPES] = {
                                     "Hue|"
                                     "Stauration|"
                                     "Lightness|",
-    StrID_InverseGradient,          "InverseGradient",
+    StrID_InverseGradient,          "inverseGradient",
 	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
 	StrID_Color_Param_Name,			"Color",
 	StrID_Checkbox_Param_Name,		"Use Downsample Factors",

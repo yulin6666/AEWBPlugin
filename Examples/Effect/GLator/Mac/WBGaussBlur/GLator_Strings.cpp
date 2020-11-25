@@ -30,8 +30,8 @@ typedef struct {
 
 TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
-	StrID_Name,						"Length",
-    StrID_DIRECTION,                 "DIRECTION",
+	StrID_Name,						"length",
+    StrID_DIRECTION,                 "direction",
     StrID_Popup_Choices,            "Hor&Ver|"
                                     "Hor|"
                                     "Ver|",

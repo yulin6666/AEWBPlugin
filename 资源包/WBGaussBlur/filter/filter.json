@@ -1,5 +1,19 @@
 {
     "filterID": 700,
     "filterName": "WBGPUImagePhotoAlbumFilter",
-    "filterDescription": "高斯模糊"
+    "filterDescription": "高斯模糊",
+    "uniforms": [
+      {
+        "uniformType": "float",
+        "uniformName": "Length",
+        "uniformValue": 50.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "Direction",
+        "uniformValue": 1,
+        "injectionType": 1
+      }
+    ]
 }

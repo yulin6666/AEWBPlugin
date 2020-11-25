@@ -153,6 +153,38 @@
 		F0AE169925651BF80017D7E4 /* WBThresholdPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F0AE169125651BF80017D7E4 /* WBThresholdPiPL.r */; };
 		F0AE169A25651BF80017D7E4 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE169225651BF80017D7E4 /* GLator_Strings.cpp */; };
 		F0AE169B25651BF80017D7E4 /* WBThreshold.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0AE169325651BF80017D7E4 /* WBThreshold.plugin-Info.plist */; };
+		F0AE16EC2567A3B60017D7E4 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		F0AE16ED2567A3B60017D7E4 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		F0AE16EF2567A3B60017D7E4 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		F0AE16F12567A3B60017D7E4 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		F0AE16F42567A3B60017D7E4 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		F0AE16F52567A3B60017D7E4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		F0AE16F62567A3B60017D7E4 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		F0AE16F72567A3B60017D7E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		F0AE172C2567A5930017D7E4 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE17212567A5930017D7E4 /* GL_base.cpp */; };
+		F0AE172D2567A5930017D7E4 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE17222567A5930017D7E4 /* GLator.cpp */; };
+		F0AE172E2567A5930017D7E4 /* WBMotionTile.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17232567A5930017D7E4 /* WBMotionTile.plugin-Info.plist */; };
+		F0AE172F2567A5930017D7E4 /* WBMotionTilePiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F0AE17242567A5930017D7E4 /* WBMotionTilePiPL.r */; };
+		F0AE17302567A5930017D7E4 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17272567A5930017D7E4 /* vertex_shader.vert */; };
+		F0AE17312567A5930017D7E4 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17282567A5930017D7E4 /* fragment_shader2.frag */; };
+		F0AE17322567A5930017D7E4 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17292567A5930017D7E4 /* fragment_shader.frag */; };
+		F0AE17332567A5930017D7E4 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE172B2567A5930017D7E4 /* GLator_Strings.cpp */; };
+		F0AE17732567C2530017D7E4 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17282567A5930017D7E4 /* fragment_shader2.frag */; };
+		F0AE17742567C2530017D7E4 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17292567A5930017D7E4 /* fragment_shader.frag */; };
+		F0AE17752567C2530017D7E4 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17272567A5930017D7E4 /* vertex_shader.vert */; };
+		F0AE17762567C2530017D7E4 /* WBMotionTile.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0AE17232567A5930017D7E4 /* WBMotionTile.plugin-Info.plist */; };
+		F0AE17782567C2530017D7E4 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		F0AE17792567C2530017D7E4 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		F0AE177A2567C2530017D7E4 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE17212567A5930017D7E4 /* GL_base.cpp */; };
+		F0AE177B2567C2530017D7E4 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		F0AE177C2567C2530017D7E4 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE17222567A5930017D7E4 /* GLator.cpp */; };
+		F0AE177D2567C2530017D7E4 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		F0AE177E2567C2530017D7E4 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE172B2567A5930017D7E4 /* GLator_Strings.cpp */; };
+		F0AE17802567C2530017D7E4 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		F0AE17812567C2530017D7E4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		F0AE17822567C2530017D7E4 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		F0AE17832567C2530017D7E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		F0AE17852567C2530017D7E4 /* WBMotionTilePiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F0AE17242567A5930017D7E4 /* WBMotionTilePiPL.r */; };
 		F0D4ABA225319D62005D80FB /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
 		F0D4ABA325319D62005D80FB /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
 		F0D4ABA425319D62005D80FB /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
@@ -192,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-        F061EE71254C18750029F769 /* CopyFiles */ = {
+		F061EE71254C18750029F769 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -246,6 +278,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0AE16FA2567A3B60017D7E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE17862567C2530017D7E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABB025319D62005D80FB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,7 +309,6 @@
 
 /* Begin PBXFileReference section */
 		5E4BF9CB2550126C00467A87 /* WBMosaic.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBMosaic.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E4BF9CC2550126D00467A87 /* WBMosaic.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WBMosaic.plist; path = /Users/yulin9/Documents/project/ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBMosaic.plist; sourceTree = "<absolute>"; };
 		5E4BF9D0255012E500467A87 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		5E4BF9D1255012E500467A87 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		5E4BF9D2255012E500467A87 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -272,9 +321,7 @@
 		5E4BF9DC255012E500467A87 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		5E4BF9E52550155B00467A87 /* WBMosaic.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBMosaic.plugin-Info.plist"; sourceTree = "<group>"; };
 		5E4BF9E72550158700467A87 /* WBMosaicPiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBMosaicPiPL.r; sourceTree = "<group>"; };
-		5E60CF8025629731002B7C6A /* WBMosaic copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBMosaic copy-Info.plist"; path = "/Users/yulin9/Documents/project/ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBMosaic copy-Info.plist"; sourceTree = "<absolute>"; };
 		5E60CFC2256379A4002B7C6A /* WBRelief.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBRelief.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E60CFC3256379A5002B7C6A /* WBGaussBlur copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBGaussBlur copy-Info.plist"; path = "/Users/yulin9/Documents/project/ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBGaussBlur copy-Info.plist"; sourceTree = "<absolute>"; };
 		5E60CFE12563A6B2002B7C6A /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		5E60CFE22563A6B2002B7C6A /* WBRelief.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBRelief.plugin-Info.plist"; sourceTree = "<group>"; };
 		5E60CFE32563A6B2002B7C6A /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
@@ -301,7 +348,6 @@
 		D7DCC59E1B239204007E769E /* AEFX_SuiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEFX_SuiteHelper.h; path = ../../../Util/AEFX_SuiteHelper.h; sourceTree = "<group>"; };
 		D7DCC59F1B239204007E769E /* AEGP_SuiteHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEGP_SuiteHandler.h; path = ../../../Util/AEGP_SuiteHandler.h; sourceTree = "<group>"; };
 		F061EE74254C18750029F769 /* WBDirectionalBlur.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBDirectionalBlur.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		F061EE76254C18750029F769 /* WBRadialBlur copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBRadialBlur copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBRadialBlur copy-Info.plist"; sourceTree = "<absolute>"; };
 		F061EE88254C26360029F769 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		F061EE89254C26360029F769 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		F061EE8A254C26360029F769 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -315,7 +361,6 @@
 		F061EE93254C26360029F769 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
 		F061EE94254C26360029F769 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F061EECA255130B40029F769 /* WBGaussBlur.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBGaussBlur.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		F061EECC255130B40029F769 /* WBDirectionalBlur copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBDirectionalBlur copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBDirectionalBlur copy-Info.plist"; sourceTree = "<absolute>"; };
 		F061EEE2255138490029F769 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		F061EEE3255138490029F769 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		F061EEE4255138490029F769 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -329,7 +374,6 @@
 		F061EEED255138490029F769 /* WBGaussBlur.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBGaussBlur.plugin-Info.plist"; sourceTree = "<group>"; };
 		F061EEEE255138490029F769 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F06D8117255D156F00E3ADBC /* WBImageWipe.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBImageWipe.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		F06D8119255D156F00E3ADBC /* WBRadialBlur copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBRadialBlur copy2-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBRadialBlur copy2-Info.plist"; sourceTree = "<absolute>"; };
 		F06D8137255D15B600E3ADBC /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		F06D8138255D15B600E3ADBC /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		F06D8139255D15B600E3ADBC /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -381,10 +425,8 @@
 		F07F1FFF254A692A000C30C6 /* GLator_Strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
 		F07F2000254A692A000C30C6 /* GLator_Strings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F07F2025254A6938000C30C6 /* WBRadialBlur.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBRadialBlur.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		F07F2026254A6938000C30C6 /* WBinauguration copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBinauguration copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBinauguration copy-Info.plist"; sourceTree = "<absolute>"; };
 		F094535D2531B334008F86ED /* GLator_pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_pch.h; sourceTree = "<group>"; };
 		F0AE165B256514C80017D7E4 /* WBThreshold.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBThreshold.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0AE165D256514C80017D7E4 /* WBImageWipe copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBImageWipe copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBImageWipe copy-Info.plist"; sourceTree = "<absolute>"; };
 		F0AE168725651BF80017D7E4 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		F0AE168825651BF80017D7E4 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		F0AE168925651BF80017D7E4 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -397,6 +439,21 @@
 		F0AE169125651BF80017D7E4 /* WBThresholdPiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBThresholdPiPL.r; sourceTree = "<group>"; };
 		F0AE169225651BF80017D7E4 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F0AE169325651BF80017D7E4 /* WBThreshold.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBThreshold.plugin-Info.plist"; sourceTree = "<group>"; };
+		F0AE16FD2567A3B60017D7E4 /* WBMotionTile.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBMotionTile.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AE171F2567A5930017D7E4 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
+		F0AE17202567A5930017D7E4 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
+		F0AE17212567A5930017D7E4 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
+		F0AE17222567A5930017D7E4 /* GLator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator.cpp; sourceTree = "<group>"; };
+		F0AE17232567A5930017D7E4 /* WBMotionTile.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBMotionTile.plugin-Info.plist"; sourceTree = "<group>"; };
+		F0AE17242567A5930017D7E4 /* WBMotionTilePiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBMotionTilePiPL.r; sourceTree = "<group>"; };
+		F0AE17252567A5930017D7E4 /* GLator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator.h; sourceTree = "<group>"; };
+		F0AE17272567A5930017D7E4 /* vertex_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex_shader.vert; sourceTree = "<group>"; };
+		F0AE17282567A5930017D7E4 /* fragment_shader2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader2.frag; sourceTree = "<group>"; };
+		F0AE17292567A5930017D7E4 /* fragment_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader.frag; sourceTree = "<group>"; };
+		F0AE172A2567A5930017D7E4 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
+		F0AE172B2567A5930017D7E4 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
+		F0AE17892567C2530017D7E4 /* WBMotionTile copy.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WBMotionTile copy.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AE178A2567C2530017D7E4 /* WBMotionTile copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBMotionTile copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBMotionTile copy-Info.plist"; sourceTree = "<absolute>"; };
 		F0D4ABB625319D62005D80FB /* wanhuatong.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wanhuatong.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -489,6 +546,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0AE16F32567A3B60017D7E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE16F42567A3B60017D7E4 /* libglbinding.a in Frameworks */,
+				F0AE16F52567A3B60017D7E4 /* OpenGL.framework in Frameworks */,
+				F0AE16F62567A3B60017D7E4 /* AGL.framework in Frameworks */,
+				F0AE16F72567A3B60017D7E4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE177F2567C2530017D7E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE17802567C2530017D7E4 /* libglbinding.a in Frameworks */,
+				F0AE17812567C2530017D7E4 /* OpenGL.framework in Frameworks */,
+				F0AE17822567C2530017D7E4 /* AGL.framework in Frameworks */,
+				F0AE17832567C2530017D7E4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABA925319D62005D80FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,6 +639,7 @@
 		C4E6187C095A3C800012CA3F = {
 			isa = PBXGroup;
 			children = (
+				F0AE171E2567A5930017D7E4 /* WBMotionTile */,
 				5E60CFE02563A6B2002B7C6A /* WBRelief */,
 				F0AE168625651BF80017D7E4 /* WBThreshold */,
 				F06D8136255D15B600E3ADBC /* WBImageWipe */,
@@ -575,14 +655,7 @@
 				7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */,
 				8F463EC20C3DCE390040C945 /* OpenGL.framework */,
 				C4E6188C095A3C800012CA3F /* Products */,
-				F07F2026254A6938000C30C6 /* WBinauguration copy-Info.plist */,
-				5E4BF9CC2550126D00467A87 /* WBMosaic.plist */,
-				F061EE76254C18750029F769 /* WBRadialBlur copy-Info.plist */,
-				F061EECC255130B40029F769 /* WBDirectionalBlur copy-Info.plist */,
-				5E60CF8025629731002B7C6A /* WBMosaic copy-Info.plist */,
-				5E60CFC3256379A5002B7C6A /* WBGaussBlur copy-Info.plist */,
-				F06D8119255D156F00E3ADBC /* WBRadialBlur copy2-Info.plist */,
-				F0AE165D256514C80017D7E4 /* WBImageWipe copy-Info.plist */,
+				F0AE178A2567C2530017D7E4 /* WBMotionTile copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -598,6 +671,8 @@
 				5E60CFC2256379A4002B7C6A /* WBRelief.plugin */,
 				F06D8117255D156F00E3ADBC /* WBImageWipe.plugin */,
 				F0AE165B256514C80017D7E4 /* WBThreshold.plugin */,
+				F0AE16FD2567A3B60017D7E4 /* WBMotionTile.plugin */,
+				F0AE17892567C2530017D7E4 /* WBMotionTile copy.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -817,6 +892,33 @@
 			path = GLSL_files;
 			sourceTree = "<group>";
 		};
+		F0AE171E2567A5930017D7E4 /* WBMotionTile */ = {
+			isa = PBXGroup;
+			children = (
+				F0AE171F2567A5930017D7E4 /* vmath.hpp */,
+				F0AE17202567A5930017D7E4 /* GL_base.h */,
+				F0AE17212567A5930017D7E4 /* GL_base.cpp */,
+				F0AE17222567A5930017D7E4 /* GLator.cpp */,
+				F0AE17232567A5930017D7E4 /* WBMotionTile.plugin-Info.plist */,
+				F0AE17242567A5930017D7E4 /* WBMotionTilePiPL.r */,
+				F0AE17252567A5930017D7E4 /* GLator.h */,
+				F0AE17262567A5930017D7E4 /* GLSL_files */,
+				F0AE172A2567A5930017D7E4 /* GLator_Strings.h */,
+				F0AE172B2567A5930017D7E4 /* GLator_Strings.cpp */,
+			);
+			path = WBMotionTile;
+			sourceTree = "<group>";
+		};
+		F0AE17262567A5930017D7E4 /* GLSL_files */ = {
+			isa = PBXGroup;
+			children = (
+				F0AE17272567A5930017D7E4 /* vertex_shader.vert */,
+				F0AE17282567A5930017D7E4 /* fragment_shader2.frag */,
+				F0AE17292567A5930017D7E4 /* fragment_shader.frag */,
+			);
+			path = GLSL_files;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -972,6 +1074,44 @@
 			productReference = F0AE165B256514C80017D7E4 /* WBThreshold.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
+		F0AE16E52567A3B60017D7E4 /* WBMotionTile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0AE16FB2567A3B60017D7E4 /* Build configuration list for PBXNativeTarget "WBMotionTile" */;
+			buildPhases = (
+				F0AE16E62567A3B60017D7E4 /* Resources */,
+				F0AE16EB2567A3B60017D7E4 /* Sources */,
+				F0AE16F32567A3B60017D7E4 /* Frameworks */,
+				F0AE16F82567A3B60017D7E4 /* Rez */,
+				F0AE16FA2567A3B60017D7E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBMotionTile;
+			productName = Skeleton.plugin;
+			productReference = F0AE16FD2567A3B60017D7E4 /* WBMotionTile.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		F0AE17712567C2530017D7E4 /* WBMotionTile copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0AE17872567C2530017D7E4 /* Build configuration list for PBXNativeTarget "WBMotionTile copy" */;
+			buildPhases = (
+				F0AE17722567C2530017D7E4 /* Resources */,
+				F0AE17772567C2530017D7E4 /* Sources */,
+				F0AE177F2567C2530017D7E4 /* Frameworks */,
+				F0AE17842567C2530017D7E4 /* Rez */,
+				F0AE17862567C2530017D7E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WBMotionTile copy";
+			productName = Skeleton.plugin;
+			productReference = F0AE17892567C2530017D7E4 /* WBMotionTile copy.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F0D4AB9F25319D62005D80FB /* wanhuatong */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0D4ABB425319D62005D80FB /* Build configuration list for PBXNativeTarget "wanhuatong" */;
@@ -1000,7 +1140,7 @@
 				LastUpgradeCheck = 0730;
 				TargetAttributes = {
 					5E4BF9B32550126C00467A87 = {
-						DevelopmentTeam = 3Y4TJ733T7;
+						DevelopmentTeam = 25N8K67YQF;
 					};
 					5E60CFAA256379A4002B7C6A = {
 						DevelopmentTeam = Z6436LX9A5;
@@ -1021,6 +1161,12 @@
 						DevelopmentTeam = 25N8K67YQF;
 					};
 					F0AE1643256514C80017D7E4 = {
+						DevelopmentTeam = 25N8K67YQF;
+					};
+					F0AE16E52567A3B60017D7E4 = {
+						DevelopmentTeam = 25N8K67YQF;
+					};
+					F0AE17712567C2530017D7E4 = {
 						DevelopmentTeam = 25N8K67YQF;
 					};
 					F0D4AB9F25319D62005D80FB = {
@@ -1058,6 +1204,8 @@
 				5E60CFAA256379A4002B7C6A /* WBRelief */,
 				F06D80FF255D156F00E3ADBC /* WBImageWipe */,
 				F0AE1643256514C80017D7E4 /* WBThreshold */,
+				F0AE16E52567A3B60017D7E4 /* WBMotionTile */,
+				F0AE17712567C2530017D7E4 /* WBMotionTile copy */,
 			);
 		};
 /* End PBXProject section */
@@ -1161,6 +1309,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0AE16E62567A3B60017D7E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE17312567A5930017D7E4 /* fragment_shader2.frag in Resources */,
+				F0AE17322567A5930017D7E4 /* fragment_shader.frag in Resources */,
+				F0AE17302567A5930017D7E4 /* vertex_shader.vert in Resources */,
+				F0AE172E2567A5930017D7E4 /* WBMotionTile.plugin-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE17722567C2530017D7E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE17732567C2530017D7E4 /* fragment_shader2.frag in Resources */,
+				F0AE17742567C2530017D7E4 /* fragment_shader.frag in Resources */,
+				F0AE17752567C2530017D7E4 /* vertex_shader.vert in Resources */,
+				F0AE17762567C2530017D7E4 /* WBMotionTile.plugin-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABA025319D62005D80FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1236,6 +1406,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AE169925651BF80017D7E4 /* WBThresholdPiPL.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE16F82567A3B60017D7E4 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE172F2567A5930017D7E4 /* WBMotionTilePiPL.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE17842567C2530017D7E4 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE17852567C2530017D7E4 /* WBMotionTilePiPL.r in Rez */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,6 +1558,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0AE16EB2567A3B60017D7E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE16EC2567A3B60017D7E4 /* AEGP_SuiteHandler.cpp in Sources */,
+				F0AE16ED2567A3B60017D7E4 /* MissingSuiteError.cpp in Sources */,
+				F0AE172C2567A5930017D7E4 /* GL_base.cpp in Sources */,
+				F0AE16EF2567A3B60017D7E4 /* AEFX_SuiteHelper.c in Sources */,
+				F0AE172D2567A5930017D7E4 /* GLator.cpp in Sources */,
+				F0AE16F12567A3B60017D7E4 /* Smart_Utils.cpp in Sources */,
+				F0AE17332567A5930017D7E4 /* GLator_Strings.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE17772567C2530017D7E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE17782567C2530017D7E4 /* AEGP_SuiteHandler.cpp in Sources */,
+				F0AE17792567C2530017D7E4 /* MissingSuiteError.cpp in Sources */,
+				F0AE177A2567C2530017D7E4 /* GL_base.cpp in Sources */,
+				F0AE177B2567C2530017D7E4 /* AEFX_SuiteHelper.c in Sources */,
+				F0AE177C2567C2530017D7E4 /* GLator.cpp in Sources */,
+				F0AE177D2567C2530017D7E4 /* Smart_Utils.cpp in Sources */,
+				F0AE177E2567C2530017D7E4 /* GLator_Strings.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABA125319D62005D80FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1394,7 +1608,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3Y4TJ733T7;
+				DEVELOPMENT_TEAM = 25N8K67YQF;
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1413,7 +1627,7 @@
 				INFOPLIST_FILE = WBMosaic.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBRadialBlur;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBMosaic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ZERO_LINK = NO;
 			};
@@ -1668,6 +1882,66 @@
 			};
 			name = Debug;
 		};
+		F0AE16FC2567A3B60017D7E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 25N8K67YQF;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/WBMotionTile/WBMotionTile.plugin-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBMotionTile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		F0AE17882567C2530017D7E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 25N8K67YQF;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = "WBMotionTile copy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBMotionTile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
 		F0D4ABB525319D62005D80FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1768,6 +2042,22 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0AE165A256514C80017D7E4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F0AE16FB2567A3B60017D7E4 /* Build configuration list for PBXNativeTarget "WBMotionTile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0AE16FC2567A3B60017D7E4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F0AE17872567C2530017D7E4 /* Build configuration list for PBXNativeTarget "WBMotionTile copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0AE17882567C2530017D7E4 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

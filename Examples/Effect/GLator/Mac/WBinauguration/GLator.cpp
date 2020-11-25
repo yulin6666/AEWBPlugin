@@ -344,7 +344,7 @@ namespace {
         // program uniforms
         GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
         glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "sliderVal");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "progress");
         glUniform1f(location, sliderVal);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
         glUniform1f(location, multiplier16bit);
@@ -637,7 +637,7 @@ SmartRender(
         &slider_param));
 
     if (!err){
-        sliderVal = slider_param.u.fd.value / 100.0f;
+        sliderVal = slider_param.u.fd.value;
     }
 
     ERR((extra->cb->checkout_layer_pixels(in_data->effect_ref, GLATOR_INPUT, &input_worldP)));

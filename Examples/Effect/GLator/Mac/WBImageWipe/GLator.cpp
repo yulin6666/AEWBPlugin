@@ -346,13 +346,13 @@ namespace {
 		// program uniforms
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
-		location = glGetUniformLocation(renderContext->mProgramObjSu, "property_float_0");
+		location = glGetUniformLocation(renderContext->mProgramObjSu, "count");
 		glUniform1f(location, sliderVal);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "property_int_0");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "property");
         glUniform1i(location, type);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "property_int_1");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "inverseGradient");
         glUniform1i(location, checkBox);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));

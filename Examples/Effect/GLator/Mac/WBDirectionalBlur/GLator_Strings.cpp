@@ -30,8 +30,8 @@ typedef struct {
 
 TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
-	StrID_Name,						"Length",
-    StrID_Angel,                    "Angel",
+	StrID_Name,						"length",
+    StrID_Angel,                    "angel",
 	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
 	StrID_Color_Param_Name,			"Color",
 	StrID_Checkbox_Param_Name,		"Use Downsample Factors",

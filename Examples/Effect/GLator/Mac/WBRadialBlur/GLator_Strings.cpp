@@ -32,7 +32,7 @@ TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
 	StrID_Name,						"count",
     StrID_Center,                   "center",
-    StrID_Type,                     "Radialtype",
+    StrID_Type,                     "radialtype",
     StrID_Popup_Choices,            "Scale|"
                                     "Rotate|",
 	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
