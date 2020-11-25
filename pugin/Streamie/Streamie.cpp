@@ -595,7 +595,6 @@ CommandHook(
                                                     sParamName_y.append("_y");
                                                     properties.AddMember(rapidjson::Value(sParamName_y.c_str(),document.GetAllocator()).Move(),property_y,document.GetAllocator());
                                                 }
-                                                
                                             }
                                            fx.AddMember("fxProperties",properties, document.GetAllocator());
                                            fxArray.PushBack(fx, document.GetAllocator());
