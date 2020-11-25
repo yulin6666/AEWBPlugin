@@ -231,12 +231,14 @@ CommandHook(
                        clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
                        //获取时间轴的inpoint
                        A_Time dTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_LayerTime,&dTime));
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
                        double duration = (double)(dTime.value*1000/dTime.scale)*1000;
+                       if(duration > totalDuration)
+                           duration = totalDuration;
                        A_Time iTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_LayerTime,&iTime));
+                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_CompTime,&iTime));
                         double inPoint;
-                        if(iTime.value < 0){
+                        if(iTime.value < 0){//超过左边边境
                             inPoint = 0;
                         }else{
                             inPoint = (double)(iTime.value*1000/iTime.scale)*1000;
@@ -244,24 +246,22 @@ CommandHook(
                        clip.AddMember("inPoint", inPoint, document.GetAllocator());
                        //获得时间轴的outPoint
                        float outPoint = inPoint + duration;
-                        if(outPoint > totalDuration){
+                        if(outPoint > totalDuration){//超过右边边界
                             outPoint = totalDuration;
                         }
                        clip.AddMember("outPoint", outPoint, document.GetAllocator());
                        //speed = 1
                        clip.AddMember("speed", 1, document.GetAllocator());
                        //获取trimin信息
-                       A_Time triTime = { 0,1 };
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerInPoint(layerH,AEGP_LTimeMode_CompTime,&triTime));
-                       double trimIn = triTime.value/triTime.scale;
+                        double trimIn;
+                       if(iTime.value < 0){//超过左边边界
+                           trimIn = (double)((1-iTime.value)*1000/iTime.scale)*1000;
+                       }else{
+                           trimIn = 0;
+                       }
                        clip.AddMember("trimIn", trimIn, document.GetAllocator());
                        //获取trimout信息
-                       ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
-                       duration = (double)(dTime.value*1000/dTime.scale)*1000;
-                       double trimOut = trimIn +duration;
-                        if(trimOut >totalDuration){
-                            trimOut = totalDuration;
-                        }
+                       float trimOut = trimIn + duration;
                        clip.AddMember("trimOut", trimOut, document.GetAllocator());
                        AEGP_ItemH sourceItem = NULL;
                        ERR(suites.LayerSuite5()->AEGP_GetLayerSourceItem(layerH,&sourceItem));
