@@ -512,41 +512,90 @@ CommandHook(
                                             A_long num_param;
                                             ERR(suites.StreamSuite5()->AEGP_GetEffectNumParamStreams(effectPH,&num_param));
                                             for(int j=1;j<num_param;j++){
-                                                rapidjson::Value property(rapidjson::kObjectType);
                                                 AEGP_StreamRefH  param_streamH = NULL;
                                                 ERR(suites.StreamSuite5()->AEGP_GetNewEffectStreamByIndex(S_my_id,effectPH,j,&param_streamH));
-                                                A_long num_keyFrame;
-                                                ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(param_streamH,&num_keyFrame));
                                                 //获得参数名
                                                 A_char paramName[AEGP_MAX_EFFECT_NAME_SIZE]  = {'\0'};
                                                 ERR(suites.StreamSuite2()->AEGP_GetStreamName(param_streamH,TRUE,paramName));
                                                 std::string sParamName(paramName);
+                                                //关键帧数量
+                                                A_long num_keyFrame;
+                                                ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(param_streamH,&num_keyFrame));
+                                                AEGP_StreamType type;
+                                                ERR(suites.StreamSuite5()->AEGP_GetStreamType(param_streamH,&type));
                                                 //默认值
-                                                AEGP_StreamValue2 value;
+                                                AEGP_StreamValue2 defaultValue;
                                                 if(num_keyFrame == 0){
                                                     A_Time timeT = { 0,1 };
-                                                    ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&value));
+                                                    ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&defaultValue));
                                                 }else{
-                                                    ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,0,&value));
+                                                    ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,0,&defaultValue));
                                                 }
-                                                property.AddMember("defaultValue", value.val.one_d, document.GetAllocator());
-                                                //keyFrame
-                                                rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
-                                                for(int i=0;i<num_keyFrame;i++){
-                                                    rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
-                                                    A_Time proertyFrameTime = { 0,1 };
-                                                    ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,i,AEGP_LTimeMode_CompTime,&proertyFrameTime));
-                                                    double time = (double)(proertyFrameTime.value*1000/proertyFrameTime.scale)*1000;
-                                                    propertyKeyFrame.AddMember("time",time, document.GetAllocator());
-                                                    AEGP_StreamValue2 value;
-                                                    ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
-                                                    propertyKeyFrame.AddMember("value", value.val.one_d, document.GetAllocator());
-                                                    protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
+                                                if(type == AEGP_StreamType_OneD ){
+                                                    rapidjson::Value property(rapidjson::kObjectType);
+                                                    property.AddMember("defaultValue", defaultValue.val.one_d, document.GetAllocator());
+                                                    //keyFrame
+                                                    rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
+                                                    for(int i=0;i<num_keyFrame;i++){
+                                                        rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
+                                                        A_Time proertyFrameTime = { 0,1 };
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,i,AEGP_LTimeMode_CompTime,&proertyFrameTime));
+                                                        double time = (double)(proertyFrameTime.value*1000/proertyFrameTime.scale)*1000;
+                                                        propertyKeyFrame.AddMember("time",time, document.GetAllocator());
+                                                        AEGP_StreamValue2 value;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
+                                                        propertyKeyFrame.AddMember("value", value.val.one_d, document.GetAllocator());
+                                                        protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
+                                                    }
+                                                    if(protertyKeyFrameArray.Size()>0){
+                                                        property.AddMember("keyFrame",protertyKeyFrameArray, document.GetAllocator());
+                                                    }
+                                                    properties.AddMember(rapidjson::Value(paramName,document.GetAllocator()).Move(),property,document.GetAllocator());
+                                                }else if(type == AEGP_StreamType_TwoD|| type == AEGP_StreamType_TwoD_SPATIAL){
+                                                    rapidjson::Value property_x(rapidjson::kObjectType);
+                                                    property_x.AddMember("defaultValue", defaultValue.val.two_d.x, document.GetAllocator());
+                                                    //keyFrame
+                                                    rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
+                                                    for(int i=0;i<num_keyFrame;i++){
+                                                        rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
+                                                        A_Time proertyFrameTime = { 0,1 };
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,i,AEGP_LTimeMode_CompTime,&proertyFrameTime));
+                                                        double time = (double)(proertyFrameTime.value*1000/proertyFrameTime.scale)*1000;
+                                                        propertyKeyFrame.AddMember("time",time, document.GetAllocator());
+                                                        AEGP_StreamValue2 value;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
+                                                        propertyKeyFrame.AddMember("value", value.val.two_d.x, document.GetAllocator());
+                                                        protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
+                                                    }
+                                                    if(protertyKeyFrameArray.Size()>0){
+                                                        property_x.AddMember("keyFrame",protertyKeyFrameArray, document.GetAllocator());
+                                                    }
+                                                    string sParamName_x(sParamName.append("_x"));
+                                                    properties.AddMember(rapidjson::Value(sParamName_x.c_str(),document.GetAllocator()).Move(),property_x,document.GetAllocator());
+                                                    
+                                                    rapidjson::Value property_y(rapidjson::kObjectType);
+                                                    property_y.AddMember("defaultValue", defaultValue.val.two_d.y, document.GetAllocator());
+                                                    //keyFrame
+                                                    rapidjson::Value protertyKeyFrameArray_y(rapidjson::kArrayType);
+                                                    for(int i=0;i<num_keyFrame;i++){
+                                                        rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
+                                                        A_Time proertyFrameTime = { 0,1 };
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(param_streamH,i,AEGP_LTimeMode_CompTime,&proertyFrameTime));
+                                                        double time = (double)(proertyFrameTime.value*1000/proertyFrameTime.scale)*1000;
+                                                        propertyKeyFrame.AddMember("time",time, document.GetAllocator());
+                                                        AEGP_StreamValue2 value;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
+                                                        propertyKeyFrame.AddMember("value", value.val.two_d.y, document.GetAllocator());
+                                                        protertyKeyFrameArray_y.PushBack(propertyKeyFrame, document.GetAllocator());
+                                                    }
+                                                    if(protertyKeyFrameArray_y.Size()>0){
+                                                        property_y.AddMember("keyFrame",protertyKeyFrameArray_y, document.GetAllocator());
+                                                    }
+                                                    string sParamName_y(paramName);
+                                                    sParamName_y.append("_y");
+                                                    properties.AddMember(rapidjson::Value(sParamName_y.c_str(),document.GetAllocator()).Move(),property_y,document.GetAllocator());
                                                 }
-                                                if(protertyKeyFrameArray.Size()>0){
-                                                    property.AddMember("keyFrame",protertyKeyFrameArray, document.GetAllocator());
-                                                }
-                                                properties.AddMember(rapidjson::Value(paramName,document.GetAllocator()).Move(),property,document.GetAllocator());
+                                                
                                             }
                                            fx.AddMember("fxProperties",properties, document.GetAllocator());
                                            fxArray.PushBack(fx, document.GetAllocator());
