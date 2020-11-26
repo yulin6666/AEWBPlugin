@@ -1,6 +1,6 @@
 #version 330
 uniform sampler2D videoTexture;
-uniform float property_float_0;
+uniform int count;
 uniform float multiplier16bit;
 in vec4 out_pos;
 in vec2 out_uvs;
@@ -10,7 +10,7 @@ void main( void )
 {
     vec2 uv = out_uvs.xy;
     float Soft = 0.001;
-    float Threshold = 1.0 * property_float_0 / 100.0;
+    float Threshold = 1.0 * float(count) / 100.0;
 
     float f = Soft/2.0;
     float a = Threshold - f;

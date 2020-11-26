@@ -346,7 +346,7 @@ namespace {
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "length");
-		glUniform1f(location, sliderVal);
+		glUniform1i(location, int(sliderVal));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "direction");
@@ -652,7 +652,7 @@ SmartRender(
         in_data->time_scale,
         &direction_param));
 	if (!err){
-        sliderVal = slider_param.u.fd.value / 100.0f;
+        sliderVal = slider_param.u.fd.value;
         direction = direction_param.u.pd.value;
 	}
     printf("%s", typeid(sliderVal).name());

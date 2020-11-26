@@ -1,7 +1,7 @@
 #version 330
 uniform sampler2D videoTexture;
-uniform float length;
-uniform float angel;
+uniform int length;
+uniform int angel;
 uniform float multiplier16bit;
 in vec4 out_pos;
 in vec2 out_uvs;
@@ -15,13 +15,13 @@ void main( void )
     
     vec4 Color = vec4(0.0);
     
-    float Intensity = 0.2 * length;
+    float Intensity = 0.2 * float(length) / 100.0;
         
     vec2  Direction = vec2(1.0,0.0); //方向向量  此方向为水平
+    float newAngel = (mod(float(angel) / 65536.0,360)) / 360.0 * 3.14;
+    float X = cos(newAngel)*Direction.x - sin(newAngel)*Direction.y;
     
-    float X = cos(angel)*Direction.x - sin(angel)*Direction.y;
-    
-    float Y = sin(angel)*Direction.x +cos(angel)*Direction.y;
+    float Y = sin(newAngel)*Direction.x +cos(newAngel)*Direction.y;
     
     Direction = vec2(X,Y);
     

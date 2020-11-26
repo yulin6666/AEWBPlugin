@@ -1,6 +1,6 @@
 #version 330
 uniform sampler2D videoTexture;
-uniform float count;
+uniform int count;
 uniform int property;//通道
 uniform int inverseGradient;//逆转
 uniform float multiplier16bit;
@@ -40,7 +40,7 @@ void main( void )
     }else if(property == 8){//还是明亮度
         var = hsvColor.b;
     }
-    bool decide = inverseGradient == 0 ? (var < count / 100.0 + 0.01 ) : (var > count / 100.0 + 0.01 );
+    bool decide = inverseGradient == 0 ? (var < float(count) / 100.0 + 0.01 ) : (var > float(count) / 100.0 + 0.01 );
     if (decide){
         a = 0.0;
     }
