@@ -81,8 +81,8 @@ typedef float				fpshort;
 /* Parameter defaults */
 
 #define	H_SLIDER_MIN		0
-#define	H_SLIDER_MAX		4
-#define  H_SLIDER_DFLT        2
+#define	H_SLIDER_MAX		100
+#define  H_SLIDER_DFLT        10
 
 enum {
 	GLATOR_INPUT = 0,

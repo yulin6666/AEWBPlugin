@@ -1,6 +1,6 @@
 #version 330
 uniform sampler2D inputImageTexture;
-uniform float propery_float_0;
+uniform float intensity;
 
 in vec2 textureCoordinate;
 out vec4 colourOut;
@@ -20,17 +20,17 @@ in vec2 bottomRightTextureCoordinate;
 void main( void )
 {
     mat3 convolutionMatrix;
-    convolutionMatrix[0][0] = propery_float_0 * (-2.0);
-    convolutionMatrix[0][1] = propery_float_0 * (-1.0);
+    convolutionMatrix[0][0] = intensity * (-2.0);
+    convolutionMatrix[0][1] = intensity * (-1.0);
     convolutionMatrix[0][2] = 0.0;
     
-    convolutionMatrix[1][0] = propery_float_0 * (-1.0);
+    convolutionMatrix[1][0] = intensity * (-1.0);
     convolutionMatrix[1][1] = 1.0;
-    convolutionMatrix[1][2] = propery_float_0;
+    convolutionMatrix[1][2] = intensity;
     
     convolutionMatrix[2][0] = 0.0;
-    convolutionMatrix[2][1] = propery_float_0;
-    convolutionMatrix[2][2] = propery_float_0*(2.0);
+    convolutionMatrix[2][1] = intensity;
+    convolutionMatrix[2][2] = intensity*(2.0);
     
     
     mediump vec3 bottomColor = texture(inputImageTexture, bottomTextureCoordinate).gba;

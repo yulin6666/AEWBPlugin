@@ -347,8 +347,8 @@ namespace {
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "propery_float_0");
-        glUniform1f(location, hVal);
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "intensity");
+        glUniform1f(location, float(hVal/25));
         location = glGetUniformLocation(renderContext->mProgramObjSu, "texelWidth");
         float a =(float)(1.0/widthL);
         glUniform1f(location,a);
