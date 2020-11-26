@@ -6,15 +6,15 @@
 	<dict>
 		<key>Resources/WBMosaic.plugin-Info.plist</key>
 		<data>
-		9koonRpopsuehWfDTu6ym/MCRz8=
+		eB+wDSq+IUOqEsuxCvxlSsfOflw=
 		</data>
 		<key>Resources/WBMosaic.rsrc</key>
 		<data>
-		Eay18R83Up4nqpP039H9tqYzvy4=
+		Os9TTrTwy38mWq8n0Nmiv/LameA=
 		</data>
 		<key>Resources/fragment_shader.frag</key>
 		<data>
-		COezrmzcmFy/5/zcO++2kRX9vLI=
+		5ea5+QBFhRxArcqY5/VU4mssKbU=
 		</data>
 		<key>Resources/fragment_shader2.frag</key>
 		<data>
@@ -31,21 +31,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XbmQSeXmdxrhBpmUSSHDEj5rDipxRrjKxm5NsXUFT90=
+			ypwlgGuFYBfVNF8c6xxYY+FOP7s5VLyvJgsqdqDECFM=
 			</data>
 		</dict>
 		<key>Resources/WBMosaic.rsrc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZTtZeQtI2PFDbtisb30uD9S87OfDWV4wg9kgjNjHayk=
+			cHo1PbRn8kcpMx1yjmCDbSGK/aQ53wnOdjMk0RsG6m4=
 			</data>
 		</dict>
 		<key>Resources/fragment_shader.frag</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FjP0UV6+7q8RMMNaUtcN4I6wrm/MNMgbjG1Sc/KBfAU=
+			JX+RDaVFX3F9d2ZEbmRPnGYaW5z1GjCvSDs6VA3yelg=
 			</data>
 		</dict>
 		<key>Resources/fragment_shader2.frag</key>
