@@ -24,7 +24,8 @@
 typedef enum {
 	StrID_NONE,
     StrID_Name,
-	StrID_Intensity,
+	StrID_HorizontalBlock,
+    StrID_VerticalBlock,
 	StrID_Description,
 	StrID_Color_Param_Name,
 	StrID_Checkbox_Param_Name,	

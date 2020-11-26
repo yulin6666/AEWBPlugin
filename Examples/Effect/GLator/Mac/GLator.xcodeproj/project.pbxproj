@@ -1140,7 +1140,7 @@
 				LastUpgradeCheck = 0730;
 				TargetAttributes = {
 					5E4BF9B32550126C00467A87 = {
-						DevelopmentTeam = 25N8K67YQF;
+						DevelopmentTeam = Z6436LX9A5;
 					};
 					5E60CFAA256379A4002B7C6A = {
 						DevelopmentTeam = Z6436LX9A5;
@@ -1608,7 +1608,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 25N8K67YQF;
+				DEVELOPMENT_TEAM = Z6436LX9A5;
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (

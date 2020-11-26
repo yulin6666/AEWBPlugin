@@ -348,10 +348,10 @@ namespace {
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "propery_float_0");
-        glUniform1f(location, hVal);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "propery_float_1");
-        glUniform1f(location, vVal);
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "HorizontalBlock");
+        glUniform1i(location, hVal);
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "VerticalBlock");
+        glUniform1i(location, vVal);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -519,14 +519,21 @@ ParamsSetup (
 
 	AEFX_CLR_STRUCT(def);
 
-	PF_ADD_SLIDER(	STR(StrID_Intensity),
+	PF_ADD_SLIDER(	STR(StrID_HorizontalBlock),
 					H_SLIDER_MIN,
 					H_SLIDER_MAX,
 					H_SLIDER_MIN,
 					H_SLIDER_MAX,
 					H_SLIDER_DFLT,
 					H_SLIDER_DISK_ID);
-	out_data->num_params = 2;
+    PF_ADD_SLIDER(    STR(StrID_VerticalBlock),
+                    V_SLIDER_MIN,
+                    V_SLIDER_MAX,
+                    V_SLIDER_MIN,
+                    V_SLIDER_MAX,
+                    V_SLIDER_DFLT,
+                    V_SLIDER_DISK_ID);
+	out_data->num_params = 3;
 
 	return err;
 }
