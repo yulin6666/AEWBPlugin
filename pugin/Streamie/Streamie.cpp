@@ -523,18 +523,21 @@ CommandHook(
                                                 ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(param_streamH,&num_keyFrame));
                                                 AEGP_StreamType type;
                                                 ERR(suites.StreamSuite5()->AEGP_GetStreamType(param_streamH,&type));
-                                                //默认值
-                                                AEGP_StreamValue2 defaultValue;
-                                                if(num_keyFrame == 0){
-                                                    A_Time timeT = { 0,1 };
-                                                    ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&defaultValue));
-                                                }else{
-                                                    ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,0,&defaultValue));
-                                                }
-                                                if(type == AEGP_StreamType_OneD ){
+                                        
+                                                if(type == AEGP_StreamType_OneD ){//单键模式
                                                     rapidjson::Value property(rapidjson::kObjectType);
-                                                    property.AddMember("defaultValue", defaultValue.val.one_d, document.GetAllocator());
-                                                    //keyFrame
+                                                    //默认值
+                                                    PF_ParamValue    deFaultValue;
+                                                    PF_ParamType      param_typeP;
+                                                    PF_ParamDefUnion  uP0;
+                                                    ERR(suites.EffectSuite4()->AEGP_GetEffectParamUnionByIndex(S_my_id,effectPH,j,&param_typeP,&uP0));
+                                                    if(param_typeP == PF_Param_SLIDER){//滑块类型
+                                                        deFaultValue = uP0.sd.value;
+                                                    }else if(param_typeP ==PF_Param_POPUP){//下拉框
+                                                        deFaultValue = uP0.pd.value;
+                                                    }
+                                                    property.AddMember("defaultValue", deFaultValue, document.GetAllocator());
+                                                    //关键帧逻辑
                                                     rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
                                                     for(int i=0;i<num_keyFrame;i++){
                                                         rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
@@ -544,7 +547,7 @@ CommandHook(
                                                         propertyKeyFrame.AddMember("time",time, document.GetAllocator());
                                                         AEGP_StreamValue2 value;
                                                         ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
-                                                        propertyKeyFrame.AddMember("value", value.val.one_d, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("value",(int)value.val.one_d, document.GetAllocator());
                                                         protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
                                                     }
                                                     if(protertyKeyFrameArray.Size()>0){
@@ -553,8 +556,11 @@ CommandHook(
                                                     properties.AddMember(rapidjson::Value(paramName,document.GetAllocator()).Move(),property,document.GetAllocator());
                                                 }else if(type == AEGP_StreamType_TwoD|| type == AEGP_StreamType_TwoD_SPATIAL){
                                                     rapidjson::Value property_x(rapidjson::kObjectType);
+                                                    AEGP_StreamValue2    defaultValue;
+                                                    A_Time timeT = { 0,1 };
+                                                    ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&defaultValue));
                                                     property_x.AddMember("defaultValue", defaultValue.val.two_d.x, document.GetAllocator());
-                                                    //keyFrame
+                                                    //关键帧逻辑
                                                     rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
                                                     for(int i=0;i<num_keyFrame;i++){
                                                         rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
@@ -564,7 +570,7 @@ CommandHook(
                                                         propertyKeyFrame.AddMember("time",time, document.GetAllocator());
                                                         AEGP_StreamValue2 value;
                                                         ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
-                                                        propertyKeyFrame.AddMember("value", value.val.two_d.x, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("value", (int)value.val.two_d.x, document.GetAllocator());
                                                         protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
                                                     }
                                                     if(protertyKeyFrameArray.Size()>0){
@@ -575,7 +581,7 @@ CommandHook(
                                                     
                                                     rapidjson::Value property_y(rapidjson::kObjectType);
                                                     property_y.AddMember("defaultValue", defaultValue.val.two_d.y, document.GetAllocator());
-                                                    //keyFrame
+                                                    //关键帧逻辑
                                                     rapidjson::Value protertyKeyFrameArray_y(rapidjson::kArrayType);
                                                     for(int i=0;i<num_keyFrame;i++){
                                                         rapidjson::Value propertyKeyFrame(rapidjson::kObjectType);
@@ -585,7 +591,7 @@ CommandHook(
                                                         propertyKeyFrame.AddMember("time",time, document.GetAllocator());
                                                         AEGP_StreamValue2 value;
                                                         ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
-                                                        propertyKeyFrame.AddMember("value", value.val.two_d.y, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("value", (int)value.val.two_d.y, document.GetAllocator());
                                                         protertyKeyFrameArray_y.PushBack(propertyKeyFrame, document.GetAllocator());
                                                     }
                                                     if(protertyKeyFrameArray_y.Size()>0){
