@@ -1,0 +1,13 @@
+{
+  "effect": {
+    "Link": [
+      {
+        "path": "filter",
+        "zorder": 422,
+        "type": "filter"
+      }
+    ]
+  },
+  "name": "effectTeamData",
+  "version": "1.0"
+}
