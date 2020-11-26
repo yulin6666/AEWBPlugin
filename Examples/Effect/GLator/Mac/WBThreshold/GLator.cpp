@@ -344,8 +344,8 @@ namespace {
 		// program uniforms
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
-		location = glGetUniformLocation(renderContext->mProgramObjSu, "property_float_0");
-		glUniform1f(location, sliderVal);
+		location = glGetUniformLocation(renderContext->mProgramObjSu, "count");
+		glUniform1i(location, int(sliderVal));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
 		// Identify the texture to use and bind it to texture unit 0

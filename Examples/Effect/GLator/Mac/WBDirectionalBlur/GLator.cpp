@@ -346,11 +346,11 @@ namespace {
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "length");
-		glUniform1f(location, sliderVal);
+		glUniform1i(location, int(sliderVal));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "angel");
-        glUniform1f(location, angel);
+        glUniform1i(location, angel);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -650,8 +650,8 @@ SmartRender(
         in_data->time_scale,
         &angel_param));
 	if (!err){
-        sliderVal = slider_param.u.fd.value / 100.0f;
-        angel = (int(angel_param.u.ad.value / 65536.0) % 360) / 360.0 * 3.14;
+        sliderVal = slider_param.u.fd.value;
+        angel = angel_param.u.ad.value;
 	}
 
     
