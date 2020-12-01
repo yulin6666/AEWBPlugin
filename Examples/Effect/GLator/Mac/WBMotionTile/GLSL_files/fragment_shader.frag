@@ -46,7 +46,7 @@ void main( void )
             uv.y = uv.y + float(newRelativeDrift);
         }
     }else if (InverseDrift == 1 && newRelativeDrift != 0){
-        int cloumnIndex = int((abs(center_y - (uv.x + center_y)) - (tileY / 2.)) / tileY) + 1;
+        int cloumnIndex = int((abs(center_y - (uv.y + center_y)) - (tileY / 2.)) / tileY) + 1;
         if (abs(center_y - (uv.y + center_y)) <  tileY / 2.){
             cloumnIndex = 0;
         }
