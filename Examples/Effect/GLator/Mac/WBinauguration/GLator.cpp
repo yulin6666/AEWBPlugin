@@ -344,7 +344,7 @@ namespace {
         // program uniforms
         GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
         glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "progress");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "count");
         glUniform1i(location, int(sliderVal));
         location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
         glUniform1f(location, multiplier16bit);

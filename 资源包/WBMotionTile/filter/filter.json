@@ -1,0 +1,55 @@
+{
+    "filterID": 708,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "动态拼贴",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "TileWidth",
+        "uniformValue": 100,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "TileHeight",
+        "uniformValue": 100,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "center_x",
+        "uniformValue": 225.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "center_y",
+        "uniformValue": 225.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "ScreenWidth",
+        "uniformValue": 100,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "ScreenHeight",
+        "uniformValue": 100,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "RelativeDrift",
+        "uniformValue": 0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "InverseDrift",
+        "uniformValue": 0,
+        "injectionType": 1
+      }
+    ]
+}
