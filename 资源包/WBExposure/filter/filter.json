@@ -1,0 +1,25 @@
+{
+    "filterID": 700,
+    "filterName": "WBGPUImagePhotoAlbumFilter",
+    "filterDescription": "WB曝光",
+    "uniforms": [
+      {
+    "uniformType": "float",
+    "uniformName": "gammaOffset",
+    "uniformValue": 1.0,
+    "injectionType": 1
+  },
+  {
+    "uniformType": "float",
+    "uniformName": "offset",
+    "uniformValue": 0.0,
+    "injectionType": 1
+  },
+  {
+    "uniformType": "float",
+    "uniformName": "exposure",
+    "uniformValue": 0.0,
+    "injectionType": 1
+  }
+    ]
+}

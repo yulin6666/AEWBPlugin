@@ -320,12 +320,7 @@ namespace {
 		glFlush();
 	}
 
-	void RenderGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr& renderContext,
-                  A_long widthL, A_long heightL,
-                  gl::GLuint        inputFrameTexture,
-                  PF_FpLong            sliderVal,
-                  float                multiplier16bit,
-                  int            direction)
+	void RenderGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr &renderContext, A_long widthL, A_long heightL, gl::GLuint inputFrameTexture, float exposure, float multiplier16bit, float gammaOffset, float offset)
 	{
 		// - make sure we blend correctly inside the framebuffer
 		// - even though we just cleared it, another effect may want to first
@@ -346,11 +341,11 @@ namespace {
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "length");
-		glUniform1i(location, int(sliderVal));
+		glUniform1i(location, int(exposure));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "direction");
-        glUniform1i(location, direction);
+        glUniform1i(location, gammaOffset);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -713,7 +708,7 @@ SmartRender(
 			// - simply blend the texture inside the frame buffer
 			// - TODO: hack your own shader there
 //			RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit);
-            RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit, direction);
+            RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit, direction, 0);
 
 			// - we toggle PBO textures (we use the PBO we just created as an input)
 			AESDK_OpenGL_MakeReadyToRender(*renderContext.get(), inputFrameTexture);
