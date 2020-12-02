@@ -1,0 +1,31 @@
+{
+    "filterID": 702,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "放大效果",
+    "uniforms": [
+      {
+        "uniformType": "float",
+        "uniformName": "circle_center_x",
+        "uniformValue": 320,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "circle_center_y",
+        "uniformValue": 320,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "circle_radius",
+        "uniformValue": 20,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "zoom_times",
+        "uniformValue": 2,
+        "injectionType": 1
+      }
+    ]
+}

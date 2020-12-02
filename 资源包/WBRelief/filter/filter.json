@@ -1,5 +1,13 @@
 {
     "filterID": 702,
-    "filterName": "WBGPUImagePhotoAlbumFilter",
-    "filterDescription": "浮雕效果"
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "浮雕效果",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "intensity",
+        "uniformValue": 50,
+        "injectionType": 1
+      }
+    ]
 }

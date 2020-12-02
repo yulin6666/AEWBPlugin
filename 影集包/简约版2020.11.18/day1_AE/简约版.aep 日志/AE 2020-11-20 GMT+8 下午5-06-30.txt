@@ -1,1 +1,0 @@
-  “2020/11/20”“GMT+8 下午5:06:30”: 开始合成“Dawin-Mailbox (Explicit)”。  输出到: /Users/yulin9/Desktop/Dawin-Mailbox (Explicit)_1.mov      渲染由用户停止。      渲染由用户停止。      渲染由用户停止。      渲染由用户停止。  After Effects错误: 输出模块停止响应。文件可能已损坏。可能需要重新启动 After Effects。  “2020/11/20”“GMT+8 下午5:06:54”: 完成的合成“Dawin-Mailbox (Explicit)”。  已用总时间: 9 秒日志在“GMT+8 下午5:06:54”的“2020/11/20”上关闭

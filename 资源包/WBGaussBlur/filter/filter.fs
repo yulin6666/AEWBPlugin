@@ -1,8 +1,8 @@
 
 precision highp float;
 uniform sampler2D inputImageTexture;
-uniform float Length; // slider
-uniform int Direction; // direction
+uniform int length; // slider
+uniform int direction; // direction
 varying highp vec2 textureCoordinate;
 
 
@@ -14,18 +14,18 @@ float Gaussian (float sigma, float x)
 void main()
 {
     vec2 UV = textureCoordinate.xy;
-    int   c_samplesX     = int(25.0 * Length / 100.0) + 3;
-    int   c_samplesY     = int(25.0 * Length / 100.0) + 3;
+    int   c_samplesX     = int(25.0 * float(length) / 100.0) + 3;
+    int   c_samplesY     = int(25.0 * float(length) / 100.0) + 3;
     float c_textureSize  = 512.0;
     int   c_halfSamplesX = c_samplesX;
     int   c_halfSamplesY = c_samplesY;
-    float c_pixelSize    = (1.0 / c_textureSize) * (1.0 + 2.0 * Length / 100.0);
+    float c_pixelSize    = (1.0 / c_textureSize) * (1.0 + 2.0 * float(length) / 100.0);
     float c_sigmaX       = 20.0;
     float c_sigmaY       = 20.0;
 
-    if (Direction == 2){ //水平
+    if (direction == 2){ //水平
         c_sigmaY = 0.01;
-    }else if (Direction == 3){//竖直
+    }else if (direction == 3){//竖直
         c_sigmaX = 0.01;
     }
     float total = 0.0;
@@ -44,7 +44,7 @@ void main()
         }
     }
     gl_FragColor = ret / total;
-    if (Length == 0.0){
+    if (float(length) == 0.0){
         gl_FragColor = texture2D(inputImageTexture,UV);
     }
 }

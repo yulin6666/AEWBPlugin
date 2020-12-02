@@ -1,9 +1,11 @@
 precision highp float;
 uniform sampler2D inputImageTexture;
-uniform float property_float_0;
-uniform float property_float_1;
-uniform float property_float_2;
-uniform int property_int_0;
+uniform int count;
+uniform float center_x;
+uniform float center_y;
+uniform float texelWidth;
+uniform float texelHeight;
+uniform int radialtype;
 varying highp vec2 textureCoordinate;
 
 
@@ -15,9 +17,9 @@ mat2 rotate2d(float angle) {
 void main()
 {
     vec2 uv = textureCoordinate.xy;
-    vec2 center = vec2(property_float_1 / 65536.0,property_float_2 / 65536.0);
-    if (property_int_0 == 1){
-        float strength = property_float_0 / 100.0 * 50.0 + 1.0;
+    vec2 center = vec2(center_x,center_y);
+    if (radialtype == 1){
+        float strength = float(count) / 100.0 * 50.0 + 1.0;
         vec2 dir = center - uv;
         vec2 blurVector = dir * 0.02;
         vec4 accumulateColor = vec4(0.0);
@@ -28,7 +30,7 @@ void main()
         vec4 result = accumulateColor/strength;
         gl_FragColor = result;
     }else{
-        int samples = int(100.0 * property_float_0 / 100.0);
+        int samples = int(100.0 * float(count) / 100.0);
         float power = 0.001;
         vec4 fragColor = vec4(0.0,0.0,0.0,0.0);
         vec2 m = center;
@@ -46,7 +48,7 @@ void main()
         }
         fragColor /= float(samples * 2);
         gl_FragColor = pow(fragColor, vec4(1./1.));
-        if (property_float_0 == 0.0){
+        if (float(count) == 0.0){
             gl_FragColor = texture2D(inputImageTexture, uv);
         }
     }

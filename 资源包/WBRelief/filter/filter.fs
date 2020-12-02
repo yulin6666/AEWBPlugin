@@ -2,7 +2,7 @@ precision highp float;
 uniform sampler2D inputImageTexture;
 varying highp vec2 textureCoordinate;
 
-uniform float property_float_0;
+uniform int intensity;
 
 varying vec2 leftTextureCoordinate;
 varying vec2 rightTextureCoordinate;
@@ -17,18 +17,19 @@ varying vec2 bottomRightTextureCoordinate;
 
 void main()
 {
+    
     mat3 convolutionMatrix;
-    convolutionMatrix[0][0] = property_float_0 * (-2.0);
-    convolutionMatrix[0][1] = property_float_0 * (-1.0);
+    convolutionMatrix[0][0] = float(intensity)/25.0 * (-2.0);
+    convolutionMatrix[0][1] = float(intensity)/25.0 * (-1.0);
     convolutionMatrix[0][2] = 0.0;
     
-    convolutionMatrix[1][0] = property_float_0 * (-1.0);
+    convolutionMatrix[1][0] = float(intensity)/25.0 * (-1.0);
     convolutionMatrix[1][1] = 1.0;
-    convolutionMatrix[1][2] = property_float_0;
+    convolutionMatrix[1][2] = float(intensity)/25.0;
     
     convolutionMatrix[2][0] = 0.0;
-    convolutionMatrix[2][1] = property_float_0;
-    convolutionMatrix[2][2] = property_float_0*(2.0);
+    convolutionMatrix[2][1] = float(intensity)/25.0;
+    convolutionMatrix[2][2] = float(intensity)/25.0*(2.0);
     
     
     mediump vec3 bottomColor = texture2D(inputImageTexture, bottomTextureCoordinate).rgb;
