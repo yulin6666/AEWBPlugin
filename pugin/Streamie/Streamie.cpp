@@ -533,10 +533,18 @@ CommandHook(
                                                     ERR(suites.EffectSuite4()->AEGP_GetEffectParamUnionByIndex(S_my_id,effectPH,j,&param_typeP,&uP0));
                                                     if(param_typeP == PF_Param_SLIDER){//滑块类型
                                                         deFaultValue = uP0.sd.value;
+                                                        property.AddMember("defaultValue", deFaultValue, document.GetAllocator());
                                                     }else if(param_typeP ==PF_Param_POPUP){//下拉框
                                                         deFaultValue = uP0.pd.value;
+                                                        property.AddMember("defaultValue", deFaultValue, document.GetAllocator());
+                                                    }else if(param_typeP == PF_Param_ANGLE){//角度
+                                                        deFaultValue = (uP0.ad.value/65536)%360;
+                                                        property.AddMember("defaultValue", deFaultValue, document.GetAllocator());
+                                                    }else if(param_typeP == PF_Param_FLOAT_SLIDER){//float类型滑动块
+                                                        float value = uP0.fs_d.value;
+                                                        property.AddMember("defaultValue", value, document.GetAllocator());
                                                     }
-                                                    property.AddMember("defaultValue", deFaultValue, document.GetAllocator());
+                                                   
                                                     //关键帧逻辑
                                                     rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
                                                     for(int i=0;i<num_keyFrame;i++){
