@@ -1,0 +1,1 @@
+  “2020/11/20”“GMT+8 下午5:08:00”: 开始合成“Dawin-Mailbox (Explicit) 2”。  输出到: /Users/yulin9/Desktop/Dawin-Mailbox (Explicit) 2/Dawin-Mailbox (Explicit) 2_[#####].png      渲染由用户停止。    “2020/11/20”“GMT+8 下午5:08:29”: 完成的合成“Dawin-Mailbox (Explicit) 2”。  已用总时间: 29 秒日志在“GMT+8 下午5:08:29”的“2020/11/20”上关闭

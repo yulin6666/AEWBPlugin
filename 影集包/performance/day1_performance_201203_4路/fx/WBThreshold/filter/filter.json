@@ -1,0 +1,13 @@
+{
+    "filterID": 705,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "阈值",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "count",
+        "uniformValue": 50,
+        "injectionType": 1
+      }
+    ]
+}
