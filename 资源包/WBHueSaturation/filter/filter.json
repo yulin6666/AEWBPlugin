@@ -1,0 +1,25 @@
+{
+    "filterID": 700,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "WB色相饱和",
+    "uniforms": [
+      {
+    "uniformType": "int",
+    "uniformName": "Hue",
+    "uniformValue": 0,
+    "injectionType": 1
+  },
+  {
+    "uniformType": "float",
+    "uniformName": "saturation",
+    "uniformValue": 0.0,
+    "injectionType": 1
+  },
+  {
+    "uniformType": "float",
+    "uniformName": "lightness",
+    "uniformValue": 0.0,
+    "injectionType": 1
+  }
+    ]
+}

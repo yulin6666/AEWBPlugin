@@ -1,6 +1,6 @@
 {
     "filterID": 700,
-    "filterName": "WBGPUImagePhotoAlbumFilter",
+    "filterName": "WBGPUImageFilter",
     "filterDescription": "WB曝光",
     "uniforms": [
       {

@@ -90,6 +90,7 @@ void main(void)
     vec4 textureColor = texture(videoTexture, UV);
     vec4 rgbaColor = textureColor.gbar;
     vec3 rgbColor = rgbaColor.rgb;
+
     vec3 hsvColor = rgb2hsl(rgbColor);
     float hueOffset = radians(Hue);
     float lumOffset = lightness / 100.0f;
