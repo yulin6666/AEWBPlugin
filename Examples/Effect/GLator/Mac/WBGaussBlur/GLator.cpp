@@ -148,11 +148,11 @@ namespace {
 
 	PF_Err
 	CopyPixelFloatIn(
-		void			*refcon,
-		A_long			x,
-		A_long			y,
-		PF_PixelFloat	*inP,
-		PF_PixelFloat	*)
+			void			*refcon,
+			A_long			x,
+			A_long			y,
+			PF_PixelFloat	*inP,
+			PF_PixelFloat	*)
 	{
 		CopyPixelFloat_t	*thiS = reinterpret_cast<CopyPixelFloat_t*>(refcon);
 		PF_PixelFloat		*outP = thiS->floatBufferP + y * thiS->input_worldP->width + x;
@@ -167,11 +167,11 @@ namespace {
 
 	PF_Err
 	CopyPixelFloatOut(
-		void			*refcon,
-		A_long			x,
-		A_long			y,
-		PF_PixelFloat	*,
-		PF_PixelFloat	*outP)
+			void			*refcon,
+			A_long			x,
+			A_long			y,
+			PF_PixelFloat	*,
+			PF_PixelFloat	*outP)
 	{
 		CopyPixelFloat_t		*thiS = reinterpret_cast<CopyPixelFloat_t*>(refcon);
 		const PF_PixelFloat		*inP = thiS->floatBufferP + y * thiS->input_worldP->width + x;
@@ -186,13 +186,13 @@ namespace {
 
 
 	gl::GLuint UploadTexture(AEGP_SuiteHandler& suites,					// >>
-							 PF_PixelFormat			format,				// >>
-							 PF_EffectWorld			*input_worldP,		// >>
-							 PF_EffectWorld			*output_worldP,		// >>
-							 PF_InData				*in_data,			// >>
-							 size_t& pixSizeOut,						// <<
-							 gl::GLenum& glFmtOut,						// <<
-							 float& multiplier16bitOut)					// <<
+			PF_PixelFormat			format,				// >>
+			PF_EffectWorld			*input_worldP,		// >>
+			PF_EffectWorld			*output_worldP,		// >>
+			PF_InData				*in_data,			// >>
+			size_t& pixSizeOut,						// <<
+			gl::GLenum& glFmtOut,						// <<
+			float& multiplier16bitOut)					// <<
 	{
 		// - upload to texture memory
 		// - we will convert on-the-fly from ARGB to RGBA, and also to pre-multiplied alpha,
@@ -217,56 +217,56 @@ namespace {
 		multiplier16bitOut = 1.0f;
 		switch (format)
 		{
-		case PF_PixelFormat_ARGB128:
-		{
-			glFmtOut = GL_FLOAT;
-			pixSizeOut = sizeof(PF_PixelFloat);
+			case PF_PixelFormat_ARGB128:
+			{
+				glFmtOut = GL_FLOAT;
+				pixSizeOut = sizeof(PF_PixelFloat);
 
-			std::auto_ptr<PF_PixelFloat> bufferFloat(new PF_PixelFloat[input_worldP->width * input_worldP->height]);
-			CopyPixelFloat_t refcon = { bufferFloat.get(), input_worldP };
+				std::auto_ptr<PF_PixelFloat> bufferFloat(new PF_PixelFloat[input_worldP->width * input_worldP->height]);
+				CopyPixelFloat_t refcon = { bufferFloat.get(), input_worldP };
 
-			CHECK(suites.IterateFloatSuite1()->iterate(in_data,
-				0,
-				input_worldP->height,
-				input_worldP,
-				nullptr,
-				reinterpret_cast<void*>(&refcon),
-				CopyPixelFloatIn,
-				output_worldP));
+				CHECK(suites.IterateFloatSuite1()->iterate(in_data,
+						0,
+						input_worldP->height,
+						input_worldP,
+						nullptr,
+						reinterpret_cast<void*>(&refcon),
+						CopyPixelFloatIn,
+						output_worldP));
 
-			glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->width);
-			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_FLOAT, bufferFloat.get());
-			break;
-		}
+				glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->width);
+				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_FLOAT, bufferFloat.get());
+				break;
+			}
 
-		case PF_PixelFormat_ARGB64:
-		{
-			glFmtOut = GL_UNSIGNED_SHORT;
-			pixSizeOut = sizeof(PF_Pixel16);
-			multiplier16bitOut = 65535.0f / 32768.0f;
+			case PF_PixelFormat_ARGB64:
+			{
+				glFmtOut = GL_UNSIGNED_SHORT;
+				pixSizeOut = sizeof(PF_Pixel16);
+				multiplier16bitOut = 65535.0f / 32768.0f;
 
-			glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->rowbytes / sizeof(PF_Pixel16));
-			PF_Pixel16 *pixelDataStart = NULL;
-			PF_GET_PIXEL_DATA16(input_worldP, NULL, &pixelDataStart);
-			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_UNSIGNED_SHORT, pixelDataStart);
-			break;
-		}
+				glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->rowbytes / sizeof(PF_Pixel16));
+				PF_Pixel16 *pixelDataStart = NULL;
+				PF_GET_PIXEL_DATA16(input_worldP, NULL, &pixelDataStart);
+				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_UNSIGNED_SHORT, pixelDataStart);
+				break;
+			}
 
-		case PF_PixelFormat_ARGB32:
-		{
-			glFmtOut = GL_UNSIGNED_BYTE;
-			pixSizeOut = sizeof(PF_Pixel8);
+			case PF_PixelFormat_ARGB32:
+			{
+				glFmtOut = GL_UNSIGNED_BYTE;
+				pixSizeOut = sizeof(PF_Pixel8);
 
-			glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->rowbytes / sizeof(PF_Pixel8));
-			PF_Pixel8 *pixelDataStart = NULL;
-			PF_GET_PIXEL_DATA8(input_worldP, NULL, &pixelDataStart);
-			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_UNSIGNED_BYTE, pixelDataStart);
-			break;
-		}
+				glPixelStorei(GL_UNPACK_ROW_LENGTH, input_worldP->rowbytes / sizeof(PF_Pixel8));
+				PF_Pixel8 *pixelDataStart = NULL;
+				PF_GET_PIXEL_DATA8(input_worldP, NULL, &pixelDataStart);
+				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, input_worldP->width, input_worldP->height, GL_RGBA, GL_UNSIGNED_BYTE, pixelDataStart);
+				break;
+			}
 
-		default:
+			default:
 			CHECK(PF_Err_BAD_CALLBACK_PARAM);
-			break;
+				break;
 		}
 
 		glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
@@ -291,9 +291,9 @@ namespace {
 
 
 	void SwizzleGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr& renderContext,
-				   A_long widthL, A_long heightL,
-				   gl::GLuint		inputFrameTexture,
-				   float			multiplier16bit)
+			A_long widthL, A_long heightL,
+			gl::GLuint		inputFrameTexture,
+			float			multiplier16bit)
 	{
 		glBindTexture(GL_TEXTURE_2D, inputFrameTexture);
 
@@ -301,7 +301,7 @@ namespace {
 
 		// view matrix, mimic windows coordinates
 		vmath::Matrix4 ModelviewProjection = vmath::Matrix4::translation(vmath::Vector3(-1.0f, -1.0f, 0.0f)) *
-			vmath::Matrix4::scale(vmath::Vector3(2.0 / float(widthL), 2.0 / float(heightL), 1.0f));
+				vmath::Matrix4::scale(vmath::Vector3(2.0 / float(widthL), 2.0 / float(heightL), 1.0f));
 
 		GLint location = glGetUniformLocation(renderContext->mProgramObj2Su, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
@@ -320,7 +320,12 @@ namespace {
 		glFlush();
 	}
 
-	void RenderGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr &renderContext, A_long widthL, A_long heightL, gl::GLuint inputFrameTexture, float exposure, float multiplier16bit, float gammaOffset, float offset)
+	void RenderGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr& renderContext,
+			A_long widthL, A_long heightL,
+			gl::GLuint        inputFrameTexture,
+			PF_FpLong            sliderVal,
+			float                multiplier16bit,
+			int            direction)
 	{
 		// - make sure we blend correctly inside the framebuffer
 		// - even though we just cleared it, another effect may want to first
@@ -331,7 +336,7 @@ namespace {
 
 		// view matrix, mimic windows coordinates
 		vmath::Matrix4 ModelviewProjection = vmath::Matrix4::translation(vmath::Vector3(-1.0f, -1.0f, 0.0f)) *
-			vmath::Matrix4::scale(vmath::Vector3(2.0 / float(widthL), 2.0 / float(heightL), 1.0f));
+				vmath::Matrix4::scale(vmath::Vector3(2.0 / float(widthL), 2.0 / float(heightL), 1.0f));
 
 		glBindTexture(GL_TEXTURE_2D, inputFrameTexture);
 
@@ -341,11 +346,11 @@ namespace {
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "length");
-		glUniform1i(location, int(exposure));
+		glUniform1i(location, int(sliderVal));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "direction");
-        glUniform1i(location, gammaOffset);
+		location = glGetUniformLocation(renderContext->mProgramObjSu, "direction");
+		glUniform1i(location, direction);
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -359,14 +364,14 @@ namespace {
 	}
 
 	void DownloadTexture(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr& renderContext,
-						 AEGP_SuiteHandler&		suites,				// >>
-						 PF_EffectWorld			*input_worldP,		// >>
-						 PF_EffectWorld			*output_worldP,		// >>
-						 PF_InData				*in_data,			// >>
-						 PF_PixelFormat			format,				// >>
-						 size_t					pixSize,			// >>
-						 gl::GLenum				glFmt				// >>
-						 )
+			AEGP_SuiteHandler&		suites,				// >>
+			PF_EffectWorld			*input_worldP,		// >>
+			PF_EffectWorld			*output_worldP,		// >>
+			PF_InData				*in_data,			// >>
+			PF_PixelFormat			format,				// >>
+			size_t					pixSize,			// >>
+			gl::GLenum				glFmt				// >>
+	)
 	{
 		//download from texture memory onto the same surface
 		PF_Handle bufferH = NULL;
@@ -381,57 +386,57 @@ namespace {
 
 		switch (format)
 		{
-		case PF_PixelFormat_ARGB128:
-		{
-			PF_PixelFloat* bufferFloatP = reinterpret_cast<PF_PixelFloat*>(bufferP);
-			CopyPixelFloat_t refcon = { bufferFloatP, input_worldP };
-
-			CHECK(suites.IterateFloatSuite1()->iterate(in_data,
-				0,
-				input_worldP->height,
-				input_worldP,
-				nullptr,
-				reinterpret_cast<void*>(&refcon),
-				CopyPixelFloatOut,
-				output_worldP));
-			break;
-		}
-
-		case PF_PixelFormat_ARGB64:
-		{
-			PF_Pixel16* buffer16P = reinterpret_cast<PF_Pixel16*>(bufferP);
-
-			//copy to output_worldP
-			for (int y = 0; y < output_worldP->height; ++y)
+			case PF_PixelFormat_ARGB128:
 			{
-				PF_Pixel16 *pixelDataStart = NULL;
-				PF_GET_PIXEL_DATA16(output_worldP, NULL, &pixelDataStart);
-				::memcpy(pixelDataStart + (y * output_worldP->rowbytes / sizeof(PF_Pixel16)),
-					buffer16P + (y * renderContext->mRenderBufferWidthSu),
-					output_worldP->width * sizeof(PF_Pixel16));
+				PF_PixelFloat* bufferFloatP = reinterpret_cast<PF_PixelFloat*>(bufferP);
+				CopyPixelFloat_t refcon = { bufferFloatP, input_worldP };
+
+				CHECK(suites.IterateFloatSuite1()->iterate(in_data,
+						0,
+						input_worldP->height,
+						input_worldP,
+						nullptr,
+						reinterpret_cast<void*>(&refcon),
+						CopyPixelFloatOut,
+						output_worldP));
+				break;
 			}
-			break;
-		}
 
-		case PF_PixelFormat_ARGB32:
-		{
-			PF_Pixel8 *buffer8P = reinterpret_cast<PF_Pixel8*>(bufferP);
-
-			//copy to output_worldP
-			for (int y = 0; y < output_worldP->height; ++y)
+			case PF_PixelFormat_ARGB64:
 			{
-				PF_Pixel8 *pixelDataStart = NULL;
-				PF_GET_PIXEL_DATA8(output_worldP, NULL, &pixelDataStart);
-				::memcpy(pixelDataStart + (y * output_worldP->rowbytes / sizeof(PF_Pixel8)),
-					buffer8P + (y * renderContext->mRenderBufferWidthSu),
-					output_worldP->width * sizeof(PF_Pixel8));
-			}
-			break;
-		}
+				PF_Pixel16* buffer16P = reinterpret_cast<PF_Pixel16*>(bufferP);
 
-		default:
+				//copy to output_worldP
+				for (int y = 0; y < output_worldP->height; ++y)
+				{
+					PF_Pixel16 *pixelDataStart = NULL;
+					PF_GET_PIXEL_DATA16(output_worldP, NULL, &pixelDataStart);
+					::memcpy(pixelDataStart + (y * output_worldP->rowbytes / sizeof(PF_Pixel16)),
+							buffer16P + (y * renderContext->mRenderBufferWidthSu),
+							output_worldP->width * sizeof(PF_Pixel16));
+				}
+				break;
+			}
+
+			case PF_PixelFormat_ARGB32:
+			{
+				PF_Pixel8 *buffer8P = reinterpret_cast<PF_Pixel8*>(bufferP);
+
+				//copy to output_worldP
+				for (int y = 0; y < output_worldP->height; ++y)
+				{
+					PF_Pixel8 *pixelDataStart = NULL;
+					PF_GET_PIXEL_DATA8(output_worldP, NULL, &pixelDataStart);
+					::memcpy(pixelDataStart + (y * output_worldP->rowbytes / sizeof(PF_Pixel8)),
+							buffer8P + (y * renderContext->mRenderBufferWidthSu),
+							output_worldP->width * sizeof(PF_Pixel8));
+				}
+				break;
+			}
+
+			default:
 			CHECK(PF_Err_BAD_CALLBACK_PARAM);
-			break;
+				break;
 		}
 
 		//clean the data after being copied
@@ -440,42 +445,42 @@ namespace {
 	}
 } // anonymous namespace
 
-static PF_Err 
-About (	
-	PF_InData		*in_data,
-	PF_OutData		*out_data,
-	PF_ParamDef		*params[],
-	PF_LayerDef		*output )
+static PF_Err
+About (
+		PF_InData		*in_data,
+		PF_OutData		*out_data,
+		PF_ParamDef		*params[],
+		PF_LayerDef		*output )
 {
 	AEGP_SuiteHandler suites(in_data->pica_basicP);
-	
+
 	suites.ANSICallbacksSuite1()->sprintf(	out_data->return_msg,
-											"%s v%d.%d\r%s",
-											STR(StrID_Name),
-											MAJOR_VERSION, 
-											MINOR_VERSION, 
-											STR(StrID_Description));
+			"%s v%d.%d\r%s",
+			STR(StrID_Name),
+			MAJOR_VERSION,
+			MINOR_VERSION,
+			STR(StrID_Description));
 	return PF_Err_NONE;
 }
 
 static PF_Err
-GlobalSetup (	
-	PF_InData		*in_data,
-	PF_OutData		*out_data,
-	PF_ParamDef		*params[],
-	PF_LayerDef		*output )
+GlobalSetup (
+		PF_InData		*in_data,
+		PF_OutData		*out_data,
+		PF_ParamDef		*params[],
+		PF_LayerDef		*output )
 {
-	out_data->my_version = PF_VERSION(	MAJOR_VERSION, 
-										MINOR_VERSION,
-										BUG_VERSION, 
-										STAGE_VERSION, 
-										BUILD_VERSION);
+	out_data->my_version = PF_VERSION(	MAJOR_VERSION,
+			MINOR_VERSION,
+			BUG_VERSION,
+			STAGE_VERSION,
+			BUILD_VERSION);
 
 	out_data->out_flags = 	PF_OutFlag_DEEP_COLOR_AWARE;
-	
+
 	out_data->out_flags2 =	PF_OutFlag2_FLOAT_COLOR_AWARE	|
-							PF_OutFlag2_SUPPORTS_SMART_RENDER;
-	
+			PF_OutFlag2_SUPPORTS_SMART_RENDER;
+
 	PF_Err err = PF_Err_NONE;
 	try
 	{
@@ -486,7 +491,7 @@ GlobalSetup (
 		//Now comes the OpenGL part - OS specific loading to start with
 		S_GLator_EffectCommonData.reset(new AESDK_OpenGL::AESDK_OpenGL_EffectCommonData());
 		AESDK_OpenGL_Startup(*S_GLator_EffectCommonData.get());
-		
+
 		S_ResourcePath = GetResourcesPath(in_data);
 	}
 	catch(PF_Err& thrown_err)
@@ -501,42 +506,42 @@ GlobalSetup (
 	return err;
 }
 
-static PF_Err 
-ParamsSetup (	
-	PF_InData		*in_data,
-	PF_OutData		*out_data,
-	PF_ParamDef		*params[],
-	PF_LayerDef		*output )
+static PF_Err
+ParamsSetup (
+		PF_InData		*in_data,
+		PF_OutData		*out_data,
+		PF_ParamDef		*params[],
+		PF_LayerDef		*output )
 {
 	PF_Err		err		= PF_Err_NONE;
-	PF_ParamDef	def;	
+	PF_ParamDef	def;
 
 	AEFX_CLR_STRUCT(def);
 
 	PF_ADD_SLIDER(	STR(StrID_Name),
-					GLATOR_SLIDER_MIN,
-					GLATOR_SLIDER_MAX, 
-					GLATOR_SLIDER_MIN, 
-					GLATOR_SLIDER_MAX, 
-					GLATOR_SLIDER_DFLT,
-					SLIDER_DISK_ID);
+			GLATOR_SLIDER_MIN,
+			GLATOR_SLIDER_MAX,
+			GLATOR_SLIDER_MIN,
+			GLATOR_SLIDER_MAX,
+			GLATOR_SLIDER_DFLT,
+			SLIDER_DISK_ID);
 
-    PF_ADD_POPUP(STR(StrID_DIRECTION),
-                 3,
-                 1,
-                 STR(StrID_Popup_Choices),
-                 DIRECTION_DISK_ID);
+	PF_ADD_POPUP(STR(StrID_DIRECTION),
+			3,
+			1,
+			STR(StrID_Popup_Choices),
+			DIRECTION_DISK_ID);
 	out_data->num_params = 3;
 	return err;
 }
 
 
-static PF_Err 
+static PF_Err
 GlobalSetdown (
-	PF_InData		*in_data,
-	PF_OutData		*out_data,
-	PF_ParamDef		*params[],
-	PF_LayerDef		*output )
+		PF_InData		*in_data,
+		PF_OutData		*out_data,
+		PF_ParamDef		*params[],
+		PF_LayerDef		*output )
 {
 	PF_Err			err			=	PF_Err_NONE;
 
@@ -573,9 +578,9 @@ GlobalSetdown (
 
 static PF_Err
 PreRender(
-	PF_InData				*in_data,
-	PF_OutData				*out_data,
-	PF_PreRenderExtra		*extra)
+		PF_InData				*in_data,
+		PF_OutData				*out_data,
+		PF_PreRenderExtra		*extra)
 {
 	PF_Err	err = PF_Err_NONE,
 			err2 = PF_Err_NONE;
@@ -588,20 +593,20 @@ PreRender(
 	AEFX_CLR_STRUCT(slider_param);
 
 	ERR(PF_CHECKOUT_PARAM(in_data,
-		GLATOR_SLIDER,
-		in_data->current_time,
-		in_data->time_step,
-		in_data->time_scale,
-		&slider_param));
+			GLATOR_SLIDER,
+			in_data->current_time,
+			in_data->time_step,
+			in_data->time_scale,
+			&slider_param));
 
 	ERR(extra->cb->checkout_layer(in_data->effect_ref,
-		GLATOR_INPUT,
-		GLATOR_INPUT,
-		&req,
-		in_data->current_time,
-		in_data->time_step,
-		in_data->time_scale,
-		&in_result));
+			GLATOR_INPUT,
+			GLATOR_INPUT,
+			&req,
+			in_data->current_time,
+			in_data->time_step,
+			in_data->time_scale,
+			&in_result));
 
 	if (!err){
 		UnionLRect(&in_result.result_rect, &extra->output->result_rect);
@@ -613,55 +618,55 @@ PreRender(
 
 static PF_Err
 SmartRender(
-	PF_InData				*in_data,
-	PF_OutData				*out_data,
-	PF_SmartRenderExtra		*extra)
+		PF_InData				*in_data,
+		PF_OutData				*out_data,
+		PF_SmartRenderExtra		*extra)
 {
 	PF_Err				err = PF_Err_NONE,
-						err2 = PF_Err_NONE;
+			err2 = PF_Err_NONE;
 
 	PF_EffectWorld		*input_worldP = NULL,
-						*output_worldP = NULL;
+			*output_worldP = NULL;
 	PF_WorldSuite2		*wsP = NULL;
 	PF_PixelFormat		format = PF_PixelFormat_INVALID;
 	PF_FpLong			sliderVal = 0;
-    int       direction = 0;
+	int       direction = 0;
 
 
 	AEGP_SuiteHandler suites(in_data->pica_basicP);
 
 	PF_ParamDef slider_param;
-    PF_ParamDef direction_param;
+	PF_ParamDef direction_param;
 	AEFX_CLR_STRUCT(slider_param);
-    ERR(PF_CHECKOUT_PARAM(in_data,
-                          GLATOR_SLIDER,
-        in_data->current_time,
-        in_data->time_step,
-        in_data->time_scale,
-        &slider_param));
-    AEFX_CLR_STRUCT(direction_param);
-    ERR(PF_CHECKOUT_PARAM(in_data,
-                          GLATOR_DIRECTION,
-        in_data->current_time,
-        in_data->time_step,
-        in_data->time_scale,
-        &direction_param));
+	ERR(PF_CHECKOUT_PARAM(in_data,
+			GLATOR_SLIDER,
+			in_data->current_time,
+			in_data->time_step,
+			in_data->time_scale,
+			&slider_param));
+	AEFX_CLR_STRUCT(direction_param);
+	ERR(PF_CHECKOUT_PARAM(in_data,
+			GLATOR_DIRECTION,
+			in_data->current_time,
+			in_data->time_step,
+			in_data->time_scale,
+			&direction_param));
 	if (!err){
-        sliderVal = slider_param.u.fd.value;
-        direction = direction_param.u.pd.value;
+		sliderVal = slider_param.u.fd.value;
+		direction = direction_param.u.pd.value;
 	}
-    printf("%s", typeid(sliderVal).name());
-    
+	printf("%s", typeid(sliderVal).name());
+
 	ERR((extra->cb->checkout_layer_pixels(in_data->effect_ref, GLATOR_INPUT, &input_worldP)));
 
 	ERR(extra->cb->checkout_output(in_data->effect_ref, &output_worldP));
 
 	ERR(AEFX_AcquireSuite(in_data,
-		out_data,
-		kPFWorldSuite,
-		kPFWorldSuiteVersion2,
-		"Couldn't load suite.",
-		(void**)&wsP));
+			out_data,
+			kPFWorldSuite,
+			kPFWorldSuiteVersion2,
+			"Couldn't load suite.",
+			(void**)&wsP));
 
 	if (!err){
 		try
@@ -680,7 +685,7 @@ SmartRender(
 			}
 
 			renderContext->SetPluginContext();
-			
+
 			// - Gremedy OpenGL debugger
 			// - Example of using a OpenGL extension
 			bool hasGremedy = renderContext->mExtensions.find(gl::GLextension::GL_GREMEDY_frame_terminator) != renderContext->mExtensions.end();
@@ -696,7 +701,7 @@ SmartRender(
 			gl::GLenum glFmt;
 			float multiplier16bit;
 			gl::GLuint inputFrameTexture = UploadTexture(suites, format, input_worldP, output_worldP, in_data, pixSize, glFmt, multiplier16bit);
-			
+
 			// Set up the frame-buffer object just like a window.
 			AESDK_OpenGL_MakeReadyToRender(*renderContext.get(), renderContext->mOutputFrameTexture);
 			ReportIfErrorFramebuffer(in_data, out_data);
@@ -704,11 +709,11 @@ SmartRender(
 			glViewport(0, 0, widthL, heightL);
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
-			
+
 			// - simply blend the texture inside the frame buffer
 			// - TODO: hack your own shader there
 //			RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit);
-            RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit, direction, 0);
+			RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit, direction);
 
 			// - we toggle PBO textures (we use the PBO we just created as an input)
 			AESDK_OpenGL_MakeReadyToRender(*renderContext.get(), inputFrameTexture);
@@ -725,7 +730,7 @@ SmartRender(
 
 			// - get back to CPU the result, and inside the output world
 			DownloadTexture(renderContext, suites, input_worldP, output_worldP, in_data,
-				format, pixSize, glFmt);
+					format, pixSize, glFmt);
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -747,10 +752,10 @@ SmartRender(
 	ERR(PF_ABORT(in_data));
 
 	ERR2(AEFX_ReleaseSuite(in_data,
-		out_data,
-		kPFWorldSuite,
-		kPFWorldSuiteVersion2,
-		"Couldn't release suite."));
+			out_data,
+			kPFWorldSuite,
+			kPFWorldSuiteVersion2,
+			"Couldn't release suite."));
 	ERR2(PF_CHECKIN_PARAM(in_data, &slider_param));
 	ERR2(extra->cb->checkin_layer_pixels(in_data->effect_ref, GLATOR_INPUT));
 
@@ -760,21 +765,21 @@ SmartRender(
 
 extern "C" DllExport
 PF_Err PluginDataEntryFunction(
-	PF_PluginDataPtr inPtr,
-	PF_PluginDataCB inPluginDataCallBackPtr,
-	SPBasicSuite* inSPBasicSuitePtr,
-	const char* inHostName,
-	const char* inHostVersion)
+		PF_PluginDataPtr inPtr,
+		PF_PluginDataCB inPluginDataCallBackPtr,
+		SPBasicSuite* inSPBasicSuitePtr,
+		const char* inHostName,
+		const char* inHostVersion)
 {
 	PF_Err result = PF_Err_INVALID_CALLBACK;
 
 	result = PF_REGISTER_EFFECT(
-		inPtr,
-		inPluginDataCallBackPtr,
-		"WBGaussBlur", // Name
-		"ADBE WBGaussBlur", // Match Name
-        "ADBE WBGaussBlur", // Category
-		AE_RESERVED_INFO); // Reserved Info
+			inPtr,
+			inPluginDataCallBackPtr,
+			"WBGaussBlur", // Name
+			"ADBE WBGaussBlur", // Match Name
+			"ADBE WBGaussBlur", // Category
+			AE_RESERVED_INFO); // Reserved Info
 
 	return result;
 }
@@ -782,12 +787,12 @@ PF_Err PluginDataEntryFunction(
 
 PF_Err
 EffectMain(
-	PF_Cmd			cmd,
-	PF_InData		*in_data,
-	PF_OutData		*out_data,
-	PF_ParamDef		*params[],
-	PF_LayerDef		*output,
-	void			*extra)
+		PF_Cmd			cmd,
+		PF_InData		*in_data,
+		PF_OutData		*out_data,
+		PF_ParamDef		*params[],
+		PF_LayerDef		*output,
+		void			*extra)
 {
 
 	/*******************
@@ -800,35 +805,35 @@ EffectMain(
 
 
 	PF_Err		err = PF_Err_NONE;
-	
+
 	try {
 		switch (cmd) {
 			case PF_Cmd_ABOUT:
 				err = About(in_data,
-							out_data,
-							params,
-							output);
+						out_data,
+						params,
+						output);
 				break;
-				
+
 			case PF_Cmd_GLOBAL_SETUP:
 				err = GlobalSetup(	in_data,
-									out_data,
-									params,
-									output);
+						out_data,
+						params,
+						output);
 				break;
-				
+
 			case PF_Cmd_PARAMS_SETUP:
 				err = ParamsSetup(	in_data,
-									out_data,
-									params,
-									output);
+						out_data,
+						params,
+						output);
 				break;
-				
+
 			case PF_Cmd_GLOBAL_SETDOWN:
 				err = GlobalSetdown(	in_data,
-										out_data,
-										params,
-										output);
+						out_data,
+						params,
+						output);
 				break;
 
 			case  PF_Cmd_SMART_PRE_RENDER:
