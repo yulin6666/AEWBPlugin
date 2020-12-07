@@ -350,9 +350,9 @@ namespace {
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "center_x");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "circle_center_x");
         glUniform1f(location, centerX);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "center_y");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "circle_center_y");
         glUniform1f(location, centerY);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "radius");
         glUniform1i(location, radiusVal);

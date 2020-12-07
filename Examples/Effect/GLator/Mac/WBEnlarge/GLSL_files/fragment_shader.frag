@@ -2,8 +2,8 @@
 uniform sampler2D inputImageTexture;
 in vec2 out_uvs;
 
-uniform float center_x; //放大镜中心
-uniform float center_y; //放大镜中心
+uniform float circle_center_x; //放大镜中心
+uniform float circle_center_y; //放大镜中心
 uniform int radius;//放大镜圆半径
 uniform int zoom_times; //放大倍数
 uniform float texelWidth; //纹理宽度
@@ -21,9 +21,9 @@ float getDistance(vec2 pos_src,vec2 pos_dist){
 }
 
 vec2 getZoomPosition(){
-    float zoom_x = float(out_uvs.x*texelWidth - center_x)/float((zoom_times+110.0)/100.0);
-    float zoom_y = float(out_uvs.y*texelHeight - center_y)/float((zoom_times+110.0)/100.0);
-    return vec2(float(center_x+zoom_x),float(center_y+zoom_y));
+    float zoom_x = float(out_uvs.x*texelWidth - circle_center_x)/float((zoom_times+110.0)/100.0);
+    float zoom_y = float(out_uvs.y*texelHeight - circle_center_y)/float((zoom_times+110.0)/100.0);
+    return vec2(float(circle_center_x+zoom_x),float(circle_center_y+zoom_y));
 }
 
 vec4 getColor(){
@@ -44,7 +44,7 @@ vec4 getColor(){
 void main( void )
 {
     vec2 frag_pos = vec2(out_uvs.x*texelWidth, out_uvs.y*texelHeight);
-    vec2 center = vec2(center_x,center_y);
+    vec2 center = vec2(circle_center_x,circle_center_y);
     if(getDistance(center,frag_pos) > float(radius)){//圈外
         colourOut = texture(inputImageTexture,out_uvs);
     }

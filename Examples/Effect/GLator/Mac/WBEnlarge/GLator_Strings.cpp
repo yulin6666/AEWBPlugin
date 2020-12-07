@@ -31,7 +31,7 @@ typedef struct {
 TableString		g_strs[StrID_NUMTYPES] = {
 	StrID_NONE,						"",
     StrID_Name,                   "Enlarge",
-    StrID_Center,         "center",
+    StrID_Center,         "circle_center",
     StrID_Zoom,           "zoom",
     StrID_Radius,         "radius",
 	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
