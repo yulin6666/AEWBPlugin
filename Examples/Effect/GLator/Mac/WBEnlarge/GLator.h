@@ -77,33 +77,24 @@ typedef float				fpshort;
 #define	STAGE_VERSION	PF_Stage_DEVELOP
 #define	BUILD_VERSION	1
 
-#define    GLATOR_SLIDER_MIN        0
-#define    GLATOR_SLIDER_MAX        100
-#define    GLATOR_SLIDER_DFLT        10
 
 /* Parameter defaults */
 
-#define	DEFAULT_CENTER_X 50
-#define  DEFAULT_CENTER_Y 50
-
-#define ZOOM_DEFAULT 50
-#define ZOOM_MIN 0
-#define ZOOM_MAX 100
-
-#define RADIUS_DEFAULT 50
-#define RADIUS_MIN 0
-#define RADIUS_MAX 100
-
+#define	GLATOR_SLIDER_MIN		0
+#define	GLATOR_SLIDER_MAX		100
+#define	GLATOR_SLIDER_DFLT		50
+#define DEFAULT_POINT_VALS      50
 enum {
 	GLATOR_INPUT = 0,
-	GLATOR_CENTER,
-    GLATOR_ZOOM,
+	GLATOR_SLIDER,
+    GLATOR_CIRCLE_CENTER,
     GLATOR_RADIUS
+    
 };
 
 enum {
-	CENTER_DISK_ID= 1,
-    ZOOM_DISK_ID,
+	SLIDER_DISK_ID = 1,
+    CIRCLE_CENTER_DISK_ID,
     RADIUS_DISK_ID
 };
 

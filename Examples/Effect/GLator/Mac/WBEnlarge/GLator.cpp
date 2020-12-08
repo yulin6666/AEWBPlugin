@@ -55,7 +55,7 @@ using namespace gl33core;
 #include "glbinding/gl33ext/gl.h"
 #include <glbinding/gl/extension.h>
 
-/* AESDK_FOpenGL effect specific variables */
+/* AESDK_OpenGL effect specific variables */
 
 namespace {
 	THREAD_LOCAL int t_thread = -1;
@@ -323,11 +323,11 @@ namespace {
 	void RenderGL(const AESDK_OpenGL::AESDK_OpenGL_EffectRenderDataPtr& renderContext,
                   A_long widthL, A_long heightL,
                   gl::GLuint        inputFrameTexture,
-                  PF_FpLong            zoomVal,
+                  PF_FpLong            sliderVal,
                   float                multiplier16bit,
-                  PF_FpLong            radiusVal,
                   PF_FpLong            centerX,
-                  PF_FpLong            centerY
+                  PF_FpLong            centerY,
+                  PF_ParamValue        radiusVal
                   )
 	{
 		// - make sure we blend correctly inside the framebuffer
@@ -348,22 +348,23 @@ namespace {
 		// program uniforms
 		GLint location = glGetUniformLocation(renderContext->mProgramObjSu, "ModelviewProjection");
 		glUniformMatrix4fv(location, 1, GL_FALSE, (GLfloat*)&ModelviewProjection);
+		location = glGetUniformLocation(renderContext->mProgramObjSu, "count");
+		glUniform1i(location, int(sliderVal));
 		location = glGetUniformLocation(renderContext->mProgramObjSu, "multiplier16bit");
 		glUniform1f(location, multiplier16bit);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "circle_center_x");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "center_x");
         glUniform1f(location, centerX);
-        location = glGetUniformLocation(renderContext->mProgramObjSu, "circle_center_y");
+        location = glGetUniformLocation(renderContext->mProgramObjSu, "center_y");
         glUniform1f(location, centerY);
         location = glGetUniformLocation(renderContext->mProgramObjSu, "radius");
-        glUniform1i(location, radiusVal);
+        glUniform1i(location, int(radiusVal));
         location = glGetUniformLocation(renderContext->mProgramObjSu, "zoom_times");
-        glUniform1i(location, zoomVal);
+        glUniform1i(location, int(sliderVal));
         location = glGetUniformLocation(renderContext->mProgramObjSu, "texelWidth");
-        float a =(float)(widthL);
-        glUniform1f(location,a);
+        glUniform1f(location, float(widthL));
         location = glGetUniformLocation(renderContext->mProgramObjSu, "texelHeight");
-        float b =(float)(heightL);
-        glUniform1f(location, b);
+        glUniform1f(location, float(heightL));
+
 		// Identify the texture to use and bind it to texture unit 0
 		AESDK_OpenGL_BindTextureToTarget(renderContext->mProgramObjSu, inputFrameTexture, std::string("videoTexture"));
 
@@ -531,25 +532,24 @@ ParamsSetup (
 
 	AEFX_CLR_STRUCT(def);
 
-    PF_ADD_POINT(STR(StrID_Center),
-                 DEFAULT_CENTER_X,
-                 DEFAULT_CENTER_Y,
+	PF_ADD_SLIDER(	STR(StrID_Name),
+					GLATOR_SLIDER_MIN,
+					GLATOR_SLIDER_MAX,
+					GLATOR_SLIDER_MIN,
+					GLATOR_SLIDER_MAX,
+					GLATOR_SLIDER_DFLT,
+					SLIDER_DISK_ID);
+    PF_ADD_POINT(STR(StrID_Circle_Center),
+                 DEFAULT_POINT_VALS,
+                 DEFAULT_POINT_VALS,
                  TRUE,
-                 CENTER_DISK_ID);
-    
-    PF_ADD_SLIDER(    STR(StrID_Zoom),
-                  ZOOM_MIN,
-                  ZOOM_MAX,
-                  ZOOM_MIN,
-                  ZOOM_MAX,
-                  ZOOM_DEFAULT,
-                  ZOOM_DISK_ID);
-    PF_ADD_SLIDER(    STR(StrID_Radius),
-                  RADIUS_MIN,
-                  RADIUS_MAX,
-                  RADIUS_MIN,
-                  RADIUS_MAX,
-                  RADIUS_DEFAULT,
+                 CIRCLE_CENTER_DISK_ID);
+    PF_ADD_SLIDER(    STR(GLATOR_RADIUS),
+                    GLATOR_SLIDER_MIN,
+                    GLATOR_SLIDER_MAX,
+                    GLATOR_SLIDER_MIN,
+                    GLATOR_SLIDER_MAX,
+                    GLATOR_SLIDER_DFLT,
                   RADIUS_DISK_ID);
 	out_data->num_params = 4;
 
@@ -599,41 +599,42 @@ GlobalSetdown (
 
 static PF_Err
 PreRender(
-        PF_InData *in_data,
-        PF_OutData *out_data,
-        PF_PreRenderExtra *extra) {
-    PF_Err err = PF_Err_NONE,
-            err2 = PF_Err_NONE;
+	PF_InData				*in_data,
+	PF_OutData				*out_data,
+	PF_PreRenderExtra		*extra)
+{
+	PF_Err	err = PF_Err_NONE,
+			err2 = PF_Err_NONE;
 
-    PF_ParamDef zoom_param;
+	PF_ParamDef slider_param;
 
-    PF_RenderRequest req = extra->input->output_request;
-    PF_CheckoutResult in_result;
+	PF_RenderRequest req = extra->input->output_request;
+	PF_CheckoutResult in_result;
 
-    AEFX_CLR_STRUCT(zoom_param);
+	AEFX_CLR_STRUCT(slider_param);
 
-    ERR(PF_CHECKOUT_PARAM(in_data,
-            GLATOR_ZOOM,
-            in_data->current_time,
-            in_data->time_step,
-            in_data->time_scale,
-            &zoom_param));
+	ERR(PF_CHECKOUT_PARAM(in_data,
+		GLATOR_SLIDER,
+		in_data->current_time,
+		in_data->time_step,
+		in_data->time_scale,
+		&slider_param));
 
-    ERR(extra->cb->checkout_layer(in_data->effect_ref,
-            GLATOR_INPUT,
-            GLATOR_INPUT,
-            &req,
-            in_data->current_time,
-            in_data->time_step,
-            in_data->time_scale,
-            &in_result));
+	ERR(extra->cb->checkout_layer(in_data->effect_ref,
+		GLATOR_INPUT,
+		GLATOR_INPUT,
+		&req,
+		in_data->current_time,
+		in_data->time_step,
+		in_data->time_scale,
+		&in_result));
 
-    if (!err) {
-        UnionLRect(&in_result.result_rect, &extra->output->result_rect);
-        UnionLRect(&in_result.max_result_rect, &extra->output->max_result_rect);
-    }
-    ERR2(PF_CHECKIN_PARAM(in_data, &zoom_param));
-    return err;
+	if (!err){
+		UnionLRect(&in_result.result_rect, &extra->output->result_rect);
+		UnionLRect(&in_result.max_result_rect, &extra->output->max_result_rect);
+	}
+	ERR2(PF_CHECKIN_PARAM(in_data, &slider_param));
+	return err;
 }
 
 static PF_Err
@@ -649,32 +650,32 @@ SmartRender(
 						*output_worldP = NULL;
 	PF_WorldSuite2		*wsP = NULL;
 	PF_PixelFormat		format = PF_PixelFormat_INVALID;
-    PF_FpLong       centerX = 0;
-    PF_FpLong       centerY = 0;
-	PF_FpLong			zoomVAL = 0;
-    PF_FpLong        radiusVAL = 0;
+	PF_FpLong			sliderVal = 0;
+    PF_FpLong           centerX = 0;
+    PF_FpLong           centerY = 0;
+    PF_FpLong       radiusVal = 0;
+
 
 	AEGP_SuiteHandler suites(in_data->pica_basicP);
 
+	PF_ParamDef slider_param;
     PF_ParamDef center_param;
-	AEFX_CLR_STRUCT(center_param);
-    ERR(PF_CHECKOUT_PARAM(in_data,
-                          GLATOR_CENTER,
-        in_data->current_time,
-        in_data->time_step,
-        in_data->time_scale,
-        &center_param));
-    
-    PF_ParamDef zoom_param;
-    AEFX_CLR_STRUCT(zoom_param);
-    ERR(PF_CHECKOUT_PARAM(in_data,
-                          GLATOR_ZOOM,
-        in_data->current_time,
-        in_data->time_step,
-        in_data->time_scale,
-        &zoom_param));
-    
     PF_ParamDef radius_param;
+	AEFX_CLR_STRUCT(slider_param);
+    ERR(PF_CHECKOUT_PARAM(in_data,
+                          GLATOR_SLIDER,
+        in_data->current_time,
+        in_data->time_step,
+        in_data->time_scale,
+        &slider_param));
+    AEFX_CLR_STRUCT(center_param);
+	ERR(PF_CHECKOUT_PARAM(in_data,
+                          GLATOR_CIRCLE_CENTER,
+		in_data->current_time,
+		in_data->time_step,
+		in_data->time_scale,
+		&center_param));
+    
     AEFX_CLR_STRUCT(radius_param);
     ERR(PF_CHECKOUT_PARAM(in_data,
                           GLATOR_RADIUS,
@@ -682,12 +683,13 @@ SmartRender(
         in_data->time_step,
         in_data->time_scale,
         &radius_param));
-    
+
 	if (!err){
-        zoomVAL = zoom_param.u.fd.value;
-        radiusVAL = radius_param.u.fd.value;
+        sliderVal = slider_param.u.fd.value;
 	}
 
+    radiusVal = radius_param.u.fd.value;
+    
 	ERR((extra->cb->checkout_layer_pixels(in_data->effect_ref, GLATOR_INPUT, &input_worldP)));
 
 	ERR(extra->cb->checkout_output(in_data->effect_ref, &output_worldP));
@@ -723,10 +725,10 @@ SmartRender(
 
 			A_long				widthL = input_worldP->width;
 			A_long				heightL = input_worldP->height;
-            
-            centerX = center_param.u.td.x_value / 65536.0 ;
-            centerY = center_param.u.td.y_value / 65536.0 ;
-
+            centerX = center_param.u.td.x_value / 65536.0 /widthL;
+        //    centerX = 0.5;
+            centerY = center_param.u.td.y_value / 65536.0 /heightL;
+        //    centerY = 0.5;
 			//loading OpenGL resources
 			AESDK_OpenGL_InitResources(*renderContext.get(), widthL, heightL, S_ResourcePath);
 
@@ -749,7 +751,7 @@ SmartRender(
 			// - simply blend the texture inside the frame buffer
 			// - TODO: hack your own shader there
 //			RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit);
-            RenderGL(renderContext, widthL, heightL, inputFrameTexture, zoomVAL, multiplier16bit,radiusVAL,centerX,centerY);
+            RenderGL(renderContext, widthL, heightL, inputFrameTexture, sliderVal, multiplier16bit, centerX, centerY, radiusVal);
 
 			// - we toggle PBO textures (we use the PBO we just created as an input)
 			AESDK_OpenGL_MakeReadyToRender(*renderContext.get(), inputFrameTexture);
@@ -792,7 +794,7 @@ SmartRender(
 		kPFWorldSuite,
 		kPFWorldSuiteVersion2,
 		"Couldn't release suite."));
-	ERR2(PF_CHECKIN_PARAM(in_data, &zoom_param));
+	ERR2(PF_CHECKIN_PARAM(in_data, &slider_param));
 	ERR2(extra->cb->checkin_layer_pixels(in_data->effect_ref, GLATOR_INPUT));
 
 	return err;
@@ -812,9 +814,9 @@ PF_Err PluginDataEntryFunction(
 	result = PF_REGISTER_EFFECT(
 		inPtr,
 		inPluginDataCallBackPtr,
-		"WBMosaic", // Name
-		"ADBE WBMosaic", // Match Name
-        "ADBE WBMosaic", // Category
+		"WBRadialBlur", // Name
+		"ADBE WBRadialBlur", // Match Name
+        "ADBE WBRadialBlur", // Category
 		AE_RESERVED_INFO); // Reserved Info
 
 	return result;

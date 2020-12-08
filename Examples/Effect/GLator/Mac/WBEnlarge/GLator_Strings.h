@@ -22,10 +22,9 @@
 #pragma once
 
 typedef enum {
-	StrID_NONE,
-    StrID_Name,
-	StrID_Center,
-    StrID_Zoom,
+	StrID_NONE, 
+	StrID_Name,
+    StrID_Circle_Center,
     StrID_Radius,
 	StrID_Description,
 	StrID_Color_Param_Name,

@@ -2,13 +2,12 @@
 uniform sampler2D inputImageTexture;
 in vec2 out_uvs;
 
-uniform float circle_center_x; //放大镜中心
-uniform float circle_center_y; //放大镜中心
+uniform float center_x; //放大镜中心
+uniform float center_y; //放大镜中心
 uniform int radius;//放大镜圆半径
 uniform int zoom_times; //放大倍数
 uniform float texelWidth; //纹理宽度
 uniform float texelHeight; //纹理高度
-
 out vec4 colourOut;
 
 vec2 transForTexPosition(vec2 pos){
@@ -21,9 +20,9 @@ float getDistance(vec2 pos_src,vec2 pos_dist){
 }
 
 vec2 getZoomPosition(){
-    float zoom_x = float(out_uvs.x*texelWidth - circle_center_x)/float((zoom_times+110.0)/100.0);
-    float zoom_y = float(out_uvs.y*texelHeight - circle_center_y)/float((zoom_times+110.0)/100.0);
-    return vec2(float(circle_center_x+zoom_x),float(circle_center_y+zoom_y));
+    float zoom_x = float(out_uvs.x*texelWidth - center_x*texelWidth)/float(float(zoom_times+20.0)/20.0);
+    float zoom_y = float(out_uvs.y*texelHeight - center_y*texelHeight)/float(float(zoom_times+20.0)/20.0);
+    return vec2(float(center_x*texelWidth+zoom_x),float(center_y*texelHeight+zoom_y));
 }
 
 vec4 getColor(){
@@ -44,11 +43,12 @@ vec4 getColor(){
 void main( void )
 {
     vec2 frag_pos = vec2(out_uvs.x*texelWidth, out_uvs.y*texelHeight);
-    vec2 center = vec2(circle_center_x,circle_center_y);
+    vec2 center = vec2(center_x*texelWidth,center_y*texelHeight);
     if(getDistance(center,frag_pos) > float(radius)){//圈外
         colourOut = texture(inputImageTexture,out_uvs);
     }
     else{//圈内
+        //colourOut =vec4(1.0,1.0,0.0,1.0);
         colourOut =getColor();
     }
 }

@@ -13,7 +13,7 @@ resource 'PiPL' (16000) {
 		},
 		/* [2] */
 		Name {
-			"WB放 大"
+            "WB放 大"
 		},
 		/* [3] */
 		Category {
