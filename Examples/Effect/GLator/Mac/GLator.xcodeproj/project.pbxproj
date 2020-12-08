@@ -233,6 +233,22 @@
 		F0BD3B5F257660FF006F27DF /* WBPosterizePiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F0BD3B57257660FF006F27DF /* WBPosterizePiPL.r */; };
 		F0BD3B60257660FF006F27DF /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0BD3B58257660FF006F27DF /* GLator_Strings.cpp */; };
 		F0BD3B61257660FF006F27DF /* WBPosterize.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0BD3B59257660FF006F27DF /* WBPosterize.plugin-Info.plist */; };
+		F0D4A1F42578CB9F00DF0DF2 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		F0D4A1F52578CB9F00DF0DF2 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		F0D4A1F72578CB9F00DF0DF2 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		F0D4A1F92578CB9F00DF0DF2 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		F0D4A1FC2578CB9F00DF0DF2 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		F0D4A1FD2578CB9F00DF0DF2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		F0D4A1FE2578CB9F00DF0DF2 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		F0D4A1FF2578CB9F00DF0DF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		F0D4A24B2578DFBE00DF0DF2 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0D4A2402578DFBE00DF0DF2 /* GL_base.cpp */; };
+		F0D4A24C2578DFBE00DF0DF2 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0D4A2412578DFBE00DF0DF2 /* GLator.cpp */; };
+		F0D4A24D2578DFBE00DF0DF2 /* WBPhotoFilter.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0D4A2422578DFBE00DF0DF2 /* WBPhotoFilter.plugin-Info.plist */; };
+		F0D4A24E2578DFBE00DF0DF2 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = F0D4A2452578DFBE00DF0DF2 /* vertex_shader.vert */; };
+		F0D4A24F2578DFBE00DF0DF2 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0D4A2462578DFBE00DF0DF2 /* fragment_shader2.frag */; };
+		F0D4A2502578DFBE00DF0DF2 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = F0D4A2472578DFBE00DF0DF2 /* fragment_shader.frag */; };
+		F0D4A2512578DFBE00DF0DF2 /* WBPhotoFilterPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F0D4A2492578DFBE00DF0DF2 /* WBPhotoFilterPiPL.r */; };
+		F0D4A2522578DFBE00DF0DF2 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0D4A24A2578DFBE00DF0DF2 /* GLator_Strings.cpp */; };
 		F0D4ABA225319D62005D80FB /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
 		F0D4ABA325319D62005D80FB /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
 		F0D4ABA425319D62005D80FB /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
@@ -371,6 +387,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0D4A2022578CB9F00DF0DF2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABB025319D62005D80FB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,7 +423,6 @@
 		038A0E4525765C24003531CF /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		038A0E4625765C24003531CF /* WBExposure.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBExposure.plugin-Info.plist"; sourceTree = "<group>"; };
 		03C60DB5256FA89B00668B7B /* WBExposure.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBExposure.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		03C60DB6256FA89C00668B7B /* WBGaussBlur copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBGaussBlur copy-Info.plist"; path = "/Users/hansen.tian/develop/Weibo_ios/AEWBPlugin/Examples/Effect/GLator/Mac/WBGaussBlur copy-Info.plist"; sourceTree = "<absolute>"; };
 		03C60E1B256FA9E200668B7B /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
 		03C60E1C256FA9E200668B7B /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
 		03C60E1D256FA9E200668B7B /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
@@ -583,6 +607,20 @@
 		F0BD3B57257660FF006F27DF /* WBPosterizePiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBPosterizePiPL.r; sourceTree = "<group>"; };
 		F0BD3B58257660FF006F27DF /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F0BD3B59257660FF006F27DF /* WBPosterize.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBPosterize.plugin-Info.plist"; sourceTree = "<group>"; };
+		F0D4A2052578CB9F00DF0DF2 /* WBPhotoFilter.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBPhotoFilter.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D4A2062578CB9F00DF0DF2 /* WBPosterize copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBPosterize copy-Info.plist"; path = "/Users/wangjingxin/AEWBPlugin/Examples/Effect/GLator/Mac/WBPosterize copy-Info.plist"; sourceTree = "<absolute>"; };
+		F0D4A23E2578DFBE00DF0DF2 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
+		F0D4A23F2578DFBE00DF0DF2 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
+		F0D4A2402578DFBE00DF0DF2 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
+		F0D4A2412578DFBE00DF0DF2 /* GLator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator.cpp; sourceTree = "<group>"; };
+		F0D4A2422578DFBE00DF0DF2 /* WBPhotoFilter.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBPhotoFilter.plugin-Info.plist"; sourceTree = "<group>"; };
+		F0D4A2432578DFBE00DF0DF2 /* GLator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator.h; sourceTree = "<group>"; };
+		F0D4A2452578DFBE00DF0DF2 /* vertex_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex_shader.vert; sourceTree = "<group>"; };
+		F0D4A2462578DFBE00DF0DF2 /* fragment_shader2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader2.frag; sourceTree = "<group>"; };
+		F0D4A2472578DFBE00DF0DF2 /* fragment_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader.frag; sourceTree = "<group>"; };
+		F0D4A2482578DFBE00DF0DF2 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
+		F0D4A2492578DFBE00DF0DF2 /* WBPhotoFilterPiPL.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBPhotoFilterPiPL.r; sourceTree = "<group>"; };
+		F0D4A24A2578DFBE00DF0DF2 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		F0D4ABB625319D62005D80FB /* wanhuatong.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wanhuatong.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -727,6 +765,17 @@
 				F0AE17812567C2530017D7E4 /* OpenGL.framework in Frameworks */,
 				F0AE17822567C2530017D7E4 /* AGL.framework in Frameworks */,
 				F0AE17832567C2530017D7E4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D4A1FB2578CB9F00DF0DF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D4A1FC2578CB9F00DF0DF2 /* libglbinding.a in Frameworks */,
+				F0D4A1FD2578CB9F00DF0DF2 /* OpenGL.framework in Frameworks */,
+				F0D4A1FE2578CB9F00DF0DF2 /* AGL.framework in Frameworks */,
+				F0D4A1FF2578CB9F00DF0DF2 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +932,7 @@
 			isa = PBXGroup;
 			children = (
 				5E8CBE8F257F273600E1AF7F /* WBEnlarge */,
+				F0D4A23D2578DFBE00DF0DF2 /* WBPhotoFilter */,
 				03C60E1A256FA9E200668B7B /* WBExposure */,
 				F0BD3B4C257660FF006F27DF /* WBPosterize */,
 				F0AE171E2567A5930017D7E4 /* WBMotionTile */,
@@ -906,6 +956,7 @@
 				0347FA88257648BE00AC395A /* WBExposure copy-Info.plist */,
 				038A0E3925765C24003531CF /* WBHueSaturation */,
 				5E5D040F2579E2D400BB2168 /* WBMosaic copy-Info.plist */,
+				F0D4A2062578CB9F00DF0DF2 /* WBPosterize copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -926,6 +977,7 @@
 				F0AE17892567C2530017D7E4 /* WBPosterize.plugin */,
 				0347FA86257648BE00AC395A /* WBHueSaturation.plugin */,
 				5E5D040D2579E2D400BB2168 /* WBEnlarge.plugin */,
+				F0D4A2052578CB9F00DF0DF2 /* WBPhotoFilter.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1199,6 +1251,33 @@
 			path = GLSL_files;
 			sourceTree = "<group>";
 		};
+		F0D4A23D2578DFBE00DF0DF2 /* WBPhotoFilter */ = {
+			isa = PBXGroup;
+			children = (
+				F0D4A23E2578DFBE00DF0DF2 /* vmath.hpp */,
+				F0D4A23F2578DFBE00DF0DF2 /* GL_base.h */,
+				F0D4A2402578DFBE00DF0DF2 /* GL_base.cpp */,
+				F0D4A2412578DFBE00DF0DF2 /* GLator.cpp */,
+				F0D4A2422578DFBE00DF0DF2 /* WBPhotoFilter.plugin-Info.plist */,
+				F0D4A2432578DFBE00DF0DF2 /* GLator.h */,
+				F0D4A2442578DFBE00DF0DF2 /* GLSL_files */,
+				F0D4A2482578DFBE00DF0DF2 /* GLator_Strings.h */,
+				F0D4A2492578DFBE00DF0DF2 /* WBPhotoFilterPiPL.r */,
+				F0D4A24A2578DFBE00DF0DF2 /* GLator_Strings.cpp */,
+			);
+			path = WBPhotoFilter;
+			sourceTree = "<group>";
+		};
+		F0D4A2442578DFBE00DF0DF2 /* GLSL_files */ = {
+			isa = PBXGroup;
+			children = (
+				F0D4A2452578DFBE00DF0DF2 /* vertex_shader.vert */,
+				F0D4A2462578DFBE00DF0DF2 /* fragment_shader2.frag */,
+				F0D4A2472578DFBE00DF0DF2 /* fragment_shader.frag */,
+			);
+			path = GLSL_files;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1449,6 +1528,25 @@
 			productReference = F0AE17892567C2530017D7E4 /* WBPosterize.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
+		F0D4A1ED2578CB9F00DF0DF2 /* WBPhotoFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D4A2032578CB9F00DF0DF2 /* Build configuration list for PBXNativeTarget "WBPhotoFilter" */;
+			buildPhases = (
+				F0D4A1EE2578CB9F00DF0DF2 /* Resources */,
+				F0D4A1F32578CB9F00DF0DF2 /* Sources */,
+				F0D4A1FB2578CB9F00DF0DF2 /* Frameworks */,
+				F0D4A2002578CB9F00DF0DF2 /* Rez */,
+				F0D4A2022578CB9F00DF0DF2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBPhotoFilter;
+			productName = Skeleton.plugin;
+			productReference = F0D4A2052578CB9F00DF0DF2 /* WBPhotoFilter.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F0D4AB9F25319D62005D80FB /* wanhuatong */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0D4ABB425319D62005D80FB /* Build configuration list for PBXNativeTarget "wanhuatong" */;
@@ -1516,6 +1614,9 @@
 					F0AE17712567C2530017D7E4 = {
 						DevelopmentTeam = 25N8K67YQF;
 					};
+					F0D4A1ED2578CB9F00DF0DF2 = {
+						DevelopmentTeam = 25N8K67YQF;
+					};
 					F0D4AB9F25319D62005D80FB = {
 						DevelopmentTeam = 25N8K67YQF;
 					};
@@ -1556,6 +1657,7 @@
 				03C60D9D256FA89B00668B7B /* WBExposure */,
 				0347FA6E257648BE00AC395A /* WBHueSaturation */,
 				5E5D03F52579E2D400BB2168 /* WBEnlarge */,
+				F0D4A1ED2578CB9F00DF0DF2 /* WBPhotoFilter */,
 			);
 		};
 /* End PBXProject section */
@@ -1714,6 +1816,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0D4A1EE2578CB9F00DF0DF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D4A2502578DFBE00DF0DF2 /* fragment_shader.frag in Resources */,
+				F0D4A24F2578DFBE00DF0DF2 /* fragment_shader2.frag in Resources */,
+				F0D4A24D2578DFBE00DF0DF2 /* WBPhotoFilter.plugin-Info.plist in Resources */,
+				F0D4A24E2578DFBE00DF0DF2 /* vertex_shader.vert in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0D4ABA025319D62005D80FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1829,6 +1942,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BD3B5F257660FF006F27DF /* WBPosterizePiPL.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D4A2002578CB9F00DF0DF2 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D4A2512578DFBE00DF0DF2 /* WBPhotoFilterPiPL.r in Rez */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2032,6 +2153,20 @@
 				F0BD3B5B257660FF006F27DF /* GLator.cpp in Sources */,
 				F0AE177D2567C2530017D7E4 /* Smart_Utils.cpp in Sources */,
 				F0BD3B60257660FF006F27DF /* GLator_Strings.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D4A1F32578CB9F00DF0DF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D4A1F42578CB9F00DF0DF2 /* AEGP_SuiteHandler.cpp in Sources */,
+				F0D4A1F52578CB9F00DF0DF2 /* MissingSuiteError.cpp in Sources */,
+				F0D4A24B2578DFBE00DF0DF2 /* GL_base.cpp in Sources */,
+				F0D4A1F72578CB9F00DF0DF2 /* AEFX_SuiteHelper.c in Sources */,
+				F0D4A24C2578DFBE00DF0DF2 /* GLator.cpp in Sources */,
+				F0D4A1F92578CB9F00DF0DF2 /* Smart_Utils.cpp in Sources */,
+				F0D4A2522578DFBE00DF0DF2 /* GLator_Strings.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2481,6 +2616,36 @@
 			};
 			name = Debug;
 		};
+		F0D4A2042578CB9F00DF0DF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 25N8K67YQF;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/WBPhotoFilter/WBPhotoFilter.plugin-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBPhotoFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
 		F0D4ABB525319D62005D80FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2621,6 +2786,14 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0AE17882567C2530017D7E4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F0D4A2032578CB9F00DF0DF2 /* Build configuration list for PBXNativeTarget "WBPhotoFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D4A2042578CB9F00DF0DF2 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -172,7 +172,7 @@ ParamsSetup (
 						0,
 						PF_ParamFlag_SUPERVISE,
 						BUTTON_DISK_ID);
-        
+
 		out_data->num_params = PARAMARAMA_NUM_PARAMS;
 
 	} else {
@@ -272,7 +272,17 @@ UserChangedParam(
 {
 	PF_Err err = PF_Err_NONE;
 
-	
+    if (which_hitP->param_index == PARAMARAMA_COLOR) {
+		if (in_data->appl_id != 'PrMr') {
+			PF_STRCPY(	out_data->return_msg,
+						STR(StrID_Button_Message));
+			out_data->out_flags |= PF_OutFlag_DISPLAY_ERROR_MESSAGE;
+		} else {
+			// In Premiere Pro, this message will appear in the Events panel
+			PF_STRCPY(	out_data->return_msg,
+						STR(StrID_Button_Message));
+		}
+	}
 	
 	return err;
 }
