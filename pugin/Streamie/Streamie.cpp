@@ -608,6 +608,38 @@ CommandHook(
                                                     string sParamName_y(paramName);
                                                     sParamName_y.append("_y");
                                                     properties.AddMember(rapidjson::Value(sParamName_y.c_str(),document.GetAllocator()).Move(),property_y,document.GetAllocator());
+                                                }else if(type == AEGP_StreamType_COLOR){//调色板逻辑
+                                                    AEGP_StreamValue2    defaultValue;
+                                                    A_Time timeT = { 0,1 };
+                                                    ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,param_streamH,AEGP_LTimeMode_LayerTime,&timeT,TRUE,&defaultValue));
+                                                    //r
+                                                    rapidjson::Value property_r(rapidjson::kObjectType);
+                                                    string sParamName_r(paramName);
+                                                    sParamName_r.append("_r");
+                                                    A_FpLong rValue = defaultValue.val.color.redF * 255.0;
+                                                    property_r.AddMember("defaultValue", rValue, document.GetAllocator());
+                                                    properties.AddMember(rapidjson::Value(sParamName_r.c_str(),document.GetAllocator()).Move(),property_r,document.GetAllocator());
+                                                    //g
+                                                    rapidjson::Value property_g(rapidjson::kObjectType);
+                                                    string sParamName_g(paramName);
+                                                    sParamName_g.append("_g");
+                                                    A_FpLong gValue = defaultValue.val.color.greenF * 255.0;
+                                                    property_g.AddMember("defaultValue", gValue, document.GetAllocator());
+                                                    properties.AddMember(rapidjson::Value(sParamName_g.c_str(),document.GetAllocator()).Move(),property_g,document.GetAllocator());
+                                                    //b
+                                                    rapidjson::Value property_b(rapidjson::kObjectType);
+                                                    string sParamName_b(paramName);
+                                                    sParamName_b.append("_b");
+                                                    A_FpLong bValue = defaultValue.val.color.blueF * 255.0;
+                                                    property_b.AddMember("defaultValue", bValue, document.GetAllocator());
+                                                    properties.AddMember(rapidjson::Value(sParamName_b.c_str(),document.GetAllocator()).Move(),property_b,document.GetAllocator());
+                                                    //a
+                                                    rapidjson::Value property_a(rapidjson::kObjectType);
+                                                    string sParamName_a(paramName);
+                                                    sParamName_a.append("_a");
+                                                    A_FpLong aValue = defaultValue.val.color.alphaF * 255.0;
+                                                    property_a.AddMember("defaultValue", aValue, document.GetAllocator());
+                                                    properties.AddMember(rapidjson::Value(sParamName_a.c_str(),document.GetAllocator()).Move(),property_a,document.GetAllocator());
                                                 }
                                             }
                                            fx.AddMember("fxProperties",properties, document.GetAllocator());
