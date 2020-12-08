@@ -2,15 +2,15 @@ precision highp float;
 uniform sampler2D inputImageTexture;
 varying highp vec2 textureCoordinate;
 
-uniform float circle_center_x; //放大镜中心
-uniform float circle_center_y; //放大镜中心
-uniform int circle_radius;//放大镜圆半径
+uniform float center_x; //放大镜中心
+uniform float center_y; //放大镜中心
+uniform int radius;//放大镜圆半径
 uniform int zoom_times; //放大倍数
 uniform float texelWidth; //纹理宽度
 uniform float texelHeight; //纹理高度
 
 vec2 transForTexPosition(vec2 pos){
-    return vec2(float(pos.x*texelWidth),float(pos.y*texelHeight));
+    return vec2(float(pos.x/texelWidth),float(pos.y/texelHeight));
 }
 
 float getDistance(vec2 pos_src,vec2 pos_dist){
@@ -19,9 +19,9 @@ float getDistance(vec2 pos_src,vec2 pos_dist){
 }
 
 vec2 getZoomPosition(){
-    float zoom_x = float(gl_FragCoord.x - circle_center_x)/float(zoom_times);
-    float zoom_y = float(gl_FragCoord.y - circle_center_y)/float(zoom_times);
-    return vec2(float(circle_center_x+zoom_x),float(circle_center_y+zoom_y));
+    float zoom_x = float(textureCoordinate.x*texelWidth - center_x*texelWidth)/float((float(zoom_times)+20.0)/20.0);
+    float zoom_y = float(textureCoordinate.y*texelHeight - center_y*texelHeight)/float((float(zoom_times)+20.0)/20.0);
+    return vec2(float(center_x*texelWidth+zoom_x),float(center_y*texelHeight+zoom_y));
 }
 
 vec4 getColor(){
@@ -41,13 +41,13 @@ vec4 getColor(){
 
 void main()
 {
-    vec2 frag_pos = vec2(gl_FragCoord.x, gl_FragCoord.y);
-    vec2 circle_center = vec2(circle_center_x,circle_center_y);
-    if(getDistance(circle_center,frag_pos) > float(circle_radius)){//圈外
-        gl_FragColor = texture2D(inputImageTexture,textureCoordinate);
+    vec2 frag_pos = vec2(textureCoordinate.x*texelWidth, textureCoordinate.y*texelHeight);
+    vec2 center = vec2(center_x*texelWidth,center_y*texelHeight);
+    if(getDistance(center,frag_pos) > float(radius)){
+       gl_FragColor = texture2D(inputImageTexture,textureCoordinate);
     }
-    else{//圈内
-        gl_FragColor = getColor();
+    else{
+        gl_FragColor =getColor();
     }
     
 }

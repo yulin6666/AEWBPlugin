@@ -5,19 +5,19 @@
     "uniforms": [
       {
         "uniformType": "float",
-        "uniformName": "circle_center_x",
-        "uniformValue": 320,
+        "uniformName": "center_x",
+        "uniformValue": 0.5,
         "injectionType": 1
       },
       {
         "uniformType": "float",
-        "uniformName": "circle_center_y",
-        "uniformValue": 320,
+        "uniformName": "center_y",
+        "uniformValue": 0.5,
         "injectionType": 1
       },
       {
         "uniformType": "int",
-        "uniformName": "circle_radius",
+        "uniformName": "radius",
         "uniformValue": 20,
         "injectionType": 1
       },
