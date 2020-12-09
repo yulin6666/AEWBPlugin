@@ -1,0 +1,49 @@
+{
+    "filterID": 703,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "图片擦除",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "density",
+        "uniformValue": 50,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "ColorPop",
+        "uniformValue": 1,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "palette_r",
+        "uniformValue": 0.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "palette_g",
+        "uniformValue": 0.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "palette_g",
+        "uniformValue": 1.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "palette_a",
+        "uniformValue": 255.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "keepluminosity",
+        "uniformValue": 1,
+        "injectionType": 1
+      }
+    ]
+}

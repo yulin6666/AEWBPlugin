@@ -1,0 +1,14 @@
+{
+  "name": "PhotoFilter",
+  "effect": {
+    "Link": [
+      {
+          "input":[-1],
+          "type": "filter",
+          "zorder": 2999,
+          "path": "filter"
+      }
+    ]
+  },
+  "version": "1.1"
+}
