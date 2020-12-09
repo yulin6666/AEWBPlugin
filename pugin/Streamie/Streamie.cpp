@@ -543,7 +543,11 @@ CommandHook(
                                                     }else if(param_typeP == PF_Param_FLOAT_SLIDER){//float类型滑动块
                                                         float value = uP0.fs_d.value;
                                                         property.AddMember("defaultValue", value, document.GetAllocator());
+                                                    }else if(param_typeP == PF_Param_CHECKBOX){//checkBox
+                                                        int value = uP0.bd.value;
+                                                        property.AddMember("defaultValue", value, document.GetAllocator());
                                                     }
+                                            
                                                    
                                                     //关键帧逻辑
                                                     rapidjson::Value protertyKeyFrameArray(rapidjson::kArrayType);
