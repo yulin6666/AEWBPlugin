@@ -223,7 +223,6 @@ CommandHook(
 //     -------------------------------------------------------------clip信息-------------------------------------------------------------------
 
                        rapidjson::Value clip(rapidjson::kObjectType);
-
                        //name信息
                        A_char name[900]={"\0"};
                        ERR(suites.LayerSuite5()->AEGP_GetLayerName(layerH,NULL,name));
@@ -268,7 +267,7 @@ CommandHook(
                        if(sourceItem){
                        AEGP_ItemFlags flags;
                        ERR(suites.ItemSuite5()->AEGP_GetItemFlags(sourceItem,&flags));
-                       if(flags & AEGP_ItemFlag_HAS_VIDEO){//图片
+                       if(flags & AEGP_ItemFlag_HAS_VIDEO){//视频
                            //     -------------------------------------------------------------video信息-------------------------------------------------------------------
                            //videoType
                            clip.AddMember("videoType", 1, document.GetAllocator());
@@ -285,9 +284,13 @@ CommandHook(
                            imagePAR.AddMember("den", pixelRatio.den, document.GetAllocator());
                            imagePAR.AddMember("num", pixelRatio.num, document.GetAllocator());
                            clip.AddMember("imagePAR", imagePAR, document.GetAllocator());
+                           //视频遮罩信息
+                           AEGP_LayerTransferMode mode;
+                           ERR(suites.LayerSuite8()->AEGP_GetLayerTransferMode(layerH,&mode));
+                           int trackMatte = mode.track_matte;
+                           clip.AddMember("trackMatte", trackMatte, document.GetAllocator());
                            //transform信息
                            rapidjson::Value transformInfo(rapidjson::kObjectType);
-                           
                            rapidjson::Value anchor(rapidjson::kObjectType);
                            rapidjson::Value anchorKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH anchorS = NULL;
@@ -458,6 +461,7 @@ CommandHook(
                            transformInfo.AddMember("alpha", alpha, document.GetAllocator());
                            
                            clip.AddMember("transformInfo", transformInfo, document.GetAllocator());
+                          
                            //特效信息
                            A_long effect_num;
                            ERR(suites.EffectSuite4()->AEGP_GetLayerNumEffects(layerH,&effect_num));
