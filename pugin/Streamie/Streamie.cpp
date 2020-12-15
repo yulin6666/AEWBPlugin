@@ -349,13 +349,22 @@ CommandHook(
                            for(int i=0;i<num_positionKeyFrame;i++){
                                rapidjson::Value positionKeyFrame(rapidjson::kObjectType);
                                A_Time keyFrameTime = { 0,1 };
-                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(positionS,0,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(positionS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
                                double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
                                positionKeyFrame.AddMember("time",time, document.GetAllocator());
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,positionS,i,&value));
                                positionKeyFrame.AddMember("translateX", value.val.two_d.x, document.GetAllocator());
                                positionKeyFrame.AddMember("translateY", value.val.two_d.y, document.GetAllocator());
+                               A_short dim;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(positionS,&dim));
+                               AEGP_KeyframeEase inEase;
+                               AEGP_KeyframeEase outEase;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(positionS,i,dim-1,&inEase,&outEase));
+                               positionKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                               positionKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                               positionKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                               positionKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                positionKeyFrameArray.PushBack(positionKeyFrame, document.GetAllocator());
                            }
                            position.AddMember("keyFrame", positionKeyFrameArray, document.GetAllocator());
