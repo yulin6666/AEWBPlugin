@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/hansen.tian/develop/Weibo_ios/Bazier/Bezier.h
+math.h
+/Users/hansen.tian/develop/Weibo_ios/Bazier/math.h
+
+/Users/hansen.tian/develop/Weibo_ios/Bazier/main.cpp
+iostream
+-
+Bezier.h
+/Users/hansen.tian/develop/Weibo_ios/Bazier/Bezier.h
+

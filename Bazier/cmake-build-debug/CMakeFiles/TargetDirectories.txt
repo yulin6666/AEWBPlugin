@@ -1,0 +1,3 @@
+/Users/hansen.tian/develop/Weibo_ios/Bazier/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/hansen.tian/develop/Weibo_ios/Bazier/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hansen.tian/develop/Weibo_ios/Bazier/cmake-build-debug/CMakeFiles/Bazier.dir
