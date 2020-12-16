@@ -356,6 +356,11 @@ CommandHook(
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,positionS,i,&value));
                                positionKeyFrame.AddMember("translateX", value.val.two_d.x, document.GetAllocator());
                                positionKeyFrame.AddMember("translateY", value.val.two_d.y, document.GetAllocator());
+                               
+                               AEGP_KeyframeInterpolationType inType;
+                               AEGP_KeyframeInterpolationType outType;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(positionS,i,&inType,&outType));
+                               positionKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
                                A_short dim;
                                ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(positionS,&dim));
                                AEGP_KeyframeEase inEase;
@@ -400,6 +405,19 @@ CommandHook(
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,i,&value));
                                scaleKeyFrame.AddMember("scaleX", value.val.two_d.x, document.GetAllocator());
                                scaleKeyFrame.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
+                               AEGP_KeyframeInterpolationType inType;
+                               AEGP_KeyframeInterpolationType outType;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(scaleS,i,&inType,&outType));
+                               scaleKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                               A_short dim;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(scaleS,&dim));
+                               AEGP_KeyframeEase inEase;
+                               AEGP_KeyframeEase outEase;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(scaleS,i,dim-1,&inEase,&outEase));
+                               scaleKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                scaleKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
                            }
                            scale.AddMember("keyFrame", scaleKeyFrameArray, document.GetAllocator());
@@ -432,6 +450,19 @@ CommandHook(
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,rotateS,i,&value));
                                rotateKeyFrame.AddMember("angle", value.val.two_d.x, document.GetAllocator());
+                               AEGP_KeyframeInterpolationType inType;
+                               AEGP_KeyframeInterpolationType outType;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(rotateS,i,&inType,&outType));
+                               rotateKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                               A_short dim;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(rotateS,&dim));
+                               AEGP_KeyframeEase inEase;
+                               AEGP_KeyframeEase outEase;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(rotateS,i,dim-1,&inEase,&outEase));
+                               rotateKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                               rotateKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                               rotateKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                               rotateKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                rotateKeyFrameArray.PushBack(rotateKeyFrame, document.GetAllocator());
                            }
                            rotate.AddMember("keyFrame", rotateKeyFrameArray, document.GetAllocator());
@@ -464,6 +495,19 @@ CommandHook(
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,opacityS,i,&value));
                                alphaKeyFrame.AddMember("percent", value.val.one_d, document.GetAllocator());
+                               AEGP_KeyframeInterpolationType inType;
+                               AEGP_KeyframeInterpolationType outType;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(rotateS,i,&inType,&outType));
+                               alphaKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                               A_short dim;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(opacityS,&dim));
+                               AEGP_KeyframeEase inEase;
+                               AEGP_KeyframeEase outEase;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(opacityS,i,dim-1,&inEase,&outEase));
+                               alphaKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                               alphaKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                               alphaKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                               alphaKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                alphaKeyFrameArray.PushBack(alphaKeyFrame, document.GetAllocator());
                            }
                            alpha.AddMember("keyFrame", alphaKeyFrameArray, document.GetAllocator());
@@ -513,7 +557,7 @@ CommandHook(
 
                                    }else{
                                         //     -------------------------------------------------------------特效滤镜-------------------------------------------------------------------
-                                       if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果Ï
+                                       if(nameAC[0]=='W' && nameAC[1]=='B'){//微博自研效果
                                            A_char packageName[AEGP_MAX_EFFECT_NAME_SIZE]="\0";
                                            strncpy(packageName,nameMatchAC+5,AEGP_MAX_EFFECT_NAME_SIZE-5);
                                            rapidjson::Value fx(rapidjson::kObjectType);
@@ -596,6 +640,20 @@ CommandHook(
                                                         AEGP_StreamValue2 value;
                                                         ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
                                                         propertyKeyFrame.AddMember("value", (int)value.val.two_d.x, document.GetAllocator());
+                                                        
+                                                        AEGP_KeyframeInterpolationType inType;
+                                                        AEGP_KeyframeInterpolationType outType;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(param_streamH,i,&inType,&outType));
+                                                        propertyKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                                                        A_short dim;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(opacityS,&dim));
+                                                        AEGP_KeyframeEase inEase;
+                                                        AEGP_KeyframeEase outEase;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(param_streamH,i,dim-1,&inEase,&outEase));
+                                                        propertyKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                                         protertyKeyFrameArray.PushBack(propertyKeyFrame, document.GetAllocator());
                                                     }
                                                     if(protertyKeyFrameArray.Size()>0){
@@ -618,6 +676,20 @@ CommandHook(
                                                         ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,param_streamH,i,&value));
                                                         propertyKeyFrame.AddMember("value", (int)value.val.two_d.y, document.GetAllocator());
                                                         protertyKeyFrameArray_y.PushBack(propertyKeyFrame, document.GetAllocator());
+                                                        
+                                                        AEGP_KeyframeInterpolationType inType;
+                                                        AEGP_KeyframeInterpolationType outType;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(param_streamH,i,&inType,&outType));
+                                                        propertyKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                                                        A_short dim;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(opacityS,&dim));
+                                                        AEGP_KeyframeEase inEase;
+                                                        AEGP_KeyframeEase outEase;
+                                                        ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(param_streamH,i,dim-1,&inEase,&outEase));
+                                                        propertyKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                                                        propertyKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
                                                     }
                                                     if(protertyKeyFrameArray_y.Size()>0){
                                                         property_y.AddMember("keyFrame",protertyKeyFrameArray_y, document.GetAllocator());
