@@ -375,26 +375,26 @@ CommandHook(
                            position.AddMember("keyFrame", positionKeyFrameArray, document.GetAllocator());
                            transformInfo.AddMember("translate", position, document.GetAllocator());
                            
-                           rapidjson::Value scale(rapidjson::kObjectType);
-                           rapidjson::Value scaleKeyFrameArray(rapidjson::kArrayType);
+                           rapidjson::Value scaleX(rapidjson::kObjectType);
+                           rapidjson::Value scaleXKeyFrameArray(rapidjson::kArrayType);
                            AEGP_StreamRefH scaleS = NULL;
                            ERR(suites.StreamSuite5()->AEGP_GetNewLayerStream(S_my_id,layerH,AEGP_LayerStream_SCALE,&scaleS));
                            A_long num_scaleKeyFrame;
                            ERR(suites.KeyframeSuite4()->AEGP_GetStreamNumKFs(scaleS,&num_scaleKeyFrame));
-                           rapidjson::Value scaleDeFault(rapidjson::kObjectType);
+                           rapidjson::Value scaleDeFaultX(rapidjson::kObjectType);
                            AEGP_StreamValue2 sdefaultValue;
                            if(num_scaleKeyFrame == 0){
                                A_Time stimeT = { 0,1 };
                                ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,scaleS,AEGP_LTimeMode_LayerTime,&stimeT,TRUE,&sdefaultValue));
-                               scaleDeFault.AddMember("scaleX", sdefaultValue.val.two_d.x, document.GetAllocator());
-                               scaleDeFault.AddMember("scaleY", sdefaultValue.val.two_d.y, document.GetAllocator());
+                               scaleDeFaultX.AddMember("scaleX", sdefaultValue.val.two_d.x, document.GetAllocator());
+//                               scaleDeFaultX.AddMember("scaleY", sdefaultValue.val.two_d.y, document.GetAllocator());
                            }else{
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,0,&value));
-                               scaleDeFault.AddMember("scaleX", value.val.two_d.x, document.GetAllocator());
-                               scaleDeFault.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
+                               scaleDeFaultX.AddMember("scaleX", value.val.two_d.x, document.GetAllocator());
+//                               scaleDeFaultX.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
                            }
-                           scale.AddMember("defaultValue", scaleDeFault, document.GetAllocator());
+                           scaleX.AddMember("defaultValue", scaleDeFaultX, document.GetAllocator());
                            for(int i=0;i<num_scaleKeyFrame;i++){
                                rapidjson::Value scaleKeyFrame(rapidjson::kObjectType);
                                A_Time keyFrameTime = { 0,1 };
@@ -404,6 +404,46 @@ CommandHook(
                                AEGP_StreamValue2 value;
                                ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,i,&value));
                                scaleKeyFrame.AddMember("scaleX", value.val.two_d.x, document.GetAllocator());
+//                               scaleKeyFrame.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
+                               AEGP_KeyframeInterpolationType inType;
+                               AEGP_KeyframeInterpolationType outType;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeInterpolation(scaleS,i,&inType,&outType));
+                               scaleKeyFrame.AddMember("InterpolationType", inType, document.GetAllocator());
+                               A_short dim;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(scaleS,&dim));
+                               AEGP_KeyframeEase inEase;
+                               AEGP_KeyframeEase outEase;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(scaleS,i,0,&inEase,&outEase));
+                               scaleKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
+                               scaleKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
+                               scaleXKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
+                           }
+                           scaleX.AddMember("keyFrame", scaleXKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("scaleX", scaleX, document.GetAllocator());
+                           
+                           rapidjson::Value scaleY(rapidjson::kObjectType);
+                           rapidjson::Value scaleYKeyFrameArray(rapidjson::kArrayType);
+                           rapidjson::Value scaleDeFaultY(rapidjson::kObjectType);
+                           if(num_scaleKeyFrame == 0){
+                               A_Time stimeT = { 0,1 };
+                               ERR(suites.StreamSuite5()->AEGP_GetNewStreamValue(S_my_id,scaleS,AEGP_LTimeMode_LayerTime,&stimeT,TRUE,&sdefaultValue));
+                               scaleDeFaultY.AddMember("scaleY", sdefaultValue.val.two_d.y, document.GetAllocator());
+                           }else{
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,0,&value));
+                               scaleDeFaultY.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
+                           }
+                           scaleY.AddMember("defaultValue", scaleDeFaultY, document.GetAllocator());
+                           for(int i=0;i<num_scaleKeyFrame;i++){
+                               rapidjson::Value scaleKeyFrame(rapidjson::kObjectType);
+                               A_Time keyFrameTime = { 0,1 };
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTime(scaleS,i,AEGP_LTimeMode_CompTime,&keyFrameTime));
+                               double time = (double)(keyFrameTime.value*1000/keyFrameTime.scale)*1000;
+                               scaleKeyFrame.AddMember("time",time, document.GetAllocator());
+                               AEGP_StreamValue2 value;
+                               ERR(suites.KeyframeSuite4()->AEGP_GetNewKeyframeValue(S_my_id,scaleS,i,&value));
                                scaleKeyFrame.AddMember("scaleY", value.val.two_d.y, document.GetAllocator());
                                AEGP_KeyframeInterpolationType inType;
                                AEGP_KeyframeInterpolationType outType;
@@ -413,15 +453,15 @@ CommandHook(
                                ERR(suites.KeyframeSuite4()->AEGP_GetStreamTemporalDimensionality(scaleS,&dim));
                                AEGP_KeyframeEase inEase;
                                AEGP_KeyframeEase outEase;
-                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(scaleS,i,dim-1,&inEase,&outEase));
+                               ERR(suites.KeyframeSuite4()->AEGP_GetKeyframeTemporalEase(scaleS,i,1,&inEase,&outEase));
                                scaleKeyFrame.AddMember("inEase_speed", inEase.speedF, document.GetAllocator());
                                scaleKeyFrame.AddMember("inEase_influenceF", inEase.influenceF, document.GetAllocator());
                                scaleKeyFrame.AddMember("outEase_speed", outEase.speedF, document.GetAllocator());
                                scaleKeyFrame.AddMember("outEase_influenceF", outEase.influenceF, document.GetAllocator());
-                               scaleKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
+                               scaleYKeyFrameArray.PushBack(scaleKeyFrame, document.GetAllocator());
                            }
-                           scale.AddMember("keyFrame", scaleKeyFrameArray, document.GetAllocator());
-                           transformInfo.AddMember("scale", scale, document.GetAllocator());
+                           scaleY.AddMember("keyFrame", scaleYKeyFrameArray, document.GetAllocator());
+                           transformInfo.AddMember("scaleY", scaleY, document.GetAllocator());
                            
                            rapidjson::Value rotate(rapidjson::kObjectType);
                            rapidjson::Value rotateKeyFrameArray(rapidjson::kArrayType);
