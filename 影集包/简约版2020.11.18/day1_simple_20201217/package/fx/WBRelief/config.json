@@ -1,0 +1,14 @@
+{
+  "name": "WBRelief",
+  "effect": {
+    "Link": [
+      {
+          "input":[-1],
+          "type": "filter",
+          "zorder": 2002,
+          "path": "filter"
+      }
+    ]
+  },
+  "version": "1.1"
+}

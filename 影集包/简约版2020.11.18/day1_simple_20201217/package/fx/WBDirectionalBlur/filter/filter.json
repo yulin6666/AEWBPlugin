@@ -1,0 +1,19 @@
+{
+    "filterID": 701,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "方向模糊",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "length",
+        "uniformValue": 10,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "angel",
+        "uniformValue": 1,
+        "injectionType": 1
+      }
+    ]
+}
