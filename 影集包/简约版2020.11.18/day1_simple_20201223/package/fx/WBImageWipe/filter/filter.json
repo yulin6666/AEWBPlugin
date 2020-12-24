@@ -1,0 +1,25 @@
+{
+    "filterID": 703,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "图片擦除",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "count",
+        "uniformValue": 50,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "property",
+        "uniformValue": 1,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "inverseGradient",
+        "uniformValue": 0,
+        "injectionType": 1
+      }
+    ]
+}

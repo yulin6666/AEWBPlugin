@@ -1,0 +1,19 @@
+{
+    "filterID": 702,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "马赛克",
+    "uniforms": [
+      {
+        "uniformType": "int",
+        "uniformName": "HorizontalBlock",
+        "uniformValue": 50,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "VerticalBlock",
+        "uniformValue": 50,
+        "injectionType": 1
+      }
+    ]
+}
