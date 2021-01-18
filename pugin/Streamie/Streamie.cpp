@@ -128,6 +128,8 @@ CommandHook(
                     ERR(suites.ItemSuite5()->AEGP_GetItemDimensions(rootItemPH,&width,&height));
                     videoResolution.AddMember("imageHeight", height, document.GetAllocator());
                     videoResolution.AddMember("imageWidth", width, document.GetAllocator());
+                    //顺序比
+                    document.AddMember("comparison",0, document.GetAllocator());
                     //获取画布像素比
                     A_Ratio pixelRatio;
                     ERR(suites.ItemSuite5()->AEGP_GetItemPixelAspectRatio(rootItemPH,&pixelRatio));
@@ -160,6 +162,7 @@ CommandHook(
                 wepbMaskFx.AddMember("videoFxType",2, document.GetAllocator());
                 wepbMaskFx.AddMember("filterIntensity",1.0, document.GetAllocator());
                 bool useMask = false;
+                bool useMovMask = false;
                 //处理层信息
                 for(int i= 0;i<LayerNum;i++){
                     rapidjson::Value videoClipArray(rapidjson::kArrayType);
@@ -264,7 +267,18 @@ CommandHook(
                         }else{
                             //     -------------------------------------------------------------clip信息-------------------------------------------------------------------
                                      rapidjson::Value clip(rapidjson::kObjectType);
-                                     clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
+                            
+                            if(sourceName.find(".mov")!=std::string::npos){
+                                //mov文件会拆分成2个mp4文件，rgb文件+alpha文件
+                                int pos1 = sourceName.find_last_of('.');
+                                string sourceName2 = sourceName.substr(0,pos1);
+                                sourceName2.append("_rgb.mp4");
+                                clip.AddMember("filePath",rapidjson::Value(sourceName2.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
+                                useMovMask =true;
+                            }else{
+                                clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
+                            }
+                                     
 
                             //获取时间轴的inpoint
                                      A_Time dTime = { 0,1 };
@@ -708,6 +722,7 @@ CommandHook(
                                                    fx.AddMember("filterIntensity",1.0, document.GetAllocator());
                                                    //效果参数
                                                    rapidjson::Value properties(rapidjson::kObjectType);
+                                                   
                                                     A_long num_param;
                                                     ERR(suites.StreamSuite5()->AEGP_GetEffectNumParamStreams(effectPH,&num_param));
                                                     for(int j=1;j<num_param;j++){
@@ -879,6 +894,21 @@ CommandHook(
                                            }
                                        }
 
+                                  if(useMovMask){
+                                    rapidjson::Value movMaskFx(rapidjson::kObjectType);
+                                    movMaskFx.AddMember("fxPath","Set Alpha", document.GetAllocator());
+                                    movMaskFx.AddMember("videoFxType",0, document.GetAllocator());
+                                    movMaskFx.AddMember("filterIntensity",1.0, document.GetAllocator());
+                                    rapidjson::Value properties(rapidjson::kObjectType);
+                                    rapidjson::Value property(rapidjson::kObjectType);
+                                    int pos1 = sourceName.find_last_of('.');
+                                    string sourceName3 = sourceName.substr(0,pos1);
+                                    sourceName3.append("_alpha.mp4");
+                                    property.AddMember("defaultValue",rapidjson::Value(sourceName3.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
+                                    properties.AddMember("Alpha File",property,document.GetAllocator());
+                                    movMaskFx.AddMember("fxProperties",properties, document.GetAllocator());
+                                    fxArray.PushBack(movMaskFx, document.GetAllocator());
+                                  }
                                    //添加默认变换fx
                                     rapidjson::Value transformFx(rapidjson::kObjectType);
                                     transformFx.AddMember("fxPath","WBAETransform", document.GetAllocator());
