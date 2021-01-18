@@ -274,12 +274,13 @@ CommandHook(
                                 string sourceName2 = sourceName.substr(0,pos1);
                                 sourceName2.append("_rgb.mp4");
                                 clip.AddMember("filePath",rapidjson::Value(sourceName2.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
+                                clip.AddMember("replaceTag", 1, document.GetAllocator());
                                 useMovMask =true;
                             }else{
                                 clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
                             }
                                      
-
+                            
                             //获取时间轴的inpoint
                                      A_Time dTime = { 0,1 };
                                      ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
@@ -908,7 +909,7 @@ CommandHook(
                                     properties.AddMember("Alpha File",property,document.GetAllocator());
                                     movMaskFx.AddMember("fxProperties",properties, document.GetAllocator());
                                     fxArray.PushBack(movMaskFx, document.GetAllocator());
-                                  }
+                                  }else{
                                    //添加默认变换fx
                                     rapidjson::Value transformFx(rapidjson::kObjectType);
                                     transformFx.AddMember("fxPath","WBAETransform", document.GetAllocator());
@@ -917,6 +918,7 @@ CommandHook(
                                     rapidjson::Value properties(rapidjson::kObjectType);
                                     transformFx.AddMember("fxProperties",properties, document.GetAllocator());
                                     fxArray.PushBack(transformFx, document.GetAllocator());
+                                  }
                                    //添加蒙版FX
                                     if(useMask){
                                         fxArray.PushBack(wepbMaskFx, document.GetAllocator());

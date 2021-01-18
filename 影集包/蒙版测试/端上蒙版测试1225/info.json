@@ -1,0 +1,10 @@
+{
+	"photosAlbumName":"Mask",
+	"photosAlbumTips":"选择2张",
+	"photosAlbumCoverImage":"cover.jpg",
+	"photosAlbumCoverVideo":"cover.mov",
+	"photosAlbumReplaceMin":"2",
+	"photosAlbumReplaceMax":"2",
+	"photosAlbumWidth":"720",
+  "photosAlbumHeight":"1280"
+}
