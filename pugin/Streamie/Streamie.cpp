@@ -279,8 +279,7 @@ CommandHook(
                             }else{
                                 clip.AddMember("filePath",rapidjson::Value(sourceName.c_str(), document.GetAllocator()).Move(), document.GetAllocator());
                             }
-                                     
-                            
+            
                             //获取时间轴的inpoint
                                      A_Time dTime = { 0,1 };
                                      ERR(suites.LayerSuite5()->AEGP_GetLayerDuration(layerH,AEGP_LTimeMode_CompTime,&dTime));
@@ -909,6 +908,7 @@ CommandHook(
                                     properties.AddMember("Alpha File",property,document.GetAllocator());
                                     movMaskFx.AddMember("fxProperties",properties, document.GetAllocator());
                                     fxArray.PushBack(movMaskFx, document.GetAllocator());
+                                    useMovMask =false;
                                   }else{
                                    //添加默认变换fx
                                     rapidjson::Value transformFx(rapidjson::kObjectType);
