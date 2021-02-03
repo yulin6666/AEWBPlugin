@@ -87,6 +87,30 @@
 		5E8CBEB5257F275600E1AF7F /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
 		5E8CBEB6257F275600E1AF7F /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
 		5E8CBEB8257F275700E1AF7F /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		BE0DD68425C2A0F300E8BE13 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		BE0DD68525C2A0F300E8BE13 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		BE0DD68625C2A0F300E8BE13 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		BE0DD68725C2A0F300E8BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		BE0DD6E125C2A1A300E8BE13 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6D625C2A1A300E8BE13 /* GL_base.cpp */; };
+		BE0DD6E225C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6D725C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist */; };
+		BE0DD6E325C2A1A300E8BE13 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6D825C2A1A300E8BE13 /* GLator.cpp */; };
+		BE0DD6E425C2A1A300E8BE13 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DB25C2A1A300E8BE13 /* vertex_shader.vert */; };
+		BE0DD6E525C2A1A300E8BE13 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DC25C2A1A300E8BE13 /* fragment_shader2.frag */; };
+		BE0DD6E625C2A1A300E8BE13 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DD25C2A1A300E8BE13 /* fragment_shader.frag */; };
+		BE0DD6E725C2A1A300E8BE13 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6DF25C2A1A300E8BE13 /* GLator_Strings.cpp */; };
+		BE0DD6E825C2A1A300E8BE13 /* WBVibrance.r in Rez */ = {isa = PBXBuildFile; fileRef = BE0DD6E025C2A1A300E8BE13 /* WBVibrance.r */; };
+		BE0DD6FA25C2A1E100E8BE13 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		BE0DD6FB25C2A1E100E8BE13 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		BE0DD6FC25C2A1E100E8BE13 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		BE0DD6FD25C2A1E100E8BE13 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		BE2BCC2925C14E5100FEA975 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		BE2BCC2A25C14E5100FEA975 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		BE2BCC2B25C14E5100FEA975 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		BE2BCC2C25C14E5100FEA975 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		BE2BCD4325C15FE200FEA975 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		BE2BCD5425C15FFC00FEA975 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		BE2BCD6525C1600700FEA975 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		BE2BCD7625C1602C00FEA975 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
 		F061EE6B254C18750029F769 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
 		F061EE6C254C18750029F769 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
 		F061EE6D254C18750029F769 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
@@ -315,6 +339,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE0DD68A25C2A0F300E8BE13 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2BCC2F25C14E5100FEA975 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE71254C18750029F769 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -480,6 +522,22 @@
 		7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		8F463EC20C3DCE390040C945 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8F463EC80C3DCE4B0040C945 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = System/Library/Frameworks/AGL.framework; sourceTree = SDKROOT; };
+		BE0DD68D25C2A0F300E8BE13 /* WBVibrance.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBVibrance.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0DD68E25C2A0F300E8BE13 /* WBTest copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBTest copy-Info.plist"; path = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBTest copy-Info.plist"; sourceTree = "<absolute>"; };
+		BE0DD6D425C2A1A300E8BE13 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
+		BE0DD6D525C2A1A300E8BE13 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
+		BE0DD6D625C2A1A300E8BE13 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
+		BE0DD6D725C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBVibrance.plugin-Info.plist"; sourceTree = "<group>"; };
+		BE0DD6D825C2A1A300E8BE13 /* GLator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator.cpp; sourceTree = "<group>"; };
+		BE0DD6D925C2A1A300E8BE13 /* GLator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator.h; sourceTree = "<group>"; };
+		BE0DD6DB25C2A1A300E8BE13 /* vertex_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex_shader.vert; sourceTree = "<group>"; };
+		BE0DD6DC25C2A1A300E8BE13 /* fragment_shader2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader2.frag; sourceTree = "<group>"; };
+		BE0DD6DD25C2A1A300E8BE13 /* fragment_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader.frag; sourceTree = "<group>"; };
+		BE0DD6DE25C2A1A300E8BE13 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
+		BE0DD6DF25C2A1A300E8BE13 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
+		BE0DD6E025C2A1A300E8BE13 /* WBVibrance.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBVibrance.r; sourceTree = "<group>"; };
+		BE2BCC3225C14E5100FEA975 /* WBTest.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBTest.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2BCC3425C14E5100FEA975 /* WBPhotoFilter copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBPhotoFilter copy-Info.plist"; path = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBPhotoFilter copy-Info.plist"; sourceTree = "<absolute>"; };
 		D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = AEGP_SuiteHandler.cpp; path = ../../../Util/AEGP_SuiteHandler.cpp; sourceTree = SOURCE_ROOT; };
 		D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MissingSuiteError.cpp; path = ../../../Util/MissingSuiteError.cpp; sourceTree = SOURCE_ROOT; };
 		D7B73A4C1B6C20AC00BCC010 /* glbinding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = glbinding.xcodeproj; path = glbinding/glbinding.xcodeproj; sourceTree = "<group>"; };
@@ -677,6 +735,28 @@
 				5E60CFBA256379A4002B7C6A /* OpenGL.framework in Frameworks */,
 				5E60CFBB256379A4002B7C6A /* AGL.framework in Frameworks */,
 				5E60CFBC256379A4002B7C6A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0DD68325C2A0F300E8BE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0DD68425C2A0F300E8BE13 /* libglbinding.a in Frameworks */,
+				BE0DD68525C2A0F300E8BE13 /* OpenGL.framework in Frameworks */,
+				BE0DD68625C2A0F300E8BE13 /* AGL.framework in Frameworks */,
+				BE0DD68725C2A0F300E8BE13 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2BCC2825C14E5100FEA975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2BCC2925C14E5100FEA975 /* libglbinding.a in Frameworks */,
+				BE2BCC2A25C14E5100FEA975 /* OpenGL.framework in Frameworks */,
+				BE2BCC2B25C14E5100FEA975 /* AGL.framework in Frameworks */,
+				BE2BCC2C25C14E5100FEA975 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,9 +1008,37 @@
 			path = GLSL_files;
 			sourceTree = "<group>";
 		};
+		BE0DD6D325C2A1A200E8BE13 /* WBVibrance */ = {
+			isa = PBXGroup;
+			children = (
+				BE0DD6D425C2A1A300E8BE13 /* vmath.hpp */,
+				BE0DD6D525C2A1A300E8BE13 /* GL_base.h */,
+				BE0DD6D625C2A1A300E8BE13 /* GL_base.cpp */,
+				BE0DD6D825C2A1A300E8BE13 /* GLator.cpp */,
+				BE0DD6D925C2A1A300E8BE13 /* GLator.h */,
+				BE0DD6D725C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist */,
+				BE0DD6DA25C2A1A300E8BE13 /* GLSL_files */,
+				BE0DD6DE25C2A1A300E8BE13 /* GLator_Strings.h */,
+				BE0DD6DF25C2A1A300E8BE13 /* GLator_Strings.cpp */,
+				BE0DD6E025C2A1A300E8BE13 /* WBVibrance.r */,
+			);
+			path = WBVibrance;
+			sourceTree = "<group>";
+		};
+		BE0DD6DA25C2A1A300E8BE13 /* GLSL_files */ = {
+			isa = PBXGroup;
+			children = (
+				BE0DD6DB25C2A1A300E8BE13 /* vertex_shader.vert */,
+				BE0DD6DC25C2A1A300E8BE13 /* fragment_shader2.frag */,
+				BE0DD6DD25C2A1A300E8BE13 /* fragment_shader.frag */,
+			);
+			path = GLSL_files;
+			sourceTree = "<group>";
+		};
 		C4E6187C095A3C800012CA3F = {
 			isa = PBXGroup;
 			children = (
+				BE0DD6D325C2A1A200E8BE13 /* WBVibrance */,
 				5E8CBE8F257F273600E1AF7F /* WBEnlarge */,
 				F0D4A23D2578DFBE00DF0DF2 /* WBPhotoFilter */,
 				03C60E1A256FA9E200668B7B /* WBExposure */,
@@ -952,11 +1060,12 @@
 				8F463EC20C3DCE390040C945 /* OpenGL.framework */,
 				C4E6188C095A3C800012CA3F /* Products */,
 				F0AE178A2567C2530017D7E4 /* WBMotionTile copy-Info.plist */,
-				03C60DB6256FA89C00668B7B /* WBGaussBlur copy-Info.plist */,
 				0347FA88257648BE00AC395A /* WBExposure copy-Info.plist */,
 				038A0E3925765C24003531CF /* WBHueSaturation */,
 				5E5D040F2579E2D400BB2168 /* WBMosaic copy-Info.plist */,
 				F0D4A2062578CB9F00DF0DF2 /* WBPosterize copy-Info.plist */,
+				BE2BCC3425C14E5100FEA975 /* WBPhotoFilter copy-Info.plist */,
+				BE0DD68E25C2A0F300E8BE13 /* WBTest copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -978,6 +1087,8 @@
 				0347FA86257648BE00AC395A /* WBHueSaturation.plugin */,
 				5E5D040D2579E2D400BB2168 /* WBEnlarge.plugin */,
 				F0D4A2052578CB9F00DF0DF2 /* WBPhotoFilter.plugin */,
+				BE2BCC3225C14E5100FEA975 /* WBTest.plugin */,
+				BE0DD68D25C2A0F300E8BE13 /* WBVibrance.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1376,6 +1487,44 @@
 			productReference = 5E60CFC2256379A4002B7C6A /* WBRelief.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
+		BE0DD67525C2A0F300E8BE13 /* WBVibrance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0DD68B25C2A0F300E8BE13 /* Build configuration list for PBXNativeTarget "WBVibrance" */;
+			buildPhases = (
+				BE0DD67625C2A0F300E8BE13 /* Resources */,
+				BE0DD67B25C2A0F300E8BE13 /* Sources */,
+				BE0DD68325C2A0F300E8BE13 /* Frameworks */,
+				BE0DD68825C2A0F300E8BE13 /* Rez */,
+				BE0DD68A25C2A0F300E8BE13 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBVibrance;
+			productName = Skeleton.plugin;
+			productReference = BE0DD68D25C2A0F300E8BE13 /* WBVibrance.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		BE2BCC1A25C14E5100FEA975 /* WBTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE2BCC3025C14E5100FEA975 /* Build configuration list for PBXNativeTarget "WBTest" */;
+			buildPhases = (
+				BE2BCC1B25C14E5100FEA975 /* Resources */,
+				BE2BCC2025C14E5100FEA975 /* Sources */,
+				BE2BCC2825C14E5100FEA975 /* Frameworks */,
+				BE2BCC2D25C14E5100FEA975 /* Rez */,
+				BE2BCC2F25C14E5100FEA975 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBTest;
+			productName = Skeleton.plugin;
+			productReference = BE2BCC3225C14E5100FEA975 /* WBTest.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F061EE5C254C18750029F769 /* WBDirectionalBlur */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F061EE72254C18750029F769 /* Build configuration list for PBXNativeTarget "WBDirectionalBlur" */;
@@ -1590,6 +1739,12 @@
 					5E60CFAA256379A4002B7C6A = {
 						DevelopmentTeam = Z6436LX9A5;
 					};
+					BE0DD67525C2A0F300E8BE13 = {
+						DevelopmentTeam = N6KPHR5NM9;
+					};
+					BE2BCC1A25C14E5100FEA975 = {
+						DevelopmentTeam = N6KPHR5NM9;
+					};
 					F061EE5C254C18750029F769 = {
 						DevelopmentTeam = 25N8K67YQF;
 					};
@@ -1600,10 +1755,10 @@
 						DevelopmentTeam = Z6436LX9A5;
 					};
 					F072398025412C8200ED690F = {
-						DevelopmentTeam = 25N8K67YQF;
+						DevelopmentTeam = N6KPHR5NM9;
 					};
 					F07F2002254A6938000C30C6 = {
-						DevelopmentTeam = 25N8K67YQF;
+						DevelopmentTeam = N6KPHR5NM9;
 					};
 					F0AE1643256514C80017D7E4 = {
 						DevelopmentTeam = 25N8K67YQF;
@@ -1658,6 +1813,8 @@
 				0347FA6E257648BE00AC395A /* WBHueSaturation */,
 				5E5D03F52579E2D400BB2168 /* WBEnlarge */,
 				F0D4A1ED2578CB9F00DF0DF2 /* WBPhotoFilter */,
+				BE2BCC1A25C14E5100FEA975 /* WBTest */,
+				BE0DD67525C2A0F300E8BE13 /* WBVibrance */,
 			);
 		};
 /* End PBXProject section */
@@ -1725,6 +1882,24 @@
 				5E60CFF22563A6B2002B7C6A /* fragment_shader2.frag in Resources */,
 				5E60CFEE2563A6B2002B7C6A /* WBRelief.plugin-Info.plist in Resources */,
 				5E60CFF12563A6B2002B7C6A /* vertex_shader.vert in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0DD67625C2A0F300E8BE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0DD6E625C2A1A300E8BE13 /* fragment_shader.frag in Resources */,
+				BE0DD6E525C2A1A300E8BE13 /* fragment_shader2.frag in Resources */,
+				BE0DD6E225C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist in Resources */,
+				BE0DD6E425C2A1A300E8BE13 /* vertex_shader.vert in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2BCC1B25C14E5100FEA975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1881,6 +2056,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE0DD68825C2A0F300E8BE13 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0DD6E825C2A1A300E8BE13 /* WBVibrance.r in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2BCC2D25C14E5100FEA975 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE6F254C18750029F769 /* Rez */ = {
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
@@ -2034,6 +2224,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE0DD67B25C2A0F300E8BE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0DD6FA25C2A1E100E8BE13 /* AEGP_SuiteHandler.cpp in Sources */,
+				BE0DD6FB25C2A1E100E8BE13 /* MissingSuiteError.cpp in Sources */,
+				BE0DD6FC25C2A1E100E8BE13 /* AEFX_SuiteHelper.c in Sources */,
+				BE0DD6FD25C2A1E100E8BE13 /* Smart_Utils.cpp in Sources */,
+				BE0DD6E725C2A1A300E8BE13 /* GLator_Strings.cpp in Sources */,
+				BE0DD6E325C2A1A300E8BE13 /* GLator.cpp in Sources */,
+				BE0DD6E125C2A1A300E8BE13 /* GL_base.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2BCC2025C14E5100FEA975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2BCD4325C15FE200FEA975 /* AEGP_SuiteHandler.cpp in Sources */,
+				BE2BCD5425C15FFC00FEA975 /* MissingSuiteError.cpp in Sources */,
+				BE2BCD7625C1602C00FEA975 /* AEFX_SuiteHelper.c in Sources */,
+				BE2BCD6525C1600700FEA975 /* Smart_Utils.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F061EE62254C18750029F769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2162,10 +2377,10 @@
 			files = (
 				F0D4A1F42578CB9F00DF0DF2 /* AEGP_SuiteHandler.cpp in Sources */,
 				F0D4A1F52578CB9F00DF0DF2 /* MissingSuiteError.cpp in Sources */,
-				F0D4A24B2578DFBE00DF0DF2 /* GL_base.cpp in Sources */,
-				F0D4A1F72578CB9F00DF0DF2 /* AEFX_SuiteHelper.c in Sources */,
-				F0D4A24C2578DFBE00DF0DF2 /* GLator.cpp in Sources */,
 				F0D4A1F92578CB9F00DF0DF2 /* Smart_Utils.cpp in Sources */,
+				F0D4A1F72578CB9F00DF0DF2 /* AEFX_SuiteHelper.c in Sources */,
+				F0D4A24B2578DFBE00DF0DF2 /* GL_base.cpp in Sources */,
+				F0D4A24C2578DFBE00DF0DF2 /* GLator.cpp in Sources */,
 				F0D4A2522578DFBE00DF0DF2 /* GLator_Strings.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2337,6 +2552,66 @@
 			};
 			name = Debug;
 		};
+		BE0DD68C25C2A0F300E8BE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N6KPHR5NM9;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBVibrance/WBVibrance.plugin-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		BE2BCC3125C14E5100FEA975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N6KPHR5NM9;
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					STRINGS_BY_GL,
+					GLBINDING_STATIC,
+				);
+				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../Headers,
+					../../../Util,
+					../../../Headers/SP,
+					../../../Resources,
+					"../glbinding/source/glbinding/include/**",
+				);
+				INFOPLIST_FILE = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBTest/WBTest.plugin-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
 		C4E61880095A3C800012CA3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2469,9 +2744,9 @@
 		F072399625412C8200ED690F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 25N8K67YQF;
+				DEVELOPMENT_TEAM = N6KPHR5NM9;
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2501,7 +2776,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 25N8K67YQF;
+				DEVELOPMENT_TEAM = N6KPHR5NM9;
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.5.sdk/System/Library/Frameworks\"";
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2714,6 +2989,22 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E60CFC1256379A4002B7C6A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BE0DD68B25C2A0F300E8BE13 /* Build configuration list for PBXNativeTarget "WBVibrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0DD68C25C2A0F300E8BE13 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BE2BCC3025C14E5100FEA975 /* Build configuration list for PBXNativeTarget "WBTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2BCC3125C14E5100FEA975 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
