@@ -42,7 +42,6 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "com.adobe.AfterEffects"
          FilePath = "/Applications/Adobe After Effects 2020/Adobe After Effects 2020.app">
       </PathRunnable>
    </LaunchAction>

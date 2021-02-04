@@ -1,0 +1,19 @@
+{
+    "filterID": 702,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "WB自然饱和度",
+    "uniforms": [
+      {
+        "uniformType": "float",
+        "uniformName": "uVibrance",
+        "uniformValue": -1.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "uSaturation",
+        "uniformValue": 0.0,
+        "injectionType": 1
+      }
+    ]
+}
