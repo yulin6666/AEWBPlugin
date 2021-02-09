@@ -22,7 +22,7 @@ void main( void )
     float column = 1. / (float(TileHeight) / 100.);
  
     //中心点偏移
-    vec2  uv = out_uvs.xy - vec2(center_x,center_y);
+    vec2  uv = out_uvs.xy;
     
     //每一块所占大小
     float tileX = 1.0 / row;
@@ -36,8 +36,8 @@ void main( void )
          以中心点为开始,向两边扩散,计算当前uv.x离中心点的距离,求出倍数,计算奇偶.
          abs(center_x - (uv.x + center_x) 后面再+ centerX,是因为上面减掉了中心点
          */
-        int rowIndex = int((abs(center_x - (uv.x + center_x)) - (tileX / 2.)) / tileX) + 1;
-        if (abs(center_x - (uv.x + center_x)) <  tileX / 2.){
+        int rowIndex = int((abs(center_x - uv.x) - (tileX / 2.)) / tileX) + 1;
+        if (abs(center_x - (uv.x)) <  tileX / 2.){
             rowIndex = 0;
         }
         float oddEven = mod(rowIndex, 2);
@@ -46,8 +46,8 @@ void main( void )
             uv.y = uv.y + float(newRelativeDrift);
         }
     }else if (InverseDrift == 1 && newRelativeDrift != 0){
-        int cloumnIndex = int((abs(center_y - (uv.x + center_y)) - (tileY / 2.)) / tileY) + 1;
-        if (abs(center_y - (uv.y + center_y)) <  tileY / 2.){
+        int cloumnIndex = int((abs(center_y - (uv.y )) - (tileY / 2.)) / tileY) + 1;
+        if (abs(center_y - (uv.y)) <  tileY / 2.){
             cloumnIndex = 0;
         }
         float oddEven = mod(cloumnIndex, 2);
@@ -56,12 +56,12 @@ void main( void )
             uv.x = uv.x + float(newRelativeDrift);
         }
     }
-
+    uv = uv - vec2(center_x,center_y);
     uv.x = mod((uv.x),tileX) * row;
     
     uv.y = mod((uv.y),tileY) * column;
 
-    colourOut = texture(videoTexture, fract(uv + vec2(center_x,center_y)));
+    colourOut = texture(videoTexture, fract(uv + vec2(0.5)));
     
     highp float xProgress = ( float(ScreenWidth) / 100.0 / 2.0);
     
