@@ -31,6 +31,7 @@ typedef enum {
     StrID_Drift,
     StrID_Inverse,
     StrID_InverseGradient,
+    StrID_MirrorEdge,
 	StrID_Description,
 	StrID_Color_Param_Name,
 	StrID_Checkbox_Param_Name,	

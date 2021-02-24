@@ -1,0 +1,19 @@
+{
+    "filterID": 720,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "缩放",
+    "uniforms": [
+      {
+        "uniformType": "float",
+        "uniformName": "scaleX",
+        "uniformValue": 1.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "float",
+        "uniformName": "scaleY",
+        "uniformValue": 1.0,
+        "injectionType": 1
+      }
+    ]
+}

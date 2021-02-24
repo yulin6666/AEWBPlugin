@@ -37,6 +37,8 @@ TableString		g_strs[StrID_NUMTYPES] = {
     StrID_ScreenHeight,             "ScreenHeight",
     StrID_Drift,                    "RelativeDrift",
     StrID_Inverse,                  "InverseDrift",
+    StrID_InverseGradient,          "horizontalInverseDrift",
+    StrID_MirrorEdge,               "MirrorEdge",
 	StrID_Description,				"A very basic OpenGL implementation, within a plug-in.\rCopyright 2007 Adobe Systems Incorporated.",
 	StrID_Color_Param_Name,			"Color",
 	StrID_Checkbox_Param_Name,		"Use Downsample Factors",

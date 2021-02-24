@@ -21,7 +21,6 @@ void main( void )
 
     float column = 1. / (float(TileHeight) / 100.);
  
-    //中心点偏移
     vec2  uv = out_uvs.xy;
     
     //每一块所占大小
@@ -34,7 +33,6 @@ void main( void )
         //当前x,是重复第几个画面
         /**
          以中心点为开始,向两边扩散,计算当前uv.x离中心点的距离,求出倍数,计算奇偶.
-         abs(center_x - (uv.x + center_x) 后面再+ centerX,是因为上面减掉了中心点
          */
         int rowIndex = int((abs(center_x - uv.x) - (tileX / 2.)) / tileX) + 1;
         if (abs(center_x - (uv.x)) <  tileX / 2.){
@@ -56,7 +54,9 @@ void main( void )
             uv.x = uv.x + float(newRelativeDrift);
         }
     }
+    //中心点偏移
     uv = uv - vec2(center_x,center_y);
+    
     uv.x = mod((uv.x),tileX) * row;
     
     uv.y = mod((uv.y),tileY) * column;
