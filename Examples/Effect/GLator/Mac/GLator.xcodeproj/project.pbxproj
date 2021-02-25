@@ -93,7 +93,6 @@
 		BE0DD68725C2A0F300E8BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
 		BE0DD6E125C2A1A300E8BE13 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6D625C2A1A300E8BE13 /* GL_base.cpp */; };
 		BE0DD6E225C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6D725C2A1A300E8BE13 /* WBVibrance.plugin-Info.plist */; };
-		BE0DD6E325C2A1A300E8BE13 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6D825C2A1A300E8BE13 /* GLator.cpp */; };
 		BE0DD6E425C2A1A300E8BE13 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DB25C2A1A300E8BE13 /* vertex_shader.vert */; };
 		BE0DD6E525C2A1A300E8BE13 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DC25C2A1A300E8BE13 /* fragment_shader2.frag */; };
 		BE0DD6E625C2A1A300E8BE13 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE0DD6DD25C2A1A300E8BE13 /* fragment_shader.frag */; };
@@ -103,14 +102,24 @@
 		BE0DD6FB25C2A1E100E8BE13 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
 		BE0DD6FC25C2A1E100E8BE13 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
 		BE0DD6FD25C2A1E100E8BE13 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
-		BE2BCC2925C14E5100FEA975 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
-		BE2BCC2A25C14E5100FEA975 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
-		BE2BCC2B25C14E5100FEA975 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
-		BE2BCC2C25C14E5100FEA975 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
-		BE2BCD4325C15FE200FEA975 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
-		BE2BCD5425C15FFC00FEA975 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
-		BE2BCD6525C1600700FEA975 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
-		BE2BCD7625C1602C00FEA975 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		BE44536B25E5FC8B00636371 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE0DD6D825C2A1A300E8BE13 /* GLator.cpp */; };
+		BE4453AC25E5FD6600636371 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
+		BE4453AD25E5FD6600636371 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
+		BE4453AE25E5FD6600636371 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
+		BE4453AF25E5FD6600636371 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB51A615DB18A300C5BAD5 /* Cocoa.framework */; };
+		BE44544825E6029500636371 /* GL_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE44543D25E6029500636371 /* GL_base.cpp */; };
+		BE44544925E6029500636371 /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE44543E25E6029500636371 /* GLator.cpp */; };
+		BE44544A25E6029500636371 /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = BE44544125E6029500636371 /* vertex_shader.vert */; };
+		BE44544B25E6029500636371 /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE44544225E6029500636371 /* fragment_shader2.frag */; };
+		BE44544C25E6029500636371 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = BE44544325E6029500636371 /* fragment_shader.frag */; };
+		BE44544D25E6029500636371 /* WBScatter.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE44544425E6029500636371 /* WBScatter.plugin-Info.plist */; };
+		BE44544E25E6029500636371 /* WBScatter.r in Rez */ = {isa = PBXBuildFile; fileRef = BE44544625E6029500636371 /* WBScatter.r */; };
+		BE44544F25E6029500636371 /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE44544725E6029500636371 /* GLator_Strings.cpp */; };
+		BE44546125E6033B00636371 /* AEGP_SuiteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */; };
+		BE44547325E6034900636371 /* MissingSuiteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */; };
+		BE44548525E6036300636371 /* AEFX_SuiteHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59D1B239204007E769E /* AEFX_SuiteHelper.c */; };
+		BE44549725E6037200636371 /* Smart_Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7DCC59A1B2391F6007E769E /* Smart_Utils.cpp */; };
+		BECC7BAF25E5FB8500343C56 /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = F07239A825412D6F00ED690F /* fragment_shader.frag */; };
 		F061EE6B254C18750029F769 /* libglbinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B73A511B6C20AD00BCC010 /* libglbinding.a */; };
 		F061EE6C254C18750029F769 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC20C3DCE390040C945 /* OpenGL.framework */; };
 		F061EE6D254C18750029F769 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F463EC80C3DCE4B0040C945 /* AGL.framework */; };
@@ -167,7 +176,6 @@
 		F07239AE25412D6F00ED690F /* GLator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F07239A225412D6F00ED690F /* GLator.cpp */; };
 		F07239AF25412D6F00ED690F /* vertex_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = F07239A625412D6F00ED690F /* vertex_shader.vert */; };
 		F07239B025412D6F00ED690F /* fragment_shader2.frag in Resources */ = {isa = PBXBuildFile; fileRef = F07239A725412D6F00ED690F /* fragment_shader2.frag */; };
-		F07239B125412D6F00ED690F /* fragment_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = F07239A825412D6F00ED690F /* fragment_shader.frag */; };
 		F07239B225412D6F00ED690F /* wanhuatongPiPL.r in Rez */ = {isa = PBXBuildFile; fileRef = F07239AA25412D6F00ED690F /* wanhuatongPiPL.r */; };
 		F07239B325412D6F00ED690F /* GLator_Strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F07239AB25412D6F00ED690F /* GLator_Strings.cpp */; };
 		F07239B425412D6F00ED690F /* wanhuatong.plugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F07239AC25412D6F00ED690F /* wanhuatong.plugin-Info.plist */; };
@@ -348,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2BCC2F25C14E5100FEA975 /* CopyFiles */ = {
+		BE4453B225E5FD6600636371 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -536,8 +544,21 @@
 		BE0DD6DE25C2A1A300E8BE13 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
 		BE0DD6DF25C2A1A300E8BE13 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		BE0DD6E025C2A1A300E8BE13 /* WBVibrance.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBVibrance.r; sourceTree = "<group>"; };
-		BE2BCC3225C14E5100FEA975 /* WBTest.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBTest.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2BCC3425C14E5100FEA975 /* WBPhotoFilter copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBPhotoFilter copy-Info.plist"; path = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBPhotoFilter copy-Info.plist"; sourceTree = "<absolute>"; };
+		BE4453B525E5FD6600636371 /* WBScatter.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBScatter.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE4453B625E5FD6600636371 /* WBVibrance copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "WBVibrance copy-Info.plist"; path = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBVibrance copy-Info.plist"; sourceTree = "<absolute>"; };
+		BE44543B25E6029500636371 /* vmath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vmath.hpp; sourceTree = "<group>"; };
+		BE44543C25E6029500636371 /* GL_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL_base.h; sourceTree = "<group>"; };
+		BE44543D25E6029500636371 /* GL_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GL_base.cpp; sourceTree = "<group>"; };
+		BE44543E25E6029500636371 /* GLator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator.cpp; sourceTree = "<group>"; };
+		BE44543F25E6029500636371 /* GLator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator.h; sourceTree = "<group>"; };
+		BE44544125E6029500636371 /* vertex_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex_shader.vert; sourceTree = "<group>"; };
+		BE44544225E6029500636371 /* fragment_shader2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader2.frag; sourceTree = "<group>"; };
+		BE44544325E6029500636371 /* fragment_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment_shader.frag; sourceTree = "<group>"; };
+		BE44544425E6029500636371 /* WBScatter.plugin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WBScatter.plugin-Info.plist"; sourceTree = "<group>"; };
+		BE44544525E6029500636371 /* GLator_Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLator_Strings.h; sourceTree = "<group>"; };
+		BE44544625E6029500636371 /* WBScatter.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = WBScatter.r; sourceTree = "<group>"; };
+		BE44544725E6029500636371 /* GLator_Strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLator_Strings.cpp; sourceTree = "<group>"; };
 		D0FE579A0993C5E500139A60 /* AEGP_SuiteHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = AEGP_SuiteHandler.cpp; path = ../../../Util/AEGP_SuiteHandler.cpp; sourceTree = SOURCE_ROOT; };
 		D0FE579C0993C5E500139A60 /* MissingSuiteError.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MissingSuiteError.cpp; path = ../../../Util/MissingSuiteError.cpp; sourceTree = SOURCE_ROOT; };
 		D7B73A4C1B6C20AC00BCC010 /* glbinding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = glbinding.xcodeproj; path = glbinding/glbinding.xcodeproj; sourceTree = "<group>"; };
@@ -749,14 +770,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2BCC2825C14E5100FEA975 /* Frameworks */ = {
+		BE4453AB25E5FD6600636371 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2BCC2925C14E5100FEA975 /* libglbinding.a in Frameworks */,
-				BE2BCC2A25C14E5100FEA975 /* OpenGL.framework in Frameworks */,
-				BE2BCC2B25C14E5100FEA975 /* AGL.framework in Frameworks */,
-				BE2BCC2C25C14E5100FEA975 /* Cocoa.framework in Frameworks */,
+				BE4453AC25E5FD6600636371 /* libglbinding.a in Frameworks */,
+				BE4453AD25E5FD6600636371 /* OpenGL.framework in Frameworks */,
+				BE4453AE25E5FD6600636371 /* AGL.framework in Frameworks */,
+				BE4453AF25E5FD6600636371 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,9 +1056,37 @@
 			path = GLSL_files;
 			sourceTree = "<group>";
 		};
+		BE44543A25E6029500636371 /* WBScatter */ = {
+			isa = PBXGroup;
+			children = (
+				BE44543B25E6029500636371 /* vmath.hpp */,
+				BE44543C25E6029500636371 /* GL_base.h */,
+				BE44543D25E6029500636371 /* GL_base.cpp */,
+				BE44543E25E6029500636371 /* GLator.cpp */,
+				BE44543F25E6029500636371 /* GLator.h */,
+				BE44544025E6029500636371 /* GLSL_files */,
+				BE44544425E6029500636371 /* WBScatter.plugin-Info.plist */,
+				BE44544525E6029500636371 /* GLator_Strings.h */,
+				BE44544625E6029500636371 /* WBScatter.r */,
+				BE44544725E6029500636371 /* GLator_Strings.cpp */,
+			);
+			path = WBScatter;
+			sourceTree = "<group>";
+		};
+		BE44544025E6029500636371 /* GLSL_files */ = {
+			isa = PBXGroup;
+			children = (
+				BE44544125E6029500636371 /* vertex_shader.vert */,
+				BE44544225E6029500636371 /* fragment_shader2.frag */,
+				BE44544325E6029500636371 /* fragment_shader.frag */,
+			);
+			path = GLSL_files;
+			sourceTree = "<group>";
+		};
 		C4E6187C095A3C800012CA3F = {
 			isa = PBXGroup;
 			children = (
+				BE44543A25E6029500636371 /* WBScatter */,
 				BE0DD6D325C2A1A200E8BE13 /* WBVibrance */,
 				5E8CBE8F257F273600E1AF7F /* WBEnlarge */,
 				F0D4A23D2578DFBE00DF0DF2 /* WBPhotoFilter */,
@@ -1066,6 +1115,7 @@
 				F0D4A2062578CB9F00DF0DF2 /* WBPosterize copy-Info.plist */,
 				BE2BCC3425C14E5100FEA975 /* WBPhotoFilter copy-Info.plist */,
 				BE0DD68E25C2A0F300E8BE13 /* WBTest copy-Info.plist */,
+				BE4453B625E5FD6600636371 /* WBVibrance copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1087,8 +1137,8 @@
 				0347FA86257648BE00AC395A /* WBHueSaturation.plugin */,
 				5E5D040D2579E2D400BB2168 /* WBEnlarge.plugin */,
 				F0D4A2052578CB9F00DF0DF2 /* WBPhotoFilter.plugin */,
-				BE2BCC3225C14E5100FEA975 /* WBTest.plugin */,
 				BE0DD68D25C2A0F300E8BE13 /* WBVibrance.plugin */,
+				BE4453B525E5FD6600636371 /* WBScatter.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1506,23 +1556,23 @@
 			productReference = BE0DD68D25C2A0F300E8BE13 /* WBVibrance.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
-		BE2BCC1A25C14E5100FEA975 /* WBTest */ = {
+		BE44539D25E5FD6600636371 /* WBScatter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE2BCC3025C14E5100FEA975 /* Build configuration list for PBXNativeTarget "WBTest" */;
+			buildConfigurationList = BE4453B325E5FD6600636371 /* Build configuration list for PBXNativeTarget "WBScatter" */;
 			buildPhases = (
-				BE2BCC1B25C14E5100FEA975 /* Resources */,
-				BE2BCC2025C14E5100FEA975 /* Sources */,
-				BE2BCC2825C14E5100FEA975 /* Frameworks */,
-				BE2BCC2D25C14E5100FEA975 /* Rez */,
-				BE2BCC2F25C14E5100FEA975 /* CopyFiles */,
+				BE44539E25E5FD6600636371 /* Resources */,
+				BE4453A325E5FD6600636371 /* Sources */,
+				BE4453AB25E5FD6600636371 /* Frameworks */,
+				BE4453B025E5FD6600636371 /* Rez */,
+				BE4453B225E5FD6600636371 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WBTest;
+			name = WBScatter;
 			productName = Skeleton.plugin;
-			productReference = BE2BCC3225C14E5100FEA975 /* WBTest.plugin */;
+			productReference = BE4453B525E5FD6600636371 /* WBScatter.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 		F061EE5C254C18750029F769 /* WBDirectionalBlur */ = {
@@ -1742,7 +1792,7 @@
 					BE0DD67525C2A0F300E8BE13 = {
 						DevelopmentTeam = N6KPHR5NM9;
 					};
-					BE2BCC1A25C14E5100FEA975 = {
+					BE44539D25E5FD6600636371 = {
 						DevelopmentTeam = N6KPHR5NM9;
 					};
 					F061EE5C254C18750029F769 = {
@@ -1813,8 +1863,8 @@
 				0347FA6E257648BE00AC395A /* WBHueSaturation */,
 				5E5D03F52579E2D400BB2168 /* WBEnlarge */,
 				F0D4A1ED2578CB9F00DF0DF2 /* WBPhotoFilter */,
-				BE2BCC1A25C14E5100FEA975 /* WBTest */,
 				BE0DD67525C2A0F300E8BE13 /* WBVibrance */,
+				BE44539D25E5FD6600636371 /* WBScatter */,
 			);
 		};
 /* End PBXProject section */
@@ -1896,10 +1946,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2BCC1B25C14E5100FEA975 /* Resources */ = {
+		BE44539E25E5FD6600636371 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE44544A25E6029500636371 /* vertex_shader.vert in Resources */,
+				BE44544B25E6029500636371 /* fragment_shader2.frag in Resources */,
+				BE44544D25E6029500636371 /* WBScatter.plugin-Info.plist in Resources */,
+				BE44544C25E6029500636371 /* fragment_shader.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2006,10 +2060,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECC7BAF25E5FB8500343C56 /* fragment_shader.frag in Resources */,
 				F07239B425412D6F00ED690F /* wanhuatong.plugin-Info.plist in Resources */,
 				F07239AF25412D6F00ED690F /* vertex_shader.vert in Resources */,
 				F07239B025412D6F00ED690F /* fragment_shader2.frag in Resources */,
-				F07239B125412D6F00ED690F /* fragment_shader.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2064,10 +2118,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2BCC2D25C14E5100FEA975 /* Rez */ = {
+		BE4453B025E5FD6600636371 /* Rez */ = {
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE44544E25E6029500636371 /* WBScatter.r in Rez */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2230,22 +2285,25 @@
 			files = (
 				BE0DD6FA25C2A1E100E8BE13 /* AEGP_SuiteHandler.cpp in Sources */,
 				BE0DD6FB25C2A1E100E8BE13 /* MissingSuiteError.cpp in Sources */,
+				BE44536B25E5FC8B00636371 /* GLator.cpp in Sources */,
 				BE0DD6FC25C2A1E100E8BE13 /* AEFX_SuiteHelper.c in Sources */,
 				BE0DD6FD25C2A1E100E8BE13 /* Smart_Utils.cpp in Sources */,
 				BE0DD6E725C2A1A300E8BE13 /* GLator_Strings.cpp in Sources */,
-				BE0DD6E325C2A1A300E8BE13 /* GLator.cpp in Sources */,
 				BE0DD6E125C2A1A300E8BE13 /* GL_base.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2BCC2025C14E5100FEA975 /* Sources */ = {
+		BE4453A325E5FD6600636371 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2BCD4325C15FE200FEA975 /* AEGP_SuiteHandler.cpp in Sources */,
-				BE2BCD5425C15FFC00FEA975 /* MissingSuiteError.cpp in Sources */,
-				BE2BCD7625C1602C00FEA975 /* AEFX_SuiteHelper.c in Sources */,
-				BE2BCD6525C1600700FEA975 /* Smart_Utils.cpp in Sources */,
+				BE44549725E6037200636371 /* Smart_Utils.cpp in Sources */,
+				BE44548525E6036300636371 /* AEFX_SuiteHelper.c in Sources */,
+				BE44547325E6034900636371 /* MissingSuiteError.cpp in Sources */,
+				BE44546125E6033B00636371 /* AEGP_SuiteHandler.cpp in Sources */,
+				BE44544F25E6029500636371 /* GLator_Strings.cpp in Sources */,
+				BE44544925E6029500636371 /* GLator.cpp in Sources */,
+				BE44544825E6029500636371 /* GL_base.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2582,7 +2640,7 @@
 			};
 			name = Debug;
 		};
-		BE2BCC3125C14E5100FEA975 /* Debug */ = {
+		BE4453B425E5FD6600636371 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2603,7 +2661,7 @@
 					../../../Resources,
 					"../glbinding/source/glbinding/include/**",
 				);
-				INFOPLIST_FILE = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBTest/WBTest.plugin-Info.plist";
+				INFOPLIST_FILE = "/Users/sunbin/Desktop/AEWBPlugin/Examples/Effect/GLator/Mac/WBScatter/WBScatter.plugin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.AfterEffects.WBTest;
@@ -3001,10 +3059,10 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		BE2BCC3025C14E5100FEA975 /* Build configuration list for PBXNativeTarget "WBTest" */ = {
+		BE4453B325E5FD6600636371 /* Build configuration list for PBXNativeTarget "WBScatter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE2BCC3125C14E5100FEA975 /* Debug */,
+				BE4453B425E5FD6600636371 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

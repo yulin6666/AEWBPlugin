@@ -1,0 +1,25 @@
+{
+    "filterID": 702,
+    "filterName": "WBGPUImageFilter",
+    "filterDescription": "WB散布",
+    "uniforms": [
+      {
+        "uniformType": "float",
+        "uniformName": "uAmount",
+        "uniformValue": 127.0,
+        "injectionType": 1
+      },
+      {
+        "uniformType": "int",
+        "uniformName": "uType",
+        "uniformValue": 1,
+        "injectionType": 1
+      }
+      {
+        "uniformType": "bool",
+        "uniformName": "uRandom",
+        "uniformValue": 0,
+        "injectionType": 1
+      }
+    ]
+}
