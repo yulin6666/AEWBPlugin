@@ -557,16 +557,16 @@ ParamsSetup (
                  3);
     PF_ADD_SLIDER(  STR(StrID_ScreenWidth),
                     GLATOR_SLIDER_MIN,
-                    GLATOR_SLIDER_MAX,
+                    1000,
                     GLATOR_SLIDER_MIN,
-                    GLATOR_SLIDER_MAX,
+                    1000,
                     GLATOR_SLIDER_MAX,
                     4);
     PF_ADD_SLIDER(  STR(StrID_ScreenHeight),
                     GLATOR_SLIDER_MIN,
-                    GLATOR_SLIDER_MAX,
+                    1000,
                     GLATOR_SLIDER_MIN,
-                    GLATOR_SLIDER_MAX,
+                    1000,
                     GLATOR_SLIDER_MAX,
                     5);
     PF_ADD_ANGLE(STR(StrID_Drift),
@@ -577,7 +577,12 @@ ParamsSetup (
                     FALSE,
                     7,
                     CHECKBOX_ID);
-	out_data->num_params = 8;
+    PF_ADD_CHECKBOX(STR(StrID_MirrorEdge),
+                    STR(StrID_MirrorEdge),
+                    FALSE,
+                    8,
+                    4);
+	out_data->num_params = 9;
 
 	return err;
 }
@@ -685,6 +690,7 @@ SmartRender(
     PF_ParamDef screenHeight_param;
     PF_ParamDef drift_param;
     PF_ParamDef checkBox_param;
+    PF_ParamDef mirrorBox_param;
 	AEFX_CLR_STRUCT(tileWidth_param);
     ERR(PF_CHECKOUT_PARAM(in_data,
                           GLATOR_TileWidth,
@@ -737,6 +743,13 @@ SmartRender(
         in_data->time_step,
         in_data->time_scale,
         &checkBox_param));
+    AEFX_CLR_STRUCT(mirrorBox_param);
+    ERR(PF_CHECKOUT_PARAM(in_data,
+                          GLATOR_Mirror,
+        in_data->current_time,
+        in_data->time_step,
+        in_data->time_scale,
+        &mirrorBox_param));
     PF_FpLong           tileWidth = 0;
     PF_FpLong           tileHeight = 0;
     PF_FpLong           centerX = 0;
@@ -745,6 +758,8 @@ SmartRender(
     PF_FpLong           screenHeight = 0;
     PF_FpLong           drift = 0;
     PF_ParamValue       inverse = 0;
+    PF_ParamValue       mirror = 0;
+
 	if (!err){
         tileWidth = tileWidth_param.u.fd.value;
         tileHeight = tileHeight_param.u.fd.value;
@@ -752,6 +767,8 @@ SmartRender(
         screenHeight = screenHeight_param.u.fd.value;
         drift = drift_param.u.ad.value;
         inverse = checkBox_param.u.bd.value;
+        mirror = mirrorBox_param.u.bd.value;
+
 	}
 
     

@@ -93,7 +93,7 @@ enum {
     GLATOR_ScreenHeight,
     GLATOR_Drift,
     GLATOR_Inverse,
-    
+    GLATOR_Mirror,
 };
 
 enum {

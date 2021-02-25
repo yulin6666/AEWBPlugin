@@ -19,7 +19,7 @@ void main()
     float column = 1. / (float(TileHeight) / 100.);
  
     //中心点偏移
-    vec2  uv = textureCoordinate - vec2(center_x,center_y);
+    vec2  uv = textureCoordinate;
     
     //每一块所占大小
     float tileX = 1.0 / row;
@@ -31,7 +31,6 @@ void main()
         //当前x,是重复第几个画面
         /**
          以中心点为开始,向两边扩散,计算当前uv.x离中心点的距离,求出倍数,计算奇偶.
-         abs(center_x - (uv.x + center_x) 后面再+ centerX,是因为上面减掉了中心点
          */
         int rowIndex = int((abs(center_x - (uv.x + center_x)) - (tileX / 2.)) / tileX) + 1;
         if (abs(center_x - (uv.x + center_x)) <  tileX / 2.){
@@ -53,12 +52,12 @@ void main()
             uv.x = uv.x + float(newRelativeDrift);
         }
     }
-
+    uv = uv - vec2(center_x,center_y);
     uv.x = mod((uv.x),tileX) * row;
     
     uv.y = mod((uv.y),tileY) * column;
 
-    gl_FragColor = texture2D(inputImageTexture, fract(uv + vec2(center_x,center_y)));
+    gl_FragColor = texture2D(inputImageTexture, fract(uv + vec2(0.5)));
     
     highp float xProgress = ( float(ScreenWidth) / 100.0 / 2.0);
     
