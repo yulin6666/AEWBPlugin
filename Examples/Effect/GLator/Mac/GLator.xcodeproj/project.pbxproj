@@ -1773,7 +1773,6 @@
 			attributes = {
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "";
-<<<<<<< HEAD
 				TargetAttributes = {
 					0347FA6E257648BE00AC395A = {
 						DevelopmentTeam = K5CYXASVPL;
@@ -1827,8 +1826,6 @@
 						DevelopmentTeam = 25N8K67YQF;
 					};
 				};
-=======
->>>>>>> 7d98baaf2db0e7c616fef6ac1e1de41da3033ba9
 			};
 			buildConfigurationList = C4E6187F095A3C800012CA3F /* Build configuration list for PBXProject "GLator" */;
 			compatibilityVersion = "Xcode 3.2";
